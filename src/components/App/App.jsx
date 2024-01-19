@@ -7,6 +7,7 @@ import Noise from './Noise/Noise';
 function App() {
   return <div className="container">
     <Noise />
+    <Navbar />
     <Accueil />
     <CollectionActuelle/>
   </div>;

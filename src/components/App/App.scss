@@ -1,2 +1,10 @@
 @use '@scssVariables' as v;
 
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2; /* Assurez-vous que le Navbar est au-dessus du reste du contenu */
+    /* Ajoutez d'autres styles selon vos besoins */
+  }

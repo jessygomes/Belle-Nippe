@@ -1,4 +1,44 @@
-.navbar {
-    // background-color: blue;
-    position: relative;
+.accueil__container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2; /* Assurez-vous que le Navbar est au-dessus du reste du contenu */
+    /* Ajoutez d'autres styles selon vos besoins */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.3rem 15rem;
+    // background-color: aqua;
+    transition: background-color 0.5s ease-in-out;
+}
+.accueil__container.scrolled {
+    background-color: #072A3D;
+    box-shadow: #00000029 0px 3px 6px, #0000003b 0px 20px 5px;
+}
+.accueil__logo {
+    width: 20%;
+}
+.accueil__navbar {
+    right: 15;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+.accueil__link {
+    letter-spacing: 2px;
+    font-family: 'Figtree';
+    font-size: 1.2rem;
+    margin-left: 2rem;
+    transition: 0.3s ease-in-out;
+}
+.accueil__link:hover {
+    transition: 0.3s ease-in-out;
+    border: 1px solid white;
+    padding: 0 1rem;
+    // color: #072A3D;
+}
+.accueil__shop {
+    width: 2rem;
 }

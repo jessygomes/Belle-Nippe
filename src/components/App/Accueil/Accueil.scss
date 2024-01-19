@@ -4,57 +4,67 @@
     height: 80vh;
     padding: 0 15rem;
     box-shadow: #00000029 0px 3px 6px, #0000003b 0px 20px 5px;
-
-    &__container {
-        // background-color: aqua;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding: 2rem 0;
-    }
-    &__logo {
-        width: 20%;
-    }
-    &__navbar {
-        position: sticky;
-        top: 0;
-        color: white;
-        display: flex;
-        align-items: center;
-    }
-    &__link {
-        font-size: 1.2rem;
-        margin-left: 2rem;
-    }
-    &__shop {
-        width: 2rem;
-    }
+    padding-top: 14rem;
 
     &__contenu {
         color: white;
         text-align: right;
         text-transform: uppercase;
     }
+
+    &__banner {
+        display: flex;
+        flex-direction: row;
+        justify-content: right;
+        align-items: center;
+        border: 10px solid white;
+    }
+    &__logoBanner {
+        width: 3rem;
+        height: 3rem;
+    }
     &__slogan {
-        font-family: Prata;
+        font-family: 'Figtree';
         font-size: 3.5rem;
-        font-weight: 700;
-        padding-top: 9rem;
+        font-weight: 800;
+        color: white;
+        text-transform: uppercase;
+        padding: 1.5rem;
+        border-radius: 0.2rem;
+        // -webkit-text-stroke: 1px rgb(255, 255, 255); /* Ajoute un contour noir d'une largeur de 1 pixel */
+        // text-stroke: 1px rgb(255, 255, 255);
+        transition: 1s;
+    }
+    &__span {
+        color: white;
+        padding: 1rem;
+        font-family: 'Figtree';
+        font-style: italic;
+       ; /* Ajoute un contour noir d'une largeur de 1 pixel */
+    }
+    &__slogan:hover {
+        transition: 1s;
+    }
+
+    &__btnContainer {
+        width: 100%;
+        text-align: center;
+        margin-top: 16.5rem;
     }
     &__btn {
-        letter-spacing: .3rem;
-        font-family: Krona One;
-        font-size: 1.2rem;
-        font-weight: 700;
-        color: #4F70A3;
-        background-color: white;
-        // border: 3px solid white;
+        margin: 0 auto;
         padding: 0.5rem 3rem;
-        border-radius: 20rem;
+        letter-spacing: .3rem;
+        font-family: 'Figtree';
+        font-style: italic;
+        font-size: 1.2rem;
+        font-weight: 400;
+        color: #ffffff;
+        border-radius: 0.2rem;
         overflow: hidden;
         transition: .3s ease-in-out;
         cursor: pointer;
+        background-color: #072A3D;
     }
     &__btn:hover {
         // background-color: transparent;
