@@ -10,7 +10,9 @@ export default function Accueil() {
                 </div>
             </div>
             <div className='accueil__btnContainer'>
-                <button className='accueil__btn'>Découvrir</button>
+                <a href="">
+                    <button className='accueil__btn'>Découvrir</button>
+                </a>
             </div>
         </header>
     )

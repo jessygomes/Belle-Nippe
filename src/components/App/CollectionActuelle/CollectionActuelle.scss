@@ -1,6 +1,6 @@
-.coll {
-    // box-shadow: #00000029 0px 3px 6px, #0000003b 0px 20px 5px;
-}
+// .coll {
+//     // box-shadow: #00000029 0px 3px 6px, #0000003b 0px 20px 5px;
+// }
 
 .collection {
     margin-top: 12rem;
@@ -35,7 +35,7 @@
         width: 100%;
         height: 15rem;
         overflow: hidden;
-        border-radius: 0.2rem;
+        // border-radius: 0.2rem;
         box-shadow: #00000029 0px 3px 6px, #0000003b 0px 20px 5px;
     }
 
@@ -69,10 +69,8 @@
     justify-content: space-between;
 }
 .lienVersCollection {
-    display: block;
     padding: 0 15rem;
     text-align: end;
     font-size: 1.5rem;
-    text-decoration: underline;
     margin-bottom: 4rem;
 }

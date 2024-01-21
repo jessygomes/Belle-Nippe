@@ -54,3 +54,26 @@
         letter-spacing: 0.3rem;
     }
 }
+.photoShooting {
+    padding: 0 15rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-bottom: 4rem;
+
+    &__shot{
+        width: auto;
+        height: 20rem;
+        filter: grayscale(100%);
+     -webkit-transition: all 0.2s;
+     -moz-transition: all 0.2s;
+     -ms-transition: all 0.2s;
+     -o-transition: all 0.2s;
+     transition: all 0.2s;
+    }
+    &__shot:hover {
+        filter: grayscale(0);
+        transform:scale(1.4);
+        z-index: 2;
+    }
+}

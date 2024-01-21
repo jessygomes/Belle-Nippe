@@ -34,7 +34,11 @@ export default function CollectionActuelle() {
                 <Produit />
                 <Produit />
             </div>
-            <a className='lienVersCollection' href="">Voir la Collection...</a>
+            <div className='lienVersCollection'>
+                <a className='lienVersCollection__links' href="">
+                <button className='accueil__btn'>Voir la collection</button>
+                </a>
+            </div>
         </section>
     )
 }
