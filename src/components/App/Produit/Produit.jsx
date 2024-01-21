@@ -11,8 +11,7 @@ export default function Produit() {
                     <h3>Veste WALLOW</h3>
                     <p>399 €</p>
                 </article>
-            </a>
-            
+            </a>   
         </div>
     )
 }

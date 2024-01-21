@@ -1,0 +1,56 @@
+.bigLien {
+    width: 100%;
+
+    &__vet {
+        width: 100%;
+        background-color: aqua;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    &__vetement1 {
+        background-color: #072A3D;
+        padding: 2rem 0rem;
+        padding-left: 25rem;
+        padding-right: 5rem;
+        font-size: 3rem;
+        color: #D9D9D9;
+        text-transform: uppercase;
+        font-weight: 800;
+        line-height: 3rem;
+        letter-spacing: 0.8rem;
+        text-align: center;
+        transition: 0.5s ease-in-out;
+    }
+    &__vetement1:hover {
+        background-color: #5990A5;
+        color: #072A3D;
+        transition: 0.5s ease-in-out;
+    }
+
+    &__vetement2 {
+        width: 100%;
+        background-color: #D9D9D9;
+        padding: 3.5rem 0rem;
+        text-align: center;
+        font-size: 3rem;
+        letter-spacing: 0.8rem;
+        color: #072A3D;
+        text-transform: uppercase;
+        font-weight: 800;
+        line-height: 3rem;
+        transition: 0.5s ease-in-out;
+    }
+    &__vetement2:hover {
+        background-color: #5990A5;
+        color: #D9D9D9;
+        transition: 0.5s ease-in-out;
+    }
+
+    &__text {
+        padding: 4rem 15rem;
+        text-align: justify;
+        letter-spacing: 0.3rem;
+    }
+}
