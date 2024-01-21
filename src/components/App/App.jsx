@@ -1,19 +1,27 @@
+import { Route, Routes } from 'react-router-dom';
 import Accueil from './Accueil/Accueil';
-import './App.scss';
-import BigLienVersProduits from './BigLienVersProduits/BigLienVersProduits';
-import CollectionActuelle from './CollectionActuelle/CollectionActuelle';
-import Footer from './Footer/Footer';
-import Navbar from './Navbar/Navbar';
+import Shop from './pages/Shop/Shop';
 import Noise from './Noise/Noise';
+import Editorial from './pages/Editorial/Editorial';
+import './App.scss';
 
 function App() {
   return <div className="container">
     <Noise />
-    <Navbar />
-    <Accueil />
-    <CollectionActuelle/>
-    <BigLienVersProduits />
-    <Footer />
+    <Routes>
+      <Route path="/" element={<Accueil />} />
+      <Route path="/shop" element={<Shop />} />
+      <Route path="editorial" element={<Editorial />} />
+      {/* <Route path="apropos" element={<Propos />} />
+      <Route path="monpanier" element={<Panier />} />
+      <Route path="contact" element={<Contact />} />
+      <Route path="conditionutilisation" element={<ConditionUtilisation />} />
+      <Route path="politiquedeconfidentialite" element={<PolitiqueDeConfidentialite />} />
+      <Route path="politiquederetour" element={<PpolitiqueDeRetour />} />
+      <Route path="conditionsderetour" element={<ConditionsDeRetour />} />
+      <Route path="cgv" element={<CGV />} />
+      <Route path="mentionslegales" element={<MentionsLegales />} /> */}
+    </Routes>
   </div>;
 }
 

@@ -7,13 +7,13 @@ export default function CollectionActuelle() {
             <div className='collection'>
                 <div className='collection__contenu'>
                     <div className='collection__title'>
-                        <img className='collection__logoSymbole' src="public\Logo\logo-symbole-noir.png" alt="Logo Belle Nippe" />
+                        <img className='collection__logoSymbole' src="\Logo\logo-symbole-noir.png" alt="Logo Belle Nippe" />
                         <h2 className='collection__name'>Candy's Collection</h2>
-                        <img className='collection__logoSymbole' src="public\Logo\logo-symbole-noir.png" alt="Logo Belle Nippe" />
+                        <img className='collection__logoSymbole' src="\Logo\logo-symbole-noir.png" alt="Logo Belle Nippe" />
                     </div>
                     
                     <div className='collection__divCouverture'>
-                    <img className='collection__couverture' src="public\fond-candy.png" alt="" />
+                    <img className='collection__couverture' src="/fond-candy.png" alt="" />
                     </div>
                     
                     
@@ -30,12 +30,13 @@ export default function CollectionActuelle() {
                     <img className='collection__couverture' src="public\Vetements\PhotoCollection.png" alt="" />
                 </div>
             </div> */}
+
             <div className='presentationProduit'>
                 <Produit />
                 <Produit />
             </div>
             <div className='lienVersCollection'>
-                <a className='lienVersCollection__links' href="">
+                <a className='lienVersCollection__links' href="/shop/:collection">
                 <button className='accueil__btn'>Voir la collection</button>
                 </a>
             </div>

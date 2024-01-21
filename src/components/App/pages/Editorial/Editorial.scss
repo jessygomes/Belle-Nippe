@@ -1,0 +1,35 @@
+.pageEdit {
+    padding: 0 15rem;
+    width: 100%;
+    margin: 10rem 0 5rem 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    &__select {
+        letter-spacing: 0.3rem;
+        padding: 0.5rem;
+        width: 20rem;
+        // border: 2px solid #072A3D;
+        border: none;
+    }
+
+    &__search {
+        border: none;
+        padding: 0.5rem;
+        width: 20rem;
+    }
+}
+
+.titlePage {
+    font-size: 3rem;
+    letter-spacing: 0.3rem;
+}
+
+.editorial {
+    padding: 0 15rem;
+    gap: 4.9rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}

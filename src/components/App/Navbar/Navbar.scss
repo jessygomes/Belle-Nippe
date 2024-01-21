@@ -10,10 +10,13 @@
     justify-content: space-between;
     align-items: center;
     padding: 1.3rem 15rem;
-    // background-color: aqua;
     transition: background-color 0.5s ease-in-out;
 }
 .accueil__container.scrolled {
+    background-color: #072A3D;
+    box-shadow: #00000029 0px 3px 6px, #0000003b 0px 20px 5px;
+}
+.accueil__container.otherpage {
     background-color: #072A3D;
     box-shadow: #00000029 0px 3px 6px, #0000003b 0px 20px 5px;
 }
