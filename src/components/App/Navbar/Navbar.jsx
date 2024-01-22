@@ -49,7 +49,7 @@ export default function Navbar() {
                 <a  className='accueil__link' href="/shop">E-shop</a>
                 <a  className='accueil__link' href="/editorial">Editorial</a>
                 <a  className='accueil__link' href="/apropos">A Propos</a>
-                <a  className='accueil__link accueil__shop' href="/monpanier"><img src="/Icone/Shopping Bag.png" alt="" /></a>
+                <a  className='accueil__shop' href="/monpanier"><img src="/Icone/Shopping Bag.png" alt="" /></a>
             </nav>
         </div>
     )

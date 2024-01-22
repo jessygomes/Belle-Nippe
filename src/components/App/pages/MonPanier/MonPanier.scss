@@ -1,0 +1,35 @@
+.panier {
+    padding: 0 15rem;
+    width: 100%;
+    margin: 10rem 0rem 5rem 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 4rem;
+}
+.panier__list {
+    padding: 0 15rem;
+    width: 70%;
+    margin: 0 auto;
+}
+.titlePage__panier {
+    font-size: 3rem;
+    letter-spacing: 0.3rem;
+}
+.panier__price {
+    width: 70%;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    font-size: 1.5rem;
+    letter-spacing: 0.3rem;
+}
+
+.lienVersPaiement {
+    width: 70%;
+    text-align: end;
+    font-size: 1.5rem;
+    margin-bottom: 5rem;
+}

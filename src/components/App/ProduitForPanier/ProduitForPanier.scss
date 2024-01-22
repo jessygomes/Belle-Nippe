@@ -1,0 +1,19 @@
+.produitForPanier {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+    border-bottom: 1px solid black;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+
+    &__imgContainer {
+        width: 8rem;
+        height: 8rem;
+        overflow: hidden;
+        margin-bottom: 1rem;
+    }
+    &__prix {
+        margin-left: 8rem;
+    }
+}

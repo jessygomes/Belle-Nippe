@@ -1,7 +1,7 @@
 import './Editorial.scss';
 import Navbar from '../../Navbar/Navbar';
 import Footer from '../../Footer/Footer';
-import Produit from '../../Produit/Produit';
+import ProduitForEdit from '../../../../ProduitForEdit/ProduitForEdit';
 
 export default function Editorial() {
     return (
@@ -16,14 +16,13 @@ export default function Editorial() {
                 </select>
             </div>
             <div className='editorial'>
-                <Produit />
-                <Produit />
-                <Produit />
-                <Produit />
-                <Produit />
-                <Produit />
-                <Produit />
-                <Produit />
+                <ProduitForEdit />
+                <ProduitForEdit />
+                <ProduitForEdit />
+                <ProduitForEdit />
+                <ProduitForEdit />
+                <ProduitForEdit />
+                <ProduitForEdit />
             </div>
             <div className='lienVersCollection'>
                 <a className='lienVersCollection__links' href="/shop">
