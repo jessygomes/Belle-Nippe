@@ -46,7 +46,14 @@ export default function Navbar() {
             <a className='accueil__logo' href="/"><img  src="/Logo/1dfd1fef-d2c2-49ee-9616-be4b313175c0.png" alt="Logo belle Nippe" /></a>
             
             <nav className='accueil__navbar'>
-                <a  className='accueil__link' href="/shop">E-shop</a>
+                {/* <div className='dropdown'>
+                   
+                        <div className={`dropdown-child ${isHomePage ? '' : 'otherpage'}`}>
+                            <a href="/shop">Vêtements</a>
+                            <a href="/shop">Accessoires</a>
+                        </div>
+                </div> */}
+                <a  className='accueil__link deroulant' href="/shop">E-shop</a>
                 <a  className='accueil__link' href="/editorial">Editorial</a>
                 <a  className='accueil__link' href="/apropos">A Propos</a>
                 <a  className='accueil__shop' href="/monpanier"><img src="/Icone/Shopping Bag.png" alt="" /></a>

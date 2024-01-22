@@ -7,9 +7,9 @@ export default function CollectionActuelle() {
             <div className='collection'>
                 <div className='collection__contenu'>
                     <div className='collection__title'>
-                        <img className='collection__logoSymbole' src="\Logo\logo-symbole-noir.png" alt="Logo Belle Nippe" />
+                        {/* <img className='collection__logoSymbole' src="\Logo\logo-symbole-noir.png" alt="Logo Belle Nippe" /> */}
                         <h2 className='collection__name'>Candy's Collection</h2>
-                        <img className='collection__logoSymbole' src="\Logo\logo-symbole-noir.png" alt="Logo Belle Nippe" />
+                        {/* <img className='collection__logoSymbole' src="\Logo\logo-symbole-noir.png" alt="Logo Belle Nippe" /> */}
                     </div>
                     
                     <div className='collection__divCouverture'>

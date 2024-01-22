@@ -1,3 +1,5 @@
+@use '@scssVariables' as v;
+
 .accueil__container {
     position: fixed;
     top: 0;
@@ -13,11 +15,11 @@
     transition: background-color 0.5s ease-in-out;
 }
 .accueil__container.scrolled {
-    background-color: #072A3D;
+    background-color: v.$dark-blue;
     box-shadow: #00000029 0px 3px 6px, #0000003b 0px 20px 5px;
 }
 .accueil__container.otherpage {
-    background-color: #072A3D;
+    background-color: v.$dark-blue;
     box-shadow: #00000029 0px 3px 6px, #0000003b 0px 20px 5px;
 }
 .accueil__logo {
@@ -38,11 +40,39 @@
 }
 .accueil__link:hover {
     transition: 0.3s ease-in-out;
-    border: 1px solid white;
-    padding: 0 1rem;
+    border-bottom: 1px solid white;
+    padding: 0 0rem;
     // color: #072A3D;
 }
 .accueil__shop {
     margin-left: 2rem;
     width: 2rem;
 }
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdown-child {
+    display: none;
+    background-color:  #041e3355 ;
+;
+    position: absolute;
+    padding-top: 2rem;
+}
+.dropdown-child a {
+    color: white;
+    padding : 0.3rem 2rem;
+    text-decoration: none;
+    display: block;
+    letter-spacing: 0.3rem;
+}
+.dropdown-child a:hover {
+    transition: 0.3s ease-in-out;
+    color: v.$hoverBlue
+}
+.dropdown:hover .dropdown-child {
+    display: block;
+    transition: 0.5s ease-in-out;
+}
+

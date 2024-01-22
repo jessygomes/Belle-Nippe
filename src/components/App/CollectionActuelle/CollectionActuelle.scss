@@ -29,6 +29,7 @@
         letter-spacing: 0.1rem;
         padding-top: 2rem;
         margin-bottom: 2rem;
+        text-shadow:#00000029 0px 3px 6px, #0000003b 0px 20px 5px;
     }
 
     &__divCouverture{
@@ -48,10 +49,10 @@
         -moz-transition: all 0.2s;
         -ms-transition: all 0.2s;
         -o-transition: all 0.2s;
-        transition: all 0.2s;
+        transition: all 3s;
     }
     &__couverture:hover {
-        transform:scale(1.1);
+        filter: grayscale(100%);
     }
 
     &__description{

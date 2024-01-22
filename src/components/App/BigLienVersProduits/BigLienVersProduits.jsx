@@ -9,7 +9,7 @@ export default function BigLienVersProduits() {
                     {/* <p className='bigLien__textVet'>Vête <br />ment</p> */}
                 </a>
                 <a className='bigLien__vetement2' href="shop/accessoires">
-                    Accessoires
+                    Acces <br /> soires
                     {/* <p className='bigLien__textVet2'>Accessoires</p> */}
                 </a>
             </div>

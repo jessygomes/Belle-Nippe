@@ -1,3 +1,5 @@
+@use '@scssVariables' as v;
+
 .bigLien {
     width: 100%;
 
@@ -6,16 +8,16 @@
         background-color: aqua;
         display: flex;
         flex-direction: row;
-        align-items: center;
+        // align-items: center;
     }
 
     &__vetement1 {
-        background-color: #072A3D;
+        background-color: v.$dark-blue;
         padding: 2rem 0rem;
         padding-left: 25rem;
-        padding-right: 5rem;
+        padding-right: 8rem;
         font-size: 3rem;
-        color: #D9D9D9;
+        color: v.$grey;
         text-transform: uppercase;
         font-weight: 800;
         line-height: 3rem;
@@ -24,28 +26,29 @@
         transition: 0.5s ease-in-out;
     }
     &__vetement1:hover {
-        background-color: #5990A5;
+        background-color: v.$hoverBlue;
         color: #072A3D;
-        transition: 0.5s ease-in-out;
+        transition: 0.3s ease-in-out;
     }
 
     &__vetement2 {
         width: 100%;
-        background-color: #D9D9D9;
-        padding: 3.5rem 0rem;
+        background-color: v.$grey;
+        padding: 2rem 0rem;
+        padding-right: 15rem;
         text-align: center;
         font-size: 3rem;
         letter-spacing: 0.8rem;
-        color: #072A3D;
+        color: v.$dark-blue;
         text-transform: uppercase;
         font-weight: 800;
         line-height: 3rem;
         transition: 0.5s ease-in-out;
     }
     &__vetement2:hover {
-        background-color: #5990A5;
-        color: #D9D9D9;
-        transition: 0.5s ease-in-out;
+        background-color: v.$hoverBlue;
+        color: v.$grey;
+        transition: 0.3s ease-in-out;
     }
 
     &__text {

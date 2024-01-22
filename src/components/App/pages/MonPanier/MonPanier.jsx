@@ -3,6 +3,7 @@ import Navbar from '../../Navbar/Navbar';
 import Footer from '../../Footer/Footer';
 import ProduitForPanier from '../../ProduitForPanier/ProduitForPanier';
 
+
 export default function MonPanier() {
     return (
         <div>
@@ -17,6 +18,7 @@ export default function MonPanier() {
             <div className='panier__price'>
                 <p>Total :</p>
                 <p>798 €</p>
+                {/* <Trash size="100%" color="#072A3D"/> */}
             </div>
             <div className='lienVersPaiement'>
                 <a className='lienVersCollection__links' href="/paiement">
