@@ -3,7 +3,7 @@ import './Produit.scss';
 export default function Produit() {
     return (
         <div className='div__produit'>
-            <a href="/shop/nomduproduit">
+            <a href="shop/nomArticle">
                 <article className='produit'>
                     <div className='produit__imgContainer' >
                         <img className='produit__photo' src="/Vetements/vrd.png" alt="" />

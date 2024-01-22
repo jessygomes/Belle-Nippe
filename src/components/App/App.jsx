@@ -5,6 +5,7 @@ import Noise from './Noise/Noise';
 import Editorial from './pages/Editorial/Editorial';
 import './App.scss';
 import MonPanier from './pages/MonPanier/MonPanier';
+import Article from './Article/Article';
 
 function App() {
   return <div className="container">
@@ -15,6 +16,7 @@ function App() {
       <Route path="editorial" element={<Editorial />} />
       {/* <Route path="apropos" element={<Propos />} /> */}
       <Route path="monpanier" element={<MonPanier />} />
+      <Route path="shop/nomArticle" element={<Article />} />
       {/* <Route path="contact" element={<Contact />} />
       <Route path="conditionutilisation" element={<ConditionUtilisation />} />
       <Route path="politiquedeconfidentialite" element={<PolitiqueDeConfidentialite />} />
