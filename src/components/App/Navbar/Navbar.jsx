@@ -1,5 +1,5 @@
 import './Navbar.scss';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 
 export default function Navbar() {
@@ -43,7 +43,7 @@ export default function Navbar() {
 
     return (
         <div className={`accueil__container ${isHomePage ? '' : 'otherpage'}`}>
-            <a className='accueil__logo' href="/"><img  src="/Logo/1dfd1fef-d2c2-49ee-9616-be4b313175c0.png" alt="Logo belle Nippe" /></a>
+            <Link className='accueil__logo' to="/"><img  src="/Logo/1dfd1fef-d2c2-49ee-9616-be4b313175c0.png" alt="Logo belle Nippe" /></Link>
             
             <nav className='accueil__navbar'>
                 {/* <div className='dropdown'>
@@ -53,10 +53,10 @@ export default function Navbar() {
                             <a href="/shop">Accessoires</a>
                         </div>
                 </div> */}
-                <a  className='accueil__link deroulant' href="/shop">E-shop</a>
-                <a  className='accueil__link' href="/editorial">Editorial</a>
-                <a  className='accueil__link' href="/apropos">A Propos</a>
-                <a  className='accueil__shop' href="/monpanier"><img src="/Icone/Shopping Bag.png" alt="" /></a>
+                <Link  className='accueil__link deroulant' to="/shop">E-shop</Link>
+                <Link  className='accueil__link' to="/editorial">Editorial</Link>
+                <Link  className='accueil__link' to="/apropos">A Propos</Link>
+                <Link className='accueil__shop' to="/monpanier"><img src="/Icone/Shopping Bag.png" alt="" /></Link>
             </nav>
         </div>
     )
