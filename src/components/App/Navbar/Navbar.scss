@@ -36,43 +36,99 @@
     font-family: 'Figtree';
     font-size: 1.2rem;
     margin-left: 2rem;
-    transition: 0.3s ease-in-out;
+    transition: 0.1s ease-in-out;
+    position: relative;
 }
 .accueil__link:hover {
-    transition: 0.3s ease-in-out;
-    border-bottom: 1px solid white;
-    padding: 0 0rem;
-    // color: #072A3D;
+    text-shadow: rgba(255,255,255,0.9) 0px 0px 4px;
 }
 .accueil__shop {
     margin-left: 2rem;
-    width: 2rem;
+    font-size: 1.5rem;
+}
+.accueil__shop:hover {
+    text-shadow: rgba(255,255,255,0.9) 0px 0px 4px;
+}
+.active {
+    text-shadow: rgba(255,255,255,0.9) 0px 0px 5px;
 }
 
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-.dropdown-child {
+
+
+
+
+
+
+
+// MENU MOBILE 
+.mobile__navbar{
     display: none;
-    background-color:  #041e3355 ;
-;
-    position: absolute;
-    padding-top: 2rem;
 }
-.dropdown-child a {
+.mobile__navbar i {
     color: white;
-    padding : 0.3rem 2rem;
-    text-decoration: none;
-    display: block;
-    letter-spacing: 0.3rem;
 }
-.dropdown-child a:hover {
-    transition: 0.3s ease-in-out;
-    color: v.$hoverBlue
-}
-.dropdown:hover .dropdown-child {
-    display: block;
-    transition: 0.5s ease-in-out;
+
+@media screen and (max-width:769px) {
+    .accueil__logo {
+        width: 50%;
+    }
+    .accueil__container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 2; /* Assurez-vous que le Navbar est au-dessus du reste du contenu */
+        /* Ajoutez d'autres styles selon vos besoins */
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.3rem 3rem;
+        background-color: v.$dark-blue;
+        box-shadow: #00000029 0px 3px 6px, #0000003b 0px 20px 5px;
+    }
+    .accueil__navbar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        background-color: v.$dark-blue;
+        padding: 2rem 3rem;
+        position: absolute;
+        top: 4.5rem;
+        left: -70%;
+        opacity: 0%;
+        width: 50%;
+        height: 100vh;
+        transition: all 0.5s ease;
+    }
+   .open {
+        left: 0;
+        opacity: 1;
+        transition: all 0.5s ease;
+        z-index: 1;
+    }
+    .accueil__link {
+        letter-spacing: 2px;
+        font-family: 'Figtree';
+        font-size: 1.2rem;
+        margin-left: 0rem;
+        margin-bottom: 2rem;
+        transition: 0.1s ease-in-out;
+        position: relative;
+        display: table;
+    }
+    .accueil__shop {
+        font-size: 2rem;
+        margin-left: 0rem;
+    }
+    .mobile__navbar{
+        display: block;
+        z-index: 2;
+    }
+    .mobile__navbar i{
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
 }
 

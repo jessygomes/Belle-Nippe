@@ -1,10 +1,15 @@
 import './Navbar.scss';
-import { Link, useLocation } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 
 export default function Navbar() {
     const location = useLocation();
     const [isHomePage, setIsHomePage] = useState(false);
+    const [click, setClick] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
+
+    const handleClick = () => setClick(!click);
+    const closeMobileMenu = () => setClick(false);
 
     useEffect(() => {
         // Mettez à jour l'état en fonction de la localisation
@@ -15,7 +20,7 @@ export default function Navbar() {
         const handleScroll = () => {
             const accueilContainer = document.querySelector('.accueil__container');
 
-            if (accueilContainer) {
+            if (accueilContainer && window.innerWidth > 769) {
                 if (window.scrollY > 0 && isHomePage) {
                     accueilContainer.classList.add('scrolled');
                 } else {
@@ -43,21 +48,20 @@ export default function Navbar() {
 
     return (
         <div className={`accueil__container ${isHomePage ? '' : 'otherpage'}`}>
-            <Link className='accueil__logo' to="/"><img  src="/Logo/1dfd1fef-d2c2-49ee-9616-be4b313175c0.png" alt="Logo belle Nippe" /></Link>
+            <NavLink className='accueil__logo' to="/"><img  src="/Logo/1dfd1fef-d2c2-49ee-9616-be4b313175c0.png" alt="Logo belle Nippe" /></NavLink>
             
-            <nav className='accueil__navbar'>
-                {/* <div className='dropdown'>
-                   
-                        <div className={`dropdown-child ${isHomePage ? '' : 'otherpage'}`}>
-                            <a href="/shop">Vêtements</a>
-                            <a href="/shop">Accessoires</a>
-                        </div>
-                </div> */}
-                <Link  className='accueil__link deroulant' to="/shop">E-shop</Link>
-                <Link  className='accueil__link' to="/editorial">Editorial</Link>
-                <Link  className='accueil__link' to="/apropos">A Propos</Link>
-                <Link className='accueil__shop' to="/monpanier"><img src="/Icone/Shopping Bag.png" alt="" /></Link>
-            </nav>
+            <div className='navbar__container'>
+                <nav className={click ? 'accueil__navbar open' : 'accueil__navbar'}>
+                    <NavLink  className='accueil__link' to="/shop" onClick={closeMobileMenu}>E-shop</NavLink>
+                    <NavLink  className='accueil__link' to="/editorial" onClick={closeMobileMenu}>Editorial</NavLink>
+                    <NavLink  className='accueil__link' to="/apropos" onClick={closeMobileMenu}>A Propos</NavLink>
+                    <NavLink className='accueil__shop' to="/monpanier" onClick={closeMobileMenu}><i class="fa-solid fa-bag-shopping"></i></NavLink>
+                </nav>
+            </div>
+
+            <div className='mobile__navbar' onClick={handleClick}>
+                <i id='bar' className={click ? 'fas fa-times' : 'fas fa-bars'}></i>
+            </div>
         </div>
     )
 }
