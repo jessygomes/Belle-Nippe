@@ -11,12 +11,9 @@ export default function CollectionActuelle() {
                         <h2 className='collection__name'>Candy's Collection</h2>
                         {/* <img className='collection__logoSymbole' src="\Logo\logo-symbole-noir.png" alt="Logo Belle Nippe" /> */}
                     </div>
-                    
                     <div className='collection__divCouverture'>
-                    <img className='collection__couverture' src="/fond-candy.png" alt="" />
+                        <img className='collection__couverture' src="/fond-candy.png" alt="" />
                     </div>
-                    
-                    
                 </div>
 
                 <p className='collection__description'>La collection de vêtements haute couture intitulée "Candy" incarne l'essence audacieuse et éthique de l'upcycling. Conçue avec ingéniosité, cette ligne allie l'élégance de la haute couture et la mode streetwear à la durabilité environnementale. 

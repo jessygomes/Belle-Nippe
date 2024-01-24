@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import Footer from '../Footer/Footer';
 import Navbar from '../Navbar/Navbar';
 import './Article.scss';
@@ -18,16 +19,22 @@ export default function Article() {
                             <p className='article__explain article__desc'>Description : Article upccling a partir de jean de de soie ainsi que tous les élements artistique de ma démarche créative pour confectionner une oeuvre.  <br /> Entretien : laver à la main et ne pas mettre à la machine à laver.</p>
                             <div className='lienVersAjoutPanier'>
                                 <a className='lienVersCollection__links' href="/shop">
-                                <button className='article__btn'>Ajouter au Panier</button>
+                                    <button className='article__btn'>Ajouter au Panier</button>
                                 </a>
                             </div>
                         </div>
                     </article>
                     <div className='otherImg'>
-                        <div className='article__imgContainer' >
+                        <div className='article__imgContainer2' >
                             <img className='article__photo' src="\Vetements\Vet 5.png" alt="" />
                         </div>
-                        <div className='article__imgContainer' >
+                        <div className='article__imgContainer2' >
+                            <img className='article__photo' src="/Vetements/Vet 6.png" alt="" />
+                        </div>
+                        <div className='article__imgContainer2' >
+                            <img className='article__photo' src="\Vetements\Vet 5.png" alt="" />
+                        </div>
+                        <div className='article__imgContainer2' >
                             <img className='article__photo' src="/Vetements/Vet 6.png" alt="" />
                         </div>
                     </div>

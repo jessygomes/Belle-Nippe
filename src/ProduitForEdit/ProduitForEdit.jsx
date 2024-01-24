@@ -8,7 +8,7 @@ export default function ProduitForEdit() {
                     <div className='produitForEdit__imgContainer' >
                         <img className='produitForEdit__photo' src="/Vetements/vrd.png" alt="" />
                     </div>
-                    <h3>Veste WALLOW</h3>
+                    <h3 className='produitForEdit__name'>Veste WALLOW</h3>
                 </article>
             </a>   
         </div>

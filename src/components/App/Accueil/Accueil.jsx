@@ -10,11 +10,10 @@ export default function Accueil() {
         <div>
             <header className="accueil">
                 <div className='accueil__contenu'>
-                    <div className='accueil__banner'>
                         <img className='accueil__logoBanner' src="/Logo/cc5bb833-9823-4997-abd1-86fd85044f37.png" alt="" />
+                    {/* <div className='accueil__banner'>
                         <p className='accueil__slogan'>Rendez-vous<span className='accueil__span'>bien nippé</span></p>
-                    </div>
-                    
+                    </div> */}
                 </div>
                 <div className='accueil__btnContainer'>
                     <a  href="/shop">

@@ -9,7 +9,7 @@ export default function ProduitForPanier() {
                     <div className='produitForPanier__imgContainer' >
                         <img className='produitForEdit__photo' src="/Vetements/vrd.png" alt="" />
                     </div>
-                    <h3>Veste WALLOW</h3>
+                    <h3 className='produitForPanier__name'>Veste WALLOW</h3>
                     <p className='produitForPanier__prix'>399 €</p>
                     {/* <Trash size="100%" /> */}
                     <p className='produitForPanier__supp'>Supprimer</p>

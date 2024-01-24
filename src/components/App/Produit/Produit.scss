@@ -1,18 +1,12 @@
+// PC PORTABLE : 
 .div__produit {
-    // padding: 0 15rem;
-    // display: flex;
-    // flex-direction: row;
-    // justify-content: space-between;
     margin-bottom: 2rem;
 }
-
 .produit{
-    // background-color: aqua;
     
     &__imgContainer {
-        width: 30rem;
-        height: 30rem;
-        // border-radius: 0.2rem;
+        width: 99%;
+        height: 99%;
         overflow: hidden;
         margin-bottom: 1rem;
     }
@@ -21,8 +15,48 @@
         width: 100%;
         height: 100%;
     }
-
     &__title {
         font-family: 'Figtree';
     }
+}
+
+
+
+
+
+@media screen and (max-width:769px) {
+    .produit{
+        &__imgContainer {
+            width: 16rem;
+            height: 16rem;
+            margin-bottom: 0.5rem;
+        }
+        &__name {
+            font-size: 0.8rem;
+        }
+        &__price {
+            font-size: 0.8rem;
+        }
+    }
+}
+
+
+
+
+// TABLETTES
+@media screen and (min-width:767px) and (max-width:900px) {
+    .produit{
+        &__imgContainer {
+            width: 20rem;
+            height: 20rem;
+            margin-bottom: 0.5rem;
+        }
+        &__name {
+            font-size: 1rem;
+        }
+        &__price {
+            font-size: 1rem;
+        }
+    }
+
 }

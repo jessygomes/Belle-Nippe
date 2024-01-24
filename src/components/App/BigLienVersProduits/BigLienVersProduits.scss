@@ -1,21 +1,22 @@
 @use '@scssVariables' as v;
 
+// PC PORTABLE : 
 .bigLien {
     width: 100%;
 
     &__vet {
         width: 100%;
-        background-color: aqua;
         display: flex;
         flex-direction: row;
         // align-items: center;
     }
 
     &__vetement1 {
+        width: 100%;
         background-color: v.$dark-blue;
         padding: 2rem 0rem;
-        padding-left: 25rem;
-        padding-right: 8rem;
+        padding-left: 0rem;
+        padding-right: 0rem;
         font-size: 3rem;
         color: v.$grey;
         text-transform: uppercase;
@@ -30,12 +31,11 @@
         color: #072A3D;
         transition: 0.3s ease-in-out;
     }
-
     &__vetement2 {
         width: 100%;
         background-color: v.$grey;
-        padding: 2rem 0rem;
-        padding-right: 15rem;
+        padding: 2.1rem 0rem;
+        padding-right: 0rem;
         text-align: center;
         font-size: 3rem;
         letter-spacing: 0.8rem;
@@ -50,7 +50,6 @@
         color: v.$grey;
         transition: 0.3s ease-in-out;
     }
-
     &__text {
         padding: 4rem 15rem;
         text-align: justify;
@@ -61,12 +60,13 @@
     padding: 0 15rem;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    align-items: center;
     padding-bottom: 4rem;
 
     &__shot{
-        width: auto;
-        height: 20rem;
+        width: 95%;
+        height: auto;
         filter: grayscale(100%);
         -webkit-transition: all 0.2s;
         -moz-transition: all 0.2s;
@@ -74,9 +74,113 @@
         -o-transition: all 0.2s;
         transition: all 0.2s;
     }
+    &__imgContainer:hover {
+        z-index: 2;
+    }
     &__shot:hover {
         filter: grayscale(0);
         transform:scale(1.4);
         z-index: 2;
+    }
+}
+
+
+
+
+
+// MOBILES
+@media screen and (max-width:767px) {
+    .bigLien {
+        width: 100%;
+
+        &__vet {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        &__vetement1 {
+            padding: 2rem 0rem;
+            padding-left: 0rem;
+            padding-right: 0rem;
+            font-size: 2rem;
+            font-weight: 800;
+            line-height: 2rem;
+            text-align: center;
+        }
+        &__vetement2 {
+            width: 100%;
+            padding: 2rem 0rem;
+            padding-right: 0rem;
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 800;
+            line-height: 2rem;
+        }
+        &__text {
+            padding: 3rem 1rem;
+            font-size: 0.8rem;
+        }
+    }
+
+    .photoShooting {
+        padding: 0 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding-bottom: 4rem;
+    
+        &__shot{
+            width: 10rem;
+            height: auto;
+        }
+    }
+}
+
+
+
+// TABLETTES
+@media screen and (min-width:768px) and (max-width:1024px) {
+    .bigLien {
+        width: 100%;
+
+        &__vet {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        &__vetement1 {
+            padding: 2rem 0rem;
+            padding-left: 0rem;
+            padding-right: 0rem;
+            font-size: 2rem;
+            font-weight: 800;
+            line-height: 2rem;
+            text-align: center;
+        }
+        &__vetement2 {
+            width: 100%;
+            padding: 2rem 0rem;
+            padding-right: 0rem;
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 800;
+            line-height: 2rem;
+        }
+        &__text {
+            padding: 3rem 1.5rem;
+            font-size: 1rem;
+        }
+    }
+    .photoShooting {
+        padding: 0 1.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding-bottom: 4rem;
+    
+        &__shot{
+            width: 17rem;
+            height: auto;
+        }
     }
 }

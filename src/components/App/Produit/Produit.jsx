@@ -9,8 +9,8 @@ export default function Produit() {
                     <div className='produit__imgContainer' >
                         <img className='produit__photo' src="/Vetements/vrd.png" alt="" />
                     </div>
-                    <h3>Veste WALLOW</h3>
-                    <p>399 €</p>
+                    <h3 className='produit__name'>Veste WALLOW</h3>
+                    <p className='produit__price'>399 €</p>
                 </article>
             </Link>   
         </div>

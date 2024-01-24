@@ -1,3 +1,5 @@
+
+// PC PORTABLE : 
 .produitForPanier {
     display: flex;
     flex-direction: row;
@@ -6,21 +8,90 @@
     border-bottom: 1px solid black;
     margin: 0 auto;
     margin-bottom: 1rem;
+    justify-content: space-between;
 
     &__imgContainer {
-        width: 8rem;
-        height: 8rem;
+        width: 6rem;
+        height: 6rem;
         overflow: hidden;
         margin-bottom: 1rem;
     }
     &__prix {
-        margin-left: 8rem;
+        text-align: right;
     }
     &__supp {
+        text-align: right;
         font-size: 0.8rem;
         color: gray;
     }
     &__supp:hover {
         color: #072A3D;
+    }
+}
+
+
+
+
+// MOBILES
+@media screen and (max-width:769px) {
+    .produitForPanier {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+        border-bottom: 1px solid black;
+        margin: 0 auto;
+        margin-bottom: 1rem;
+        justify-content: center;
+        
+        &__imgContainer {
+            width: 4rem;
+            height: 4rem;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+        &__name {
+            font-size: 0.7rem;
+        }
+        &__prix {
+            margin-left: 2rem;
+        }
+        &__supp {
+            font-size: 0.6rem;
+            color: gray;
+        }
+    }
+}
+
+
+
+// TABLETTES
+@media screen and (min-width:767px) and (max-width:900px) {
+    .produitForPanier {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+        border-bottom: 1px solid black;
+        margin: 0 auto;
+        margin-bottom: 1rem;
+        justify-content: center;
+        
+        &__imgContainer {
+            width: 6rem;
+            height: 6rem;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+        &__name {
+            font-size: 1rem;
+        }
+        &__prix {
+            margin-left: 10rem;
+        }
+        &__supp {
+            font-size: 0.8rem;
+            color: gray;
+        }
     }
 }

@@ -8,3 +8,24 @@ padding: 11rem 15rem;
     }
 
 }
+
+
+
+@media screen and (max-width:769px) {
+    .error {
+        // margin-top: 10rem;
+        padding: 8rem 1.5rem;
+        
+            &__title {
+                font-size: 2rem;
+                text-align: center;
+            }
+            &__message{
+                font-size: 0.8rem;
+                text-align: center;
+                margin-top: 2rem;
+            }
+        
+        }
+
+}

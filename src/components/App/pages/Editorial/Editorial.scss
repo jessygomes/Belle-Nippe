@@ -1,35 +1,109 @@
+
+// PC PORTABLE : 
 .pageEdit {
     padding: 0 15rem;
     width: 100%;
-    margin: 10rem 0 5rem 0;
+    margin: 7rem 0 5rem 0;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
 
     &__select {
         letter-spacing: 0.3rem;
         padding: 0.5rem;
         width: 20rem;
-        // border: 2px solid #072A3D;
         border: none;
-    }
-
-    &__search {
-        border: none;
-        padding: 0.5rem;
-        width: 20rem;
     }
 }
 
 .titlePage {
     font-size: 3rem;
     letter-spacing: 0.3rem;
+    text-align: center;
+    margin-bottom: 1rem;
 }
-
 .editorial {
     padding: 0 15rem;
-    gap: 2rem;
+    gap: 1rem;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    margin-top: -2rem;
+}
+
+
+
+
+
+
+// MOBILES
+@media screen and (max-width:769px) {
+    .pageEdit {
+        padding: 0 1rem;
+        width: 100%;
+        margin: 7rem 0 3rem 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+
+        &__select {
+            font-size: 0.8rem;
+            letter-spacing: 0.2rem;
+            padding: 0.1rem;
+            width: 100%;
+            border: none;
+        }
+    }
+    .titlePage {
+        font-size: 2rem;
+        letter-spacing: 0.3rem;
+    }
+    .editorial {
+        padding: 0 1rem;
+        gap: 0rem;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+    }
+}
+
+
+
+// TABLETTES
+@media screen and (min-width:767px) and (max-width:900px) {
+    .pageEdit {
+        padding: 0 4.4rem;
+        width: 100%;
+        margin: 9rem 0 3rem 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+
+        &__select {
+            font-size: 1rem;
+            letter-spacing: 0.2rem;
+            padding: 0.1rem;
+            width: 100%;
+            border: none;
+        }
+    }
+    .titlePage {
+        font-size: 3rem;
+        letter-spacing: 0.3rem;
+    }
+    .editorial {
+        padding: 0 1.5rem;
+        gap: 0rem;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+    }
 }

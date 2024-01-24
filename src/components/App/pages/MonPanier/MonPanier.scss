@@ -1,20 +1,21 @@
+// PC PORTABLE : 
 .panier {
     padding: 0 15rem;
     width: 100%;
-    margin: 10rem 0rem 5rem 0;
+    margin: 7rem 0rem 5rem 0;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     gap: 4rem;
 }
 .panier__list {
     padding: 0 15rem;
-    width: 70%;
+    width: 80%;
     margin: 0 auto;
 }
 .titlePage__panier {
     font-size: 3rem;
     letter-spacing: 0.3rem;
+    text-align: center;
 }
 .panier__price {
     width: 70%;
@@ -28,8 +29,84 @@
 }
 
 .lienVersPaiement {
+    margin: 0 auto;
     width: 70%;
-    text-align: end;
+    text-align: center;
     font-size: 1.5rem;
     margin-bottom: 5rem;
+}
+
+
+
+
+
+
+
+@media screen and (max-width:769px) {
+    .panier {
+        padding: 0 1rem;
+        margin: 7rem 0rem 3rem 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 1rem;
+    }
+    .titlePage__panier {
+        font-size: 2rem;
+        letter-spacing: 0.3rem;
+    }
+    .panier__list {
+        padding: 0 1rem;
+        width: 100%;
+    }
+    .panier__price {
+        width: 100%;
+        margin-bottom: 2rem;
+        font-size: 1rem;
+        letter-spacing: 0.3rem;
+    }
+    .lienVersPaiement {
+        margin: 0 auto;
+        width: 70%;
+        text-align: center;
+        font-size: 1rem;
+        margin-bottom: 5rem;
+    }
+}
+
+
+
+
+
+// TABLETTES
+@media screen and (min-width:767px) and (max-width:900px) {
+    .panier {
+        padding: 0 1rem;
+        margin: 9rem 0rem 3rem 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 1rem;
+    }
+    .titlePage__panier {
+        font-size: 3rem;
+        letter-spacing: 0.3rem;
+    }
+    .panier__list {
+        padding: 0 1rem;
+        width: 70%;
+    }
+    .panier__price {
+        width: 100%;
+        margin-bottom: 2rem;
+        font-size: 1rem;
+        letter-spacing: 0.3rem;
+    }
+    .lienVersPaiement {
+        margin: 0 auto;
+        width: 70%;
+        text-align: center;
+        font-size: 1rem;
+        margin-bottom: 5rem;
+    }
 }

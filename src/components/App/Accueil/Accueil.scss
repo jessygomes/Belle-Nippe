@@ -16,13 +16,13 @@
         text-transform: uppercase;
     }
 
-    &__banner {
-        display: flex;
-        flex-direction: row;
-        justify-content: right;
-        align-items: center;
-        border: 10px solid white;
-    }
+    // &__banner {
+    //     display: flex;
+    //     flex-direction: row;
+    //     justify-content: right;
+    //     align-items: center;
+    //     border: 10px solid white;
+    // }
     &__logoBanner {
         width: 3rem;
         height: 3rem;
@@ -78,4 +78,120 @@
         // transform: scale(.90);
         transition: 0.5s;
     }
+}
+
+
+
+
+
+
+@media screen and (max-width:767px) {
+    .accueil {
+        background-image: url(/fond-treflesbleu2.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 80vh;
+        padding: 0 1.5rem;
+        box-shadow: #00000029 0px 3px 6px, #0000003b 0px 20px 5px;
+        padding-top: 19rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        // &__banner {
+        //     display: flex;
+        //     flex-direction: row;
+        //     justify-content: right;
+        //     align-items: center;
+        //     border: 5px solid white;
+        // }
+        &__logoBanner {
+            width: 10rem;
+            height: 10rem;
+            margin: 0 auto;
+            margin-top: 2rem;
+        }
+        &__slogan {
+            font-family: 'Figtree';
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: white;
+            text-transform: uppercase;
+            padding: 1.2rem;
+            border-radius: 0.2rem;
+            // -webkit-text-stroke: 1px rgb(255, 255, 255); /* Ajoute un contour noir d'une largeur de 1 pixel */
+            // text-stroke: 1px rgb(255, 255, 255);
+            transition: 1s;
+        }
+        &__btnContainer {
+            width: 100%;
+            text-align: center;
+            margin-top: 15rem;
+        }
+        &__btn {
+            padding: 0.5rem 2rem;
+            letter-spacing: .3rem;
+            font-size: 1rem;
+            color: white;
+            transition: .3s ease-in-out;
+            cursor: pointer;
+        }
+    }   
+}
+
+
+
+
+
+// TABLETTES
+@media screen and (min-width:768px) and (max-width:900px) {
+    .accueil {
+        background-image: url(/fond-treflesbleu2.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 80vh;
+        padding: 0 1.5rem;
+        box-shadow: #00000029 0px 3px 6px, #0000003b 0px 20px 5px;
+        padding-top: 19rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        &__logoBanner {
+            width: 10rem;
+            height: 10rem;
+            margin: 0 auto;
+            margin-top: 2rem;
+        }
+        &__slogan {
+            font-family: 'Figtree';
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: white;
+            text-transform: uppercase;
+            padding: 1.2rem;
+            border-radius: 0.2rem;
+            // -webkit-text-stroke: 1px rgb(255, 255, 255); /* Ajoute un contour noir d'une largeur de 1 pixel */
+            // text-stroke: 1px rgb(255, 255, 255);
+            transition: 1s;
+        }
+        &__btnContainer {
+            width: 100%;
+            text-align: center;
+            margin-top: 15rem;
+        }
+        &__btn {
+            padding: 0.5rem 2rem;
+            letter-spacing: .3rem;
+            font-size: 1.5rem;
+            color: white;
+            transition: .3s ease-in-out;
+            cursor: pointer;
+        }
+    }   
+
 }

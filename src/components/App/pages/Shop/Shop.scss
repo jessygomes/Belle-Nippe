@@ -1,35 +1,150 @@
+// PC PORTABLE : 
 .categorie {
     padding: 0 15rem;
     width: 100%;
-    margin: 10rem 0 5rem 0;
+    margin: 7rem 0 5rem 0;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 4rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
+    &__mobileContainer{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        // background-color: aqua;
+    }
     &__select {
         letter-spacing: 0.3rem;
         padding: 0.5rem;
         width: 20rem;
         border: none
     }
-
     &__search {
+        letter-spacing: 0.3rem;
         border: none;
         padding: 0.5rem;
-        width: 20rem;
+        width: 12rem;
     }
 }
 
 .titlePage__shop {
     font-size: 3rem;
     letter-spacing: 0.3rem;
+    margin-bottom: 1rem;
 }
-
 .shop {
-    padding: 0 15rem;
-    gap: 4.9rem;
+    padding: 0 10rem;
+    gap: 1rem;
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    margin-top: -1rem;
+}
+
+
+
+
+
+
+// MOBILES
+@media screen and (max-width:769px) {
+    .categorie {
+        padding: 0 1rem;
+        width: 100%;
+        margin: 7rem 0 3rem 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    
+        &__select {
+            font-size: 0.7rem;
+            letter-spacing: 0.2rem;
+            padding: 0.1rem;
+            width: 100%;
+            border: none;
+        }
+        &__search {
+            font-size: 0.8rem;
+            letter-spacing: 0.2rem;
+            border: none;
+            padding: 0.5rem;
+            width: 100%;
+            border: 1px solid black;
+        }
+        &__mobileContainer{
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+    }
+    .titlePage__shop {
+        font-size: 2rem;
+        letter-spacing: 0.3rem;
+    }
+    .shop {
+        padding: 0 1rem;
+        gap: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+
+
+
+
+// TABLETTES
+@media screen and (min-width:767px) and (max-width:900px) {
+    .categorie {
+        padding: 0 1.5rem;
+        width: 100%;
+        margin: 9rem 0 3rem 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    
+        &__select {
+            font-size: 1rem;
+            letter-spacing: 0.2rem;
+            padding: 0.1rem;
+            width: 100%;
+            border: none;
+        }
+        &__search {
+            font-size: 0.8rem;
+            letter-spacing: 0.2rem;
+            border: none;
+            padding: 0.5rem;
+            width: 100%;
+            border: 1px solid black;
+        }
+        &__mobileContainer{
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+    }
+    .titlePage__shop {
+        font-size: 3rem;
+        letter-spacing: 0.3rem;
+    }
+    .shop {
+        padding: 0 1rem;
+        gap: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }

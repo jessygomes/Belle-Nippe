@@ -9,7 +9,7 @@ export default function Error() {
             <Navbar />
             <div className='error'> 
                 <h2 className='error__title'>Erreur</h2>
-                <p>Nous sommes désolé, une erreur s'est produite.</p>  
+                <p className='error__message'>Nous sommes désolé, une erreur s'est produite.</p>  
             </div> 
             <Footer />
         </div>

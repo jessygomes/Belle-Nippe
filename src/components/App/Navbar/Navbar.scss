@@ -54,13 +54,6 @@
 }
 
 
-
-
-
-
-
-
-// MENU MOBILE 
 .mobile__navbar{
     display: none;
 }
@@ -68,9 +61,86 @@
     color: white;
 }
 
+
+
+
+
+
+
+// MENU MOBILE 
 @media screen and (max-width:769px) {
     .accueil__logo {
         width: 50%;
+    }
+    .accueil__container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 2; /* Assurez-vous que le Navbar est au-dessus du reste du contenu */
+        /* Ajoutez d'autres styles selon vos besoins */
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.3rem 1.5rem;
+        background-color: v.$dark-blue;
+        box-shadow: #00000029 0px 3px 6px, #0000003b 0px 20px 5px;
+    }
+    .accueil__navbar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        background-color: v.$dark-blue;
+        padding: 2rem 3rem;
+        position: absolute;
+        top: 4rem;
+        left: -70%;
+        opacity: 0%;
+        width: 50%;
+        height: 100vh;
+        transition: all 0.5s ease;
+    }
+   .open {
+        left: 0;
+        opacity: 1;
+        transition: all 0.5s ease;
+        z-index: 1;
+    }
+    .accueil__link {
+        letter-spacing: 2px;
+        font-family: 'Figtree';
+        font-size: 1rem;
+        margin-left: 0rem;
+        margin-bottom: 2rem;
+        transition: 0.1s ease-in-out;
+        position: relative;
+        display: table;
+    }
+    .accueil__shop {
+        font-size: 2rem;
+        margin-left: 0rem;
+    }
+    .mobile__navbar{
+        display: block;
+        z-index: 2;
+    }
+    .mobile__navbar i{
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+}
+
+
+
+
+
+
+// TABLETTES
+@media screen and (min-width:767px) and (max-width:900px) {
+    .accueil__logo {
+        width: 40%;
     }
     .accueil__container {
         position: fixed;
@@ -95,7 +165,7 @@
         background-color: v.$dark-blue;
         padding: 2rem 3rem;
         position: absolute;
-        top: 4.5rem;
+        top: 5.5rem;
         left: -70%;
         opacity: 0%;
         width: 50%;
@@ -111,7 +181,7 @@
     .accueil__link {
         letter-spacing: 2px;
         font-family: 'Figtree';
-        font-size: 1.2rem;
+        font-size: 2rem;
         margin-left: 0rem;
         margin-bottom: 2rem;
         transition: 0.1s ease-in-out;
@@ -131,4 +201,3 @@
         cursor: pointer;
     }
 }
-
