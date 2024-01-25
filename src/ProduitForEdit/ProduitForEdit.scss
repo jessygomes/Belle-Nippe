@@ -5,14 +5,14 @@
 .produitForEdit{
     
     &__imgContainer {
-        width: 18rem;
-        height: 18rem;
+        width: 99%;
+        height: 99%;
         overflow: hidden;
         margin-bottom: 1rem;
-        transition: all 0.2s;
+        transition: all 0.3s ease-in-out;
     }
     &__imgContainer:hover {
-        transform:scale(1.1);
+        filter:saturate(2);
     }
     &__photo {
         object-fit: cover;
@@ -21,6 +21,11 @@
     }
     &__title {
         font-family: 'Figtree';
+    }
+    &__name {
+        text-align: center;
+        letter-spacing: 0.3rem;
+        text-transform: uppercase;
     }
 }
 

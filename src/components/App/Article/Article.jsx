@@ -1,11 +1,17 @@
-import { useEffect } from 'react';
-import { Carousel } from 'antd';
-import { Content } from 'antd/es/layout/layout';
+import { useEffect, useState } from 'react';
 import Footer from '../Footer/Footer';
 import Navbar from '../Navbar/Navbar';
 import './Article.scss';
 
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+
 export default function Article() {
+    const [currentSlide, setCurrentSlide] = useState(0);
+
+    const onChange = (index) => {
+        setCurrentSlide(index);
+    };
 
 
     return (
@@ -13,8 +19,27 @@ export default function Article() {
             <Navbar />
             <div className='div__article'>
                     <article className='article'>
-                        <div className='article__imgContainer' >
+                        {/* <div className='article__imgContainer' >
                             <img className='article__photo' src="/Vetements/vrd.png" alt="" />
+                        </div> */}
+                        <div className='article__imgContainer'>
+                            <Carousel showArrows={true} onChange={onChange} selectedItem={currentSlide} showThumbs={false} showStatus={false}>
+                                <div>
+                                    <img className='article__photo' src="/Vetements/vrd.png" />
+                                </div>
+                                <div>
+                                    <img className='article__photo' src="\Vetements\Vet 5.png" />
+                                </div>
+                                <div>
+                                    <img className='article__photo' src="/Vetements/Vet 6.png" />
+                                </div>
+                                <div>
+                                    <img className='article__photo' src="/Vetements/vrd.png"/>
+                                </div>
+                                <div>
+                                    <img className='article__photo' src="/Vetements/Vet 6.png" />
+                                </div>
+                            </Carousel>
                         </div>
                          
 
@@ -30,7 +55,7 @@ export default function Article() {
                             </div>
                         </div>
                     </article>
-                    <div className='otherImg'>
+                    {/* <div className='otherImg'>
                         <div className='article__imgContainer2' >
                             <img className='article__photo' src="\Vetements\Vet 5.png" alt="" />
                         </div>
@@ -43,7 +68,7 @@ export default function Article() {
                         <div className='article__imgContainer2' >
                             <img className='article__photo' src="/Vetements/Vet 6.png" alt="" />
                         </div>
-                    </div>
+                    </div> */}
                    
             </div>
             <Footer/>
