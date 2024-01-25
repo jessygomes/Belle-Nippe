@@ -75,6 +75,24 @@
 } 
 
 
+// GRANDS ECRANS : 
+@media screen and (min-width:1600px) {
+    .collection {
+        padding: 0 25rem;
+
+        &__name {
+            font-size: 4rem;
+        }
+    }
+    .presentationProduit {
+        display: flex;
+        flex-direction: row;
+        padding: 0 25rem;
+        justify-content: space-between;
+    }
+}
+
+
 
 
 

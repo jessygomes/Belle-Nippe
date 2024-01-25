@@ -92,7 +92,28 @@
 }
 
 
-
+// GRANDS ECRANS : 
+@media screen and (min-width:1600px) {
+    .div__article {
+        padding: 0 25rem;
+        margin: 0 auto;
+    }
+    .article{
+        margin: 8rem 0;
+        margin-bottom: 3rem;   
+        column-gap : 11rem;
+        // background-color: aqua;
+    }
+    .otherImg {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+        margin-bottom: 5rem;
+        // background-color: aquamarine;
+    }
+}
 
 
 

@@ -84,7 +84,17 @@
     }
 }
 
-
+// GRANDS ECRANS : 
+@media screen and (min-width:1600px) {
+    .bigLien {
+        &__text {
+            padding: 4rem 25rem;
+        }
+    }
+    .photoShooting {
+        padding: 0 25rem;
+    }
+}
 
 
 
@@ -128,9 +138,10 @@
         flex-wrap: wrap;
         justify-content: center;
         padding-bottom: 4rem;
+        gap: 1rem;
     
         &__shot{
-            width: 10rem;
+            width: 12rem;
             height: auto;
         }
     }
@@ -175,11 +186,13 @@
         padding: 0 1.5rem;
         display: flex;
         flex-wrap: wrap;
+        flex-direction: column;
         justify-content: center;
         padding-bottom: 4rem;
+        gap: 1rem;
     
         &__shot{
-            width: 17rem;
+            width: 20rem;
             height: auto;
         }
     }

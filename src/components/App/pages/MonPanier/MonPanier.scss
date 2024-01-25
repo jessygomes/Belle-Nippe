@@ -38,7 +38,15 @@
 
 
 
-
+// GRANDS ECRANS : 
+@media screen and (min-width:1600px) {
+    .panier {
+        padding: 0 25rem;
+    }
+    .panier__list {
+        padding: 0 25rem;
+    }
+}
 
 
 

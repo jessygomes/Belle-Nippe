@@ -33,6 +33,17 @@
 
 
 
+// GRANDS ECRANS : 
+@media screen and (min-width:1600px) {
+    .pageEdit {
+        padding: 0 25rem;
+    }
+    .editorial {
+        padding: 0 25rem;
+        justify-content: space-between;
+    }
+}
+
 
 
 
