@@ -26,6 +26,7 @@
         box-shadow: #0000004b 0px 3px 6px, #072a3d58 0px 20px 20px;
         width: 30rem;
         height: auto;
+        overflow: hidden;
         // margin-bottom: 1rem;
     }
     &__photo {
@@ -35,7 +36,7 @@
     }
 
     &__description {
-        width: 25%;
+        width: 30%;
     }
     &__desc {
         margin-bottom: 0.5rem;
@@ -88,7 +89,7 @@
     flex-wrap: wrap;
     gap: 2rem;
     margin-bottom: 5rem;
-    // background-color: aquamarine;
+    background-color: aquamarine;
 }
 
 
@@ -116,7 +117,7 @@
 }
 
 
-
+// MOBILES
 @media screen and (max-width:767px) {
     .div__article {
         padding: 0 1rem;
@@ -124,7 +125,6 @@
         flex-wrap: wrap;
         margin-bottom: 2rem;
     }
-
     .article{
         margin: 6.5rem 0;
         margin-bottom: 2rem;
