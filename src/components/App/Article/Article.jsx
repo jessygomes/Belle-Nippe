@@ -13,7 +13,6 @@ export default function Article() {
         setCurrentSlide(index);
     };
 
-
     return (
         <div>
             <Navbar />
@@ -68,11 +67,9 @@ export default function Article() {
                         <div className='article__imgContainer2' >
                             <img className='article__photo' src="/Vetements/Vet 6.png" alt="" />
                         </div>
-                    </div> */}
-                   
+                    </div> */}  
             </div>
             <Footer/>
-        </div>
-       
+        </div> 
     )
 }

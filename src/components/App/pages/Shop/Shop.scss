@@ -1,6 +1,6 @@
 // PC PORTABLE : 
 .categorie {
-    padding: 0 15rem;
+    padding: 0 10rem;
     width: 100%;
     margin: 7rem 0 5rem 0;
     display: flex;
@@ -12,16 +12,15 @@
         width: 100%;
         display: flex;
         flex-direction: row;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
         gap: 1rem;
-        // background-color: aqua;
     }
     &__select {
         letter-spacing: 0.3rem;
         padding: 0.5rem;
         width: 20rem;
-        border: none
+        border: none;
     }
     &__search {
         letter-spacing: 0.3rem;
@@ -42,7 +41,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-evenly;
     margin-top: -1rem;
 }
 

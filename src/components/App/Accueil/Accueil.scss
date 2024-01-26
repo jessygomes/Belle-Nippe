@@ -53,7 +53,7 @@
     &__btnContainer {
         width: 100%;
         text-align: center;
-        margin-top: 16.5rem;
+        margin-top: 15rem;
     }
     &__btn {
         margin: 0 auto;
@@ -65,7 +65,7 @@
         font-weight: 400;
         color: white;
         // border: solid 2px v.$otherLight-blue;
-        // border-radius: 0.2rem;
+        border-radius: 0.3rem;
         overflow: hidden;
         transition: .3s ease-in-out;
         cursor: pointer;
@@ -128,7 +128,7 @@
         &__btnContainer {
             width: 100%;
             text-align: center;
-            margin-top: 15rem;
+            margin-top: 10rem;
         }
         &__btn {
             padding: 0.5rem 2rem;
