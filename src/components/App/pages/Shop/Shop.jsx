@@ -8,7 +8,7 @@ export default function Shop() {
         <div>
             <Navbar />
             <div className='categorie'>
-                <h2 className='titlePage__shop'>Shop</h2>
+                <h2 className='titlePage'>Shop</h2>
                 <div className='categorie__mobileContainer'>
                     <select className='categorie__select' name="" id="">
                         <option value="">Tous les produits</option>

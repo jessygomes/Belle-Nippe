@@ -12,11 +12,6 @@
     width: 80%;
     margin: 0 auto;
 }
-.titlePage__panier {
-    font-size: 3rem;
-    letter-spacing: 0.3rem;
-    text-align: center;
-}
 .panier__price {
     width: 70%;
     margin: 0 auto;
@@ -59,10 +54,6 @@
         justify-content: center;
         gap: 1rem;
     }
-    .titlePage__panier {
-        font-size: 2rem;
-        letter-spacing: 0.3rem;
-    }
     .panier__list {
         padding: 0 1rem;
         width: 100%;
@@ -95,10 +86,6 @@
         flex-direction: row;
         justify-content: center;
         gap: 1rem;
-    }
-    .titlePage__panier {
-        font-size: 3rem;
-        letter-spacing: 0.3rem;
     }
     .panier__list {
         padding: 0 1rem;

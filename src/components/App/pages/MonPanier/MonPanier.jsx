@@ -9,7 +9,7 @@ export default function MonPanier() {
         <div>
             <Navbar />
             <div className='panier'>
-                <h2 className='titlePage__panier'>Mon Panier</h2>
+                <h2 className='titlePage'>Mon Panier</h2>
             </div>
             <div className='panier__list'>
                 <ProduitForPanier />

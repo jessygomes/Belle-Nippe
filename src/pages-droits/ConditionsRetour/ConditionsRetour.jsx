@@ -7,7 +7,7 @@ export default function ConditionsRetour() {
         <div>
             <Navbar />
             <div className='conditionsRetour'> 
-                <h2 className='titlePage'>Conditions de retours</h2>
+                <h2 className='titlePage'>Conditions de retour</h2>
                 <p className='conditionsRetour__message'>Grand texte</p>  
             </div> 
             <Footer />
