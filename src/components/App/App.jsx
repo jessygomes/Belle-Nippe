@@ -17,6 +17,7 @@ import PolitiqueRetour from '../../pages-droits/PolitiqueRetour/PolitiqueRetour'
 import PolitiqueConfidentialite from '../../pages-droits/PolitiqueConfidentialite/PolitiqueConfidentialite';
 import ConditionsRetour from '../../pages-droits/ConditionsRetour/ConditionsRetour';
 import Contact from '../../pages-droits/Contact/Contact';
+import CollectionPage from './pages/CollectionPage/CollectionPage';
 
 function App() {
 
@@ -31,11 +32,16 @@ function App() {
     <Noise />
     <Routes>
       <Route path="/" element={<Accueil />} />
+
       <Route path="/shop" element={<Shop />} />
+      <Route path='/shop/:name' element={<Article />} />
+
       <Route path="/editorial" element={<Editorial />} />
+      <Route path='/editorial/:name' element={<CollectionPage />} />
+
       <Route path="/apropos" element={<Propos/>} />
-      <Route path="monpanier" element={<MonPanier />} />
-      <Route path="shop/nomArticle" element={<Article />} />
+      <Route path="/monpanier" element={<MonPanier />} />
+
       <Route path="contact" element={<Contact />} />
       <Route path="/conditionutilisation" element={<ConditionUtilisation />} />
       <Route path="/politiquedeconfidentialite" element={<PolitiqueConfidentialite />} />

@@ -5,11 +5,11 @@ export default function BigLienVersProduits() {
     return (
         <section className='bigLien'>
             <div className='bigLien__vet'>
-                <Link className='bigLien__vetement1' href="shop/vetements">
+                <Link className='bigLien__vetement1' to="/shop">
                     Vête <br /> ments
                     {/* <p className='bigLien__textVet'>Vête <br />ment</p> */}
                 </Link>
-                <Link className='bigLien__vetement2' href="shop/accessoires">
+                <Link className='bigLien__vetement2' to="/shop">
                     Acces <br /> soires
                     {/* <p className='bigLien__textVet2'>Accessoires</p> */}
                 </Link>

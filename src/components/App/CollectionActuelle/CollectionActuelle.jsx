@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Produit from '../Produit/Produit';
 import './CollectionActuelle.scss';
 
@@ -33,9 +34,9 @@ export default function CollectionActuelle() {
                 <Produit />
             </div>
             <div className='lienVersCollection'>
-                <a className='lienVersCollection__links' href="/shop/:collection">
+                <Link className='lienVersCollection__links' to="/shop">
                 <button className='accueil__btn'>Voir la collection</button>
-                </a>
+                </Link>
             </div>
         </section>
     )

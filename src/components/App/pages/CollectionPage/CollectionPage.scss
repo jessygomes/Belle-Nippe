@@ -1,0 +1,17 @@
+// PC PORTABLE : 
+.collectionPage {
+    padding: 0 10rem;
+    width: 100%;
+    margin: 7rem 0 2rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &__produits {
+        margin-top: 2rem;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}

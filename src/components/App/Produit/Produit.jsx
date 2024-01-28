@@ -4,7 +4,7 @@ import './Produit.scss';
 export default function Produit() {
     return (
         <div className='div__produit'>
-            <Link to="shop/nomArticle">
+            <Link to="/shop/:name">
                 <article className='produit'>
                     <div className='produit__imgContainer' >
                         <img className='produit__photo' src="/Vetements/vrd.png" alt="" />

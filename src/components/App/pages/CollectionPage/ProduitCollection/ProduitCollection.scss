@@ -1,0 +1,19 @@
+.div__produitCollection {
+    margin-bottom: 4rem;
+}
+
+.produitCollection {
+
+    &__imgContainer {
+        width: 25rem;
+        height: 25rem;
+        overflow: hidden;
+        border-radius: 0.3rem;
+    }
+
+    &__photo {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+}

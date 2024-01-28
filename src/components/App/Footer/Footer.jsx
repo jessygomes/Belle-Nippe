@@ -18,12 +18,12 @@ export default function Footer() {
                 <div>
                     <ul>
                         <li className='footer__titleSection'>SERVICE CLIENT</li>
-                        <li><Link className='footer__linkMobile' to="conditionutilisation">Conditions d'utilisation</Link></li>
-                        <li><Link className='footer__linkMobile' to="politiquedeconfidentialite">Politique de confidentialité</Link></li>
-                        <li><Link className='footer__linkMobile' to="politiquederetour">Politique de retour</Link></li>
-                        <li><Link className='footer__linkMobile' to="conditionsderetour">Conditions de retour</Link></li>
-                        <li><Link className='footer__linkMobile' to="cgv">CGV</Link></li>
-                        <li><Link className='footer__linkMobile' to="mentionslegales">Mentions légales</Link></li>
+                        <li><Link className='footer__linkMobile' to="/conditionutilisation">Conditions d'utilisation</Link></li>
+                        <li><Link className='footer__linkMobile' to="/politiquedeconfidentialite">Politique de confidentialité</Link></li>
+                        <li><Link className='footer__linkMobile' to="/politiquederetour">Politique de retour</Link></li>
+                        <li><Link className='footer__linkMobile' to="/conditionsderetour">Conditions de retour</Link></li>
+                        <li><Link className='footer__linkMobile' to="/cgv">CGV</Link></li>
+                        <li><Link className='footer__linkMobile' to="/mentionslegales">Mentions légales</Link></li>
                     </ul>
                 </div>
                 <div>
