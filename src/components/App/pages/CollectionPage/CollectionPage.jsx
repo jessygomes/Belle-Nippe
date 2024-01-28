@@ -9,7 +9,7 @@ export default function CollectionPage() {
             <Navbar />
             
             <div className='collectionPage'>
-                <h2 className='titlePage'>Collection 'NameCollection'</h2>
+                <h2 className='titlePage'>Collection NAME</h2>
                 <div className='collectionPage__produits'>
                     <ProduitCollection />
                     <ProduitCollection />
