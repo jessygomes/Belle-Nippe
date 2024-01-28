@@ -9,11 +9,59 @@
         height: 25rem;
         overflow: hidden;
         border-radius: 0.3rem;
+        box-shadow: #0000004b 0px 3px 6px, #072a3d58 0px 20px 20px;
     }
 
     &__photo {
         object-fit: cover;
         width: 100%;
         height: 100%;
+    }
+}
+
+// GRANDS ECRANS : 
+@media screen and (min-width:1600px) {
+    .produitCollection{
+    
+        &__imgContainer {
+            width: 30rem;
+            height: 30rem;
+        }
+    }
+}
+
+
+@media screen and (max-width:769px) {
+
+    .produitCollection {
+        
+        &__imgContainer {
+            width: 16rem;
+            height: 16rem;
+            margin-bottom: 0.5rem;
+            transition: all 0.2s;
+        }
+        &__photo {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+
+// TABLETTES
+@media screen and (min-width:767px) and (max-width:900px) {
+    .produitCollection {
+        
+        &__imgContainer {
+            width: 25rem;
+            height: 25rem;
+            margin-bottom: 0.5rem;
+            transition: all 0.2s;
+        }
+        &__photo {
+            width: 100%;
+            height: 100%;
+        }
     }
 }

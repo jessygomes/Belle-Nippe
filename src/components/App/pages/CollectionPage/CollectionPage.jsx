@@ -9,15 +9,15 @@ export default function CollectionPage() {
             <Navbar />
             
             <div className='collectionPage'>
-            <h2 className='titlePage'>Collection 'NameCollection'</h2>
-            <div className='collectionPage__produits'>
-                <ProduitCollection />
-                <ProduitCollection />
-                <ProduitCollection />
-                <ProduitCollection />
-                <ProduitCollection />
-                <ProduitCollection />
-            </div>
+                <h2 className='titlePage'>Collection 'NameCollection'</h2>
+                <div className='collectionPage__produits'>
+                    <ProduitCollection />
+                    <ProduitCollection />
+                    <ProduitCollection />
+                    <ProduitCollection />
+                    <ProduitCollection />
+                    <ProduitCollection />
+                </div>
             </div>
             <Footer />
         </div>
