@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './Footer.scss';
 
 export default function Footer() {
@@ -10,19 +11,19 @@ export default function Footer() {
                 <div>
                     <ul>
                         <li className='footer__titleSection'>BELLE NIPPE</li>
-                        <li><a className='footer__linkMobile' href="/apropos">A Propos</a></li>
-                        <li><a className='footer__linkMobile' href="/contact">Contact</a></li>
+                        <li><Link className='footer__linkMobile' to="/apropos">A Propos</Link></li>
+                        <li><Link className='footer__linkMobile' to="/contact">Contact</Link></li>
                     </ul>
                 </div>
                 <div>
                     <ul>
                         <li className='footer__titleSection'>SERVICE CLIENT</li>
-                        <li><a className='footer__linkMobile' href="conditionutilisation">Conditions d'utilisation</a></li>
-                        <li><a className='footer__linkMobile' href="politiquedeconfidentialite">Politique de confidentialité</a></li>
-                        <li><a className='footer__linkMobile' href="politiquederetour">Politique de retour</a></li>
-                        <li><a className='footer__linkMobile' href="conditionsderetour">Conditions de retour</a></li>
-                        <li><a className='footer__linkMobile' href="cgv">CGV</a></li>
-                        <li><a className='footer__linkMobile' href="mentionslegales">Mentions légales</a></li>
+                        <li><Link className='footer__linkMobile' to="conditionutilisation">Conditions d'utilisation</Link></li>
+                        <li><Link className='footer__linkMobile' to="politiquedeconfidentialite">Politique de confidentialité</Link></li>
+                        <li><Link className='footer__linkMobile' to="politiquederetour">Politique de retour</Link></li>
+                        <li><Link className='footer__linkMobile' to="conditionsderetour">Conditions de retour</Link></li>
+                        <li><Link className='footer__linkMobile' to="cgv">CGV</Link></li>
+                        <li><Link className='footer__linkMobile' to="mentionslegales">Mentions légales</Link></li>
                     </ul>
                 </div>
                 <div>

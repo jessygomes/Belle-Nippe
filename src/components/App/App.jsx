@@ -1,14 +1,22 @@
+import { useEffect } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
+import './App.scss';
+
 import Accueil from './Accueil/Accueil';
 import Shop from './pages/Shop/Shop';
 import Noise from './Noise/Noise';
 import Editorial from './pages/Editorial/Editorial';
-import './App.scss';
 import MonPanier from './pages/MonPanier/MonPanier';
 import Article from './Article/Article';
 import Propos from './pages/Propos/Propos';
-import { useEffect } from 'react';
 import Error from './Error/Error';
+import ConditionUtilisation from '../../pages-droits/ConditionUtilisation/ConditionUtilisation';
+import MentionsLegales from '../../pages-droits/MentionsLegales/MentionsLegales';
+import CGV from '../../pages-droits/CGV/CGV';
+import PolitiqueRetour from '../../pages-droits/PolitiqueRetour/PolitiqueRetour';
+import PolitiqueConfidentialite from '../../pages-droits/PolitiqueConfidentialite/PolitiqueConfidentialite';
+import ConditionsRetour from '../../pages-droits/ConditionsRetour/ConditionsRetour';
+import Contact from '../../pages-droits/Contact/Contact';
 
 function App() {
 
@@ -24,17 +32,17 @@ function App() {
     <Routes>
       <Route path="/" element={<Accueil />} />
       <Route path="/shop" element={<Shop />} />
-      <Route path="editorial" element={<Editorial />} />
-      <Route path="apropos" element={<Propos/>} />
+      <Route path="/editorial" element={<Editorial />} />
+      <Route path="/apropos" element={<Propos/>} />
       <Route path="monpanier" element={<MonPanier />} />
       <Route path="shop/nomArticle" element={<Article />} />
-      {/* <Route path="contact" element={<Contact />} />
-      <Route path="conditionutilisation" element={<ConditionUtilisation />} />
-      <Route path="politiquedeconfidentialite" element={<PolitiqueDeConfidentialite />} />
-      <Route path="politiquederetour" element={<PpolitiqueDeRetour />} />
-      <Route path="conditionsderetour" element={<ConditionsDeRetour />} />
-      <Route path="cgv" element={<CGV />} />
-      <Route path="mentionslegales" element={<MentionsLegales />} /> */}
+      <Route path="contact" element={<Contact />} />
+      <Route path="/conditionutilisation" element={<ConditionUtilisation />} />
+      <Route path="/politiquedeconfidentialite" element={<PolitiqueConfidentialite />} />
+      <Route path="/politiquederetour" element={<PolitiqueRetour />} />
+      <Route path="/conditionsderetour" element={<ConditionsRetour />} />
+      <Route path="/cgv" element={<CGV />} />
+      <Route path="/mentionslegales" element={<MentionsLegales />} />
       <Route path="*" element={<Error />} />
     </Routes>
   </div>;

@@ -1,0 +1,50 @@
+.politiqueRetour {
+    padding: 10rem 15rem;
+
+    &__message {
+        margin-top: 2rem;
+    }
+}
+
+
+// GRANDS ECRANS : 
+@media screen and (min-width:1600px) {
+    .politiqueRetour {
+        padding: 10rem 25rem;
+    }
+}
+    
+    
+@media screen and (max-width:769px) {
+    .politiqueRetour {
+        padding: 8rem 1.5rem;
+        
+            &__title {
+                font-size: 2rem;
+                text-align: center;
+            }
+            &__message{
+                font-size: 0.8rem;
+                text-align: left;
+                margin-top: 2rem;
+            }
+        }
+}
+
+
+// TABLETTES
+@media screen and (min-width:767px) and (max-width:900px) {
+    .politiqueRetour {
+        padding: 0 4.4rem;
+        width: 100%;
+        margin: 9rem 0 3rem 0;
+        display: flex;
+        flex-direction: column;
+
+        &__message{
+            font-size: 1rem;
+            text-align: left;
+            margin-top: 2rem;
+        }
+    }
+}
