@@ -15,11 +15,11 @@
     transition: background-color 0.5s ease-in-out;
 }
 .accueil__container.scrolled {
-    background-color: v.$dark-blue;
+    background-color: v.$black;
     box-shadow: #00000029 0px 3px 6px, #0000003b 0px 20px 5px;
 }
 .accueil__container.otherpage {
-    background-color: v.$dark-blue;
+    background-color: v.$black;
     box-shadow: #00000029 0px 3px 6px, #0000003b 0px 20px 5px;
 }
 .accueil__logo {
@@ -63,7 +63,15 @@
 
 
 
-
+// GRANDS ECRANS
+@media screen and (min-width:1600px) {
+    .accueil__container {
+        padding: 1.3rem 25rem;
+    }
+    .accueil__link {
+        font-size: 1.5rem;
+    }
+}
 
 
 
@@ -84,7 +92,7 @@
         justify-content: space-between;
         align-items: center;
         padding: 1.3rem 1.5rem;
-        background-color: v.$dark-blue;
+        background-color: v.$black;
         box-shadow: #00000029 0px 3px 6px, #0000003b 0px 20px 5px;
     }
     .accueil__navbar {
@@ -92,7 +100,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
-        background-color: v.$dark-blue;
+        background-color: v.$black;
         padding: 2rem 3rem;
         position: absolute;
         top: 4rem;

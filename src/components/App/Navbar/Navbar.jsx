@@ -12,7 +12,7 @@ export default function Navbar() {
     const closeMobileMenu = () => setClick(false);
 
     useEffect(() => {
-        // Mettez à jour l'état en fonction de la localisation
+        // Mettre à jour l'état en fonction de la localisation
         setIsHomePage(location.pathname === '/');
     }, [location.pathname]);
 
@@ -35,13 +35,13 @@ export default function Navbar() {
             }
         };
 
-        // Attachez l'écouteur d'événements scroll uniquement lorsque vous êtes sur la page d'accueil
+        // Attacher l'écouteur d'événements scroll uniquement lorsque je suis sur la page d'accueil
         if (isHomePage) {
             document.addEventListener('scroll', handleScroll);
         }
 
         return () => {
-            // Retirez l'écouteur d'événements scroll lorsque vous quittez la page d'accueil
+            // Retirer l'écouteur d'événements scroll lorsque je quitte la page d'accueil
             document.removeEventListener('scroll', handleScroll);
         };
     }, [location.pathname, isHomePage]);

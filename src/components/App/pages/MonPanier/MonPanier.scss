@@ -1,8 +1,10 @@
+@use '@scssVariables' as v;
+
 // PC PORTABLE : 
 .panier {
     padding: 0 15rem;
     width: 100%;
-    margin: 7rem 0rem 5rem 0;
+    margin: 7rem 0rem 2rem 0;
     display: flex;
     justify-content: center;
     gap: 4rem;
@@ -22,15 +24,9 @@
     font-size: 1.5rem;
     letter-spacing: 0.3rem;
 }
-
-.lienVersPaiement {
-    margin: 0 auto;
-    width: 70%;
-    text-align: center;
-    font-size: 1.5rem;
-    margin-bottom: 5rem;
+#paiement-btn{
+    margin-bottom: 4rem;
 }
-
 
 
 // GRANDS ECRANS : 

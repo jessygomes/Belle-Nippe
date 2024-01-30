@@ -13,7 +13,7 @@
 
     &__vetement1 {
         width: 100%;
-        background-color: v.$dark-blue;
+        background-color: v.$black;
         padding: 2rem 0rem;
         padding-left: 0rem;
         padding-right: 0rem;
@@ -27,8 +27,8 @@
         transition: 0.5s ease-in-out;
     }
     &__vetement1:hover {
-        background-color: v.$hoverBlue;
-        color: #072A3D;
+        background-color: v.$hoverBeige;
+        color: v.$black;
         transition: 0.3s ease-in-out;
     }
     &__vetement2 {
@@ -39,14 +39,14 @@
         text-align: center;
         font-size: 3rem;
         letter-spacing: 0.8rem;
-        color: v.$dark-blue;
+        color: v.$black;
         text-transform: uppercase;
         font-weight: 800;
         line-height: 3rem;
         transition: 0.5s ease-in-out;
     }
     &__vetement2:hover {
-        background-color: v.$hoverBlue;
+        background-color: v.$hoverBeige;
         color: v.$grey;
         transition: 0.3s ease-in-out;
     }

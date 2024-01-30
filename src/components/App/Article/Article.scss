@@ -1,3 +1,4 @@
+@use '@scssVariables' as v;
 
 // PC PORTABLE : 
 .div__article {
@@ -21,13 +22,7 @@
         height: auto;
         overflow: hidden;
         margin-bottom: 1rem;
-    }
-    &__imgContainer2{
-        box-shadow: #0000004b 0px 3px 6px, #072a3d58 0px 20px 20px;
-        width: 30rem;
-        height: auto;
-        overflow: hidden;
-        // margin-bottom: 1rem;
+        border-radius: 0.3rem;
     }
     &__photo {
         object-fit: cover;
@@ -70,14 +65,16 @@
     font-weight: 400;
     color: #ffffff;
     overflow: hidden;
+    border-radius: 0.3rem;
     transition: .3s ease-in-out;
     cursor: pointer;
-    background-color: #072A3D;
+    background-color: v.$black;
 }
 .article__btn:hover {
     background-color: #D9D9D9;
-    color: #072A3D;
+    color: v.$black;
     transition: 0.5s;
+    box-shadow: #00000029 0px 3px 6px, #0000003b 0px 20px 5px;
 }
 .lienVersAjoutPanier {
     text-align: center;
@@ -89,7 +86,6 @@
     flex-wrap: wrap;
     gap: 2rem;
     margin-bottom: 5rem;
-    background-color: aquamarine;
 }
 
 
@@ -98,21 +94,32 @@
     .div__article {
         padding: 0 25rem;
         margin: 5rem auto;
+        
     }
     .article{
         margin: 8rem 0;
         margin-bottom: 3rem;   
-        column-gap : 11rem;
-        // background-color: aqua;
-    }
-    .otherImg {
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
         justify-content: center;
-        gap: 2rem;
-        margin-bottom: 5rem;
-        // background-color: aquamarine;
+
+        &__title {
+            font-family: 'Figtree';
+            font-size: 1.7rem;
+            font-weight: 900;
+            letter-spacing: 0.3em;
+        }
+        &__price {
+            font-size: 1.5rem;
+        }
+        &__unique {
+            font-size: 1.5rem;
+        }
+        &__explain {
+            font-size: 1rem;
+            color: grey;
+        }   
+    }
+    .article__btn {
+        font-size: 1rem;
     }
 }
 
