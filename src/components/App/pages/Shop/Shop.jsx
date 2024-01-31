@@ -1,9 +1,14 @@
+import { useSelector } from 'react-redux';
+
 import './Shop.scss';
 import Navbar from '../../Navbar/Navbar';
 import Footer from '../../Footer/Footer';
 import Produit from '../../Produit/Produit';
 
 export default function Shop() {
+    const items = useSelector((state) => state.shop.listItems);
+    console.log('items:' , items)
+
     return (
         <div>
             <Navbar />
@@ -25,14 +30,17 @@ export default function Shop() {
                 </div>
             </div>
             <div className='shop'>
+                {items.map((item) => (
+                    <Produit 
+                        key={item.id}
+                        slug={item.slug} 
+                        title={item.title}
+                        price={item.price} 
+                    />
+                ))}
+                {/* <Produit />
                 <Produit />
-                <Produit />
-                <Produit />
-                <Produit />
-                <Produit />
-                <Produit />
-                <Produit />
-                <Produit />
+                <Produit /> */}
             </div>
             <div className='lienVersCollection'>
                 <a className='lienVersCollection__links' href="/shop">

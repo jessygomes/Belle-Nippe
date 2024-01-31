@@ -1,6 +1,6 @@
 import './PolitiqueConfidentialite.scss';
-import Footer from '../../components/App/Footer/Footer';
-import Navbar from '../../components/App/Navbar/Navbar';
+import Footer from '../../Footer/Footer';
+import Navbar from '../../Navbar/Navbar';
 
 export default function PolitiqueConfidentialite() {
     return (

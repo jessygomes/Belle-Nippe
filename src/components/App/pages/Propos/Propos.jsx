@@ -1,7 +1,6 @@
 import './Propos.scss';
 import Navbar from '../../Navbar/Navbar';
 import Footer from '../../Footer/Footer';
-import ProduitForEdit from '../../../../ProduitForEdit/ProduitForEdit';
 
 export default function Propos() {
     return (
