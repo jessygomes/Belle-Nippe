@@ -1,6 +1,6 @@
 import './Inventaire.scss';
 
-export default function Inventaire() {
+export default function Inventaire({ item }) {
   return (
     <div className="inventaire">
       <div className="inventaire__card">
@@ -8,17 +8,25 @@ export default function Inventaire() {
           <img className="inventaire__photo" src="/Vetements/vrd.png" alt="" />
         </div>
         <div className="inventaire__cardInfo">
-          <h2 className="inventaire__cardTitle">Veste Wallow</h2>
+          <h2 className="inventaire__cardTitle">{item.title}</h2>
           <p className="inventaire__cardDesc">
-            Article upccling a partir de jean de de soie ainsi que tous les
-            élements artistique de ma démarche créative pour confectionner une
-            oeuvre. Entretien : laver à la main et ne pas mettre à la machine à
-            laver.', collection: 'Candy
+            Description : {item.description}
           </p>
-          <p className="inventaire__cardStock">Stock : 1</p>
+          <p className="inventaire__cardStock">Stock : {item.stock}</p>
+          <p className="inventaire__cardStock">Prix : {item.price} €</p>
+          <p className="inventaire__cardStock">
+            Catégorie : {item.category_ids}
+          </p>
+          <p className="inventaire__cardStock">
+            Collection : {item.collection_id}
+          </p>
           <div className="inventaire__cardBtn">
-            <button className="inventaire__btn">Modifier</button>
-            <button className="inventaire__btn">Supprimer</button>
+            <button className="inventaire__btn" type="button">
+              Modifier
+            </button>
+            <button className="inventaire__btn" type="button">
+              Supprimer
+            </button>
           </div>
         </div>
       </div>

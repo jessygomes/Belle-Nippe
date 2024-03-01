@@ -11,6 +11,7 @@ export const initialState = {
   description: '',
   collection_id: null,
   category_ids: null,
+  active: false,
   listItems: [],
 };
 
@@ -20,15 +21,20 @@ const shopSlice = createSlice({
   reducers: {
     setItemsFromApi: (state, action) => {
       const data = action.payload;
-      console.log('data', data);
       return {
         ...state,
         listItems: data,
       };
     },
+    changeFieldValue: (state, action) => {
+      return {
+        ...state,
+        [action.payload.inputName]: action.payload.inputValue,
+      };
+    },
   },
 });
 
-export const { setItemsFromApi } = shopSlice.actions;
+export const { setItemsFromApi, changeFieldValue } = shopSlice.actions;
 
 export default shopSlice.reducer;

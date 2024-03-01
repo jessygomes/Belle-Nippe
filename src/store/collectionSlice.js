@@ -4,6 +4,7 @@ export const initialState = {
   id: null,
   title: '',
   description: '',
+  active: false,
   listCollections: [],
 };
 
@@ -18,9 +19,48 @@ const collectionSlice = createSlice({
         listCollections: data,
       };
     },
+    changeFieldValue: (state, action) => {
+      return {
+        ...state,
+        [action.payload.inputName]: action.payload.inputValue,
+      };
+    },
+    handleCreateCollection: (state, action) => {
+      const newCollection = action.payload;
+      return {
+        ...state,
+        listCollections: [...state.listCollections, newCollection],
+      };
+    },
+    handleUpdateCollection: (state, action) => {
+      const updatedCollection = action.payload;
+      return {
+        ...state,
+        listCollections: state.listCollections.map((collection) =>
+          collection.id === updatedCollection.id
+            ? updatedCollection
+            : collection
+        ),
+      };
+    },
+    deleteCollection: (state, action) => {
+      const collectionId = action.payload;
+      return {
+        ...state,
+        listCollections: state.listCollections.filter(
+          (collection) => collection.id !== collectionId
+        ),
+      };
+    },
   },
 });
 
-export const { setCollectionFromApi } = collectionSlice.actions;
+export const {
+  setCollectionFromApi,
+  changeFieldValue,
+  handleCreateCollection,
+  handleUpdateCollection,
+  deleteCollection,
+} = collectionSlice.actions;
 
 export default collectionSlice.reducer;

@@ -6,7 +6,6 @@ const categoryMiddleware = (store) => (next) => (action) => {
     fetch('http://localhost:4000/categories')
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         store.dispatch(setCategoryFromApi(data));
       })
       .catch((error) => {

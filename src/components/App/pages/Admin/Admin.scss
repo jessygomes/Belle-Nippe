@@ -1,52 +1,137 @@
 @use '@scssVariables' as v;
 
 .admin {
-	&__navbar {
-		background-color: black;
-		display: flex;
-		flex-direction: row;
-		justify-content:space-around;
-		align-items: center;
-		padding: 2rem;
-	}
-	&__navbarLinks {
-		display: flex;
-		gap: 2rem;
-	}
-	&__link {
-		color: aliceblue;
-	}
+  &__navbar {
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem;
+  }
+  &__navbarLinks {
+    display: flex;
+    gap: 2rem;
+  }
+  &__link {
+    color: aliceblue;
+  }
 
-	&__actions {
-		margin-top: 2rem;
-		margin-left: 2rem;
-		display: flex;
-		justify-content: start;
-		gap: 1rem;
-	}
-	&__actionBtn {
-		background-color: black;
-		color: aliceblue;
-		cursor: pointer;
-		padding: 1rem;
-	}
+  &__actions {
+    margin-top: 2rem;
+    margin-left: 2rem;
+    display: flex;
+    justify-content: start;
+    gap: 1rem;
+  }
+  &__actionBtn {
+    background-color: black;
+    color: aliceblue;
+    cursor: pointer;
+    padding: 1rem;
+  }
 
-	&__onglet {
-		display: flex;
-		flex-direction: row;
-		gap: 1rem;
-		padding: 1rem;
-	}
+  &__onglet {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+  }
 
-	&__title {
-		font-size: 2rem;
-		margin: 2rem 0 2rem 2rem;
-	}
+  &__title {
+    font-size: 2rem;
+    margin: 2rem 0 2rem 2rem;
+  }
 
-	&__inventaireList {
-		margin-top: 2rem;
-		display: flex;
-		flex-direction: column;
-		gap: 1rem;
-	}
+  &__collectionList {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 1rem;
+    width: 50%;
+  }
+
+  &___collectionCard {
+    background-color: aqua;
+  }
+
+  &__inventaire {
+    width: 45%;
+  }
+
+  &__inventaireList {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+}
+.modal {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    padding: 1rem;
+  }
+  &__title {
+    margin-bottom: 1rem;
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  &__inputDesc {
+    width: 40rem;
+    padding: 0.5rem;
+    border-radius: 10px;
+    background: white;
+  }
+  &__btn {
+    background: black;
+    padding: 0.5rem;
+    border-radius: 10px;
+    text-align: center;
+    color: aliceblue;
+    width: 15rem;
+    margin: 0 auto;
+  }
+  &__close {
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: black;
+  }
+  &__btnAnnuler {
+    background: black;
+    padding: 0.5rem;
+    border-radius: 10px;
+    text-align: center;
+    color: aliceblue;
+    width: 15rem;
+    margin: 1rem auto;
+  }
+
+  &__btnSupp {
+    background: red;
+    padding: 0.5rem;
+    border-radius: 10px;
+    text-align: center;
+    color: aliceblue;
+    width: 15rem;
+    margin: 1 auto;
+  }
 }

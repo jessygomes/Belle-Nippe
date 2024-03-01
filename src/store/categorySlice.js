@@ -17,9 +17,15 @@ const categorySlice = createSlice({
         listCategories: data,
       };
     },
+    changeFieldValue: (state, action) => {
+      return {
+        ...state,
+        [action.payload.inputName]: action.payload.inputValue,
+      };
+    },
   },
 });
 
-export const { setCategoryFromApi } = categorySlice.actions;
+export const { setCategoryFromApi, changeFieldValue } = categorySlice.actions;
 
 export default categorySlice.reducer;

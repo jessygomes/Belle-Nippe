@@ -1,6 +1,6 @@
 @use '@scssVariables' as v;
 
-.commande {
+.collectionAdmin {
   padding: 1rem;
   width: 100%;
   border: 1px black solid;
@@ -8,9 +8,11 @@
   &__card {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
+  }
+  &__cardInfo {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
   }
 
   &__imgContainer {
@@ -28,5 +30,8 @@
   }
   &__btn {
     cursor: pointer;
+  }
+  &__btn:hover {
+    color: red;
   }
 }

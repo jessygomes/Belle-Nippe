@@ -7,17 +7,17 @@ import Produit from '../../Produit/Produit';
 import './Shop.scss';
 
 export default function Shop() {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const { collectionId } = useParams();
 
-  useEffect(() => {
-    const action = { type: 'GET_ITEMS_FROM_API' };
-    dispatch(action);
-    const action2 = { type: 'GET_COLLECTIONS_FROM_API' };
-    dispatch(action2);
-    const action3 = { type: 'GET_CATEGORY_FROM_API' };
-    dispatch(action3);
-  }, [dispatch]);
+  // useEffect(() => {
+  //   const action = { type: 'GET_ITEMS_FROM_API' };
+  //   dispatch(action);
+  //   const action2 = { type: 'GET_COLLECTIONS_FROM_API' };
+  //   dispatch(action2);
+  //   const action3 = { type: 'GET_CATEGORY_FROM_API' };
+  //   dispatch(action3);
+  // }, [dispatch]);
 
   const collections = useSelector((state) => state.collection.listCollections);
   const categories = useSelector((state) => state.category.listCategories);

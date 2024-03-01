@@ -1,20 +1,40 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 
 import Produit from '../Produit/Produit';
 import './CollectionActuelle.scss';
 
 export default function CollectionActuelle() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const action = { type: 'GET_ITEMS_FROM_API' };
+    dispatch(action);
+    const action2 = { type: 'GET_COLLECTIONS_FROM_API' };
+    dispatch(action2);
+    const action3 = { type: 'GET_CATEGORY_FROM_API' };
+    dispatch(action3);
+  }, [dispatch]);
+
   const collection = useSelector((state) => state.collection.listCollections);
+  console.log('collection', collection);
   const lastCollection = collection[collection.length - 1];
+  console.log('lastCollection', lastCollection);
   const items = useSelector((state) => state.shop.listItems);
 
   // Filtrer les articles qui appartiennent à la dernière collection
-  const itemsInLastCollection = items.filter(
-    (item) => item.collection_id === Number(lastCollection.id)
-  );
+  let itemsInLastCollection = [];
+  if (lastCollection) {
+    itemsInLastCollection = items.filter(
+      (item) => item.collection_id === Number(lastCollection.id)
+    );
+  }
   const firstTwoItems = itemsInLastCollection.slice(0, 2); // Utilisation de slice pour obtenir les deux premiers éléments de la liste d'items
 
+  if (!lastCollection) {
+    return <div>Loading...</div>;
+  }
   return (
     <section className="coll">
       <div className="collection">
