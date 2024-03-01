@@ -1,0 +1,41 @@
+@use '@scssVariables' as v;
+
+.success {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 5rem;
+    margin-top: 10rem;
+  }
+  &__text {
+    font-size: 2rem;
+    font-weight: 600;
+  }
+  &__btn {
+    margin: 2rem auto;
+    padding: 0.5rem 3rem;
+    letter-spacing: 0.3rem;
+    font-family: 'Figtree';
+    font-style: italic;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: white;
+    border-radius: 0.3rem;
+    overflow: hidden;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+    background-color: v.$black;
+    &:hover {
+      background-color: v.$grey;
+      color: v.$black;
+      box-shadow:
+        #00000029 0px 3px 6px,
+        #0000003b 0px 20px 5px;
+      // transform: scale(.90);
+      transition: 0.5s;
+    }
+  }
+}

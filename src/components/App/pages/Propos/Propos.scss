@@ -1,0 +1,37 @@
+@use '@scssVariables' as v;
+
+.propos {
+  &__container {
+    padding: 0 15rem 2rem;
+  }
+}
+
+// GRANDS ECRANS :
+@media screen and (min-width: 1600px) {
+  .propos {
+    height: 100%;
+    &__container {
+      padding: 0 25rem 2rem;
+    }
+  }
+}
+
+// MOBILES
+@media screen and (max-width: 769px) {
+  .propos {
+    &__container {
+      padding: 0 1rem 5rem;
+      text-align: justify;
+    }
+  }
+}
+
+// TABLETTES
+@media screen and (min-width: 768px) and (max-width: 900px) {
+  .propos {
+    &__container {
+      padding: 0 5rem 6rem;
+      text-align: justify;
+    }
+  }
+}

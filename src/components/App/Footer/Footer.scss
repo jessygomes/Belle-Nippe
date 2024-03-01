@@ -1,105 +1,100 @@
 @use '@scssVariables' as v;
 
-// PC PORTABLE : 
+// PC PORTABLE :
 .footer {
-    margin-top: 2rem;
-    width: 100%;
-    padding: 3rem 15rem;
-    background-color: v.$grey;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  margin-top: 2rem;
+  width: 100%;
+  padding: 3rem 15rem;
+  background-color: v.$grey;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 
-    &__logo {
-        width: 15rem;
-    }
-    &__titleSection {
-        margin-bottom: 1rem;
-        font-weight: 700;
-    }
+  &__logo {
+    width: 15rem;
+  }
+  &__titleSection {
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
 }
 .mobile__container {
-display: flex;
-flex-direction: row;
-text-align: left;
-margin-top: 2rem;
-justify-content: center;
-gap: 2rem;
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+  margin-top: 2rem;
+  justify-content: center;
+  gap: 2rem;
 }
 
-
-// GRANDS ECRANS : 
-@media screen and (min-width:1600px) {
-    .footer {
-        margin-top: 5rem;
-        padding: 4rem 25rem;
-    }
+// GRANDS ECRANS :
+@media screen and (min-width: 1600px) {
+  .footer {
+    margin-top: 5rem;
+    padding: 4rem 25rem;
+  }
 }
-
 
 // MOBILE
-@media screen and (max-width:769px){
-    .footer {
-        margin-top: 0rem;
-        width: 100%;
-        padding: 3rem 1rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+@media screen and (max-width: 769px) {
+  .footer {
+    margin-top: 0rem;
+    width: 100%;
+    padding: 3rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-        &__logo {
-            width: 12rem;
-        }
-        &__titleSection {
-            margin-top: 1rem;
-            font-weight: 700;
-            font-size: 0.9rem;
-        }
-        &__linkMobile{
-            font-size: 0.7rem;
-        }
+    &__logo {
+      width: 12rem;
     }
-    .mobile__container {
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        margin-top: 2rem;
-        justify-content: center;
-        // gap: 1rem;
+    &__titleSection {
+      margin-top: 1rem;
+      font-weight: 700;
+      font-size: 0.9rem;
     }
+    &__linkMobile {
+      font-size: 0.7rem;
+    }
+  }
+  .mobile__container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 2rem;
+    justify-content: center;
+    // gap: 1rem;
+  }
 }
 
-
-
-
 // TABLETTES
-@media screen and (min-width:767px) and (max-width:900px) {
-    .footer {
-        margin-top: 0rem;
-        width: 100%;
-        padding: 3rem 1rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+@media screen and (min-width: 767px) and (max-width: 900px) {
+  .footer {
+    margin-top: 0rem;
+    width: 100%;
+    padding: 3rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-        &__logo {
-            width: 12rem;
-        }
-        &__titleSection {
-            margin-top: 1rem;
-            font-weight: 700;
-            font-size: 1rem;
-        }
-        &__linkMobile{
-            font-size: 0.8rem;
-        }
+    &__logo {
+      width: 12rem;
     }
-    .mobile__container {
-        display: flex;
-        flex-direction: row;
-        text-align: left;
-        margin-top: 2rem;
-        justify-content: center;
-        gap: 5rem;
+    &__titleSection {
+      margin-top: 1rem;
+      font-weight: 700;
+      font-size: 1rem;
     }
+    &__linkMobile {
+      font-size: 0.8rem;
+    }
+  }
+  .mobile__container {
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+    margin-top: 2rem;
+    justify-content: center;
+    gap: 5rem;
+  }
 }

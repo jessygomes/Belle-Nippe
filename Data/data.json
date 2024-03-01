@@ -1,0 +1,101 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "title": "Veste Wallow",
+      "slug": "veste-wallow",
+      "images": ["img1.jpg", "img2.jpg"],
+      "price": 359,
+      "stock": 1,
+      "size": "M",
+      "description": "Une description de la veste Wallow.",
+      "collection_id": 1,
+      "category_ids": [1, 3]
+    },
+    {
+      "id": 2,
+      "title": "Pantalon Candy",
+      "slug": "pants-candy",
+      "images": ["img3.jpg", "img4.jpg"],
+      "price": 300,
+      "stock": 1,
+      "size": "L",
+      "description": "Une description du pantalon Wallow.",
+      "collection_id": 2,
+      "category_ids": 2
+    },
+    {
+      "id": 3,
+      "title": "T-shirt Wallow",
+      "slug": "t-shirt-wallow",
+      "images": ["img5.jpg", "img6.jpg"],
+      "price": 100,
+      "stock": 5,
+      "size": "S",
+      "description": "Une description du t-shirt Wallow.",
+      "collection_id": 1,
+      "category_ids": 1
+    },
+    {
+      "id": 4,
+      "title": "Chaussure Candy",
+      "slug": "chaussure-candy",
+      "images": ["img5.jpg", "img6.jpg"],
+      "price": 100,
+      "stock": 2,
+      "size": "S",
+      "description": "Une description du t-shirt Wallow.",
+      "collection_id": 2,
+      "category_ids": 4
+    },
+    {
+      "id": 5,
+      "title": "Pantalon Wallow",
+      "slug": "pants-candy",
+      "images": ["img3.jpg", "img4.jpg"],
+      "price": 300,
+      "stock": 1,
+      "size": "L",
+      "description": "Une description du pantalon Wallow.",
+      "collection_id": 1,
+      "category_ids": [2, 3]
+    }
+  ],
+
+  "collections": [
+    {
+      "id": 1,
+      "title": "Wallow",
+      "description": "Collection Wallow - Upcycling créatif."
+    },
+    {
+      "id": 2,
+      "title": "Candy",
+      "description": "Collection Candy - Douceurs colorées."
+    }
+  ],
+
+  "categories": [
+    { "id": 1, "name": "Haut" },
+    { "id": 2, "name": "Bas" },
+    { "id": 3, "name": "Ensemble" },
+    { "id": 4, "name": "Accessoires" }
+  ],
+
+  "orders": [
+    {
+      "id": 1,
+      "item_ids": [1, 2],
+      "client_id": 1
+    }
+  ],
+
+  "clients": [
+    {
+      "id": 1,
+      "address": "123 Rue de la Mode",
+      "email": "client@example.com",
+      "order_id": 1
+    }
+  ]
+}

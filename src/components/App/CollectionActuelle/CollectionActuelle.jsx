@@ -5,51 +5,66 @@ import Produit from '../Produit/Produit';
 import './CollectionActuelle.scss';
 
 export default function CollectionActuelle() {
-    const items = useSelector((state) => state.shop.listItems);
+  const collection = useSelector((state) => state.collection.listCollections);
+  const lastCollection = collection[collection.length - 1];
+  const items = useSelector((state) => state.shop.listItems);
 
-    // Utilisation de slice pour obtenir les deux premiers éléments
-    const firstTwoItems = items.slice(0, 2);
+  // Filtrer les articles qui appartiennent à la dernière collection
+  const itemsInLastCollection = items.filter(
+    (item) => item.collection_id === Number(lastCollection.id)
+  );
+  const firstTwoItems = itemsInLastCollection.slice(0, 2); // Utilisation de slice pour obtenir les deux premiers éléments de la liste d'items
 
-    return (
-        <section className='coll' >
-            <div className='collection'>
-                <div className='collection__contenu'>
-                    <div className='collection__title'>
-                        <h2 className='collection__name'>Candy's Collection</h2>
-                    </div>
-                    <div className='collection__divCouverture'>
-                        <img className='collection__couverture' src="/fond-candy.png" alt="" />
-                    </div>
-                </div>
+  return (
+    <section className="coll">
+      <div className="collection">
+        <div className="collection__contenu">
+          <div className="collection__title">
+            <h2 className="collection__name">
+              {lastCollection.title} Collection
+            </h2>
+          </div>
+        </div>
 
-                <p className='collection__description'>La collection de vêtements haute couture intitulée "Candy" incarne l'essence audacieuse et éthique de l'upcycling. Conçue avec ingéniosité, cette ligne allie l'élégance de la haute couture et la mode streetwear à la durabilité environnementale. 
-                <br /><br />    
-                Chaque pièce de la collection "Candy" est méticuleusement créée à partir de matériaux recyclés et revalorisés, transformant ainsi des éléments autrefois oubliés en des œuvres d'art vestimentaires uniques. </p>
-            </div>
-            
-            {/* <div className='collection'>
+        <p className="collection__description">
+          {lastCollection.description} <br />
+          La collection de vêtements haute couture intitulée "Candy" incarne
+          l'essence audacieuse et éthique de l'upcycling. Conçue avec
+          ingéniosité, cette ligne allie l'élégance de la haute couture et la
+          mode streetwear à la durabilité environnementale.
+          <br />
+          <br />
+          Chaque pièce de la collection "Candy" est méticuleusement créée à
+          partir de matériaux recyclés et revalorisés, transformant ainsi des
+          éléments autrefois oubliés en des œuvres d'art vestimentaires uniques.{' '}
+        </p>
+      </div>
+      {/* <div className='collection'>
                 <div className='collection__contenu'>
                     <img className='collection__couverture' src="public\Vetements\PhotoCollection.png" alt="" />
                 </div>
             </div> */}
 
-            <div className='presentationProduit'>
-                {firstTwoItems.map((item) => (
-                    <Produit 
-                        key={item.id}
-                        slug={item.slug} 
-                        title={item.title}
-                        price={item.price} 
-                    />
-                ))}
-                {/* <Produit />
-                <Produit /> */}
-            </div>
-            <div className='lienVersCollection'>
-                <Link className='lienVersCollection__links' to="/shop">
-                <button className='accueil__btn'>Voir la collection</button>
-                </Link>
-            </div>
-        </section>
-    )
+      <div className="presentationProduit">
+        {firstTwoItems.map((item) => (
+          <Produit
+            key={item.id}
+            slug={item.slug}
+            title={item.title}
+            price={item.price}
+          />
+        ))}
+      </div>
+      <div className="lienVersCollection">
+        <Link
+          className="lienVersCollection__links"
+          to={`/shop/collection/${lastCollection.id}`}
+        >
+          <button className="accueil__btn" type="button">
+            Voir la collection
+          </button>
+        </Link>
+      </div>
+    </section>
+  );
 }
