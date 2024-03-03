@@ -30,12 +30,19 @@ export default function Shop() {
     setSearchTerm(event.target.value);
   };
 
+  const activeCollections = collections.filter(
+    (collection) => collection.isActive
+  );
+
   const items = useSelector((state) => state.shop.listItems).filter(
     (item) =>
       (selectedCategoryId === '' ||
         item.category_ids === Number(selectedCategoryId)) &&
       (selectedCollectionId === '' ||
-        item.collection_id === Number(selectedCollectionId)) &&
+        item.collection_id === Number(selectedCollectionId) ||
+        activeCollections.some(
+          (collection) => collection.id === item.collection_id
+        )) &&
       (searchTerm === '' ||
         item.title.toLowerCase().includes(searchTerm.toLowerCase()))
   );
@@ -70,7 +77,7 @@ export default function Shop() {
             onChange={handleCollectionChange}
           >
             <option value="">Toutes les collections</option>
-            {collections.map((collection) => (
+            {activeCollections.map((collection) => (
               <option key={collection.id} value={collection.id}>
                 {collection.titleCollection}
               </option>

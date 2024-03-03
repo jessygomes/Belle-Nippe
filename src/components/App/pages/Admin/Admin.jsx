@@ -78,7 +78,21 @@ export default function Admin() {
   };
   const openModalModifCollection = (id) => {
     setSelectedCollectionId(id);
-    setShowModalModifCollection(true);
+    if (collectionModify) {
+      dispatch(
+        changeFieldValueCollection({
+          inputName: 'titleCollection',
+          inputValue: collectionModify.titleCollection,
+        })
+      );
+      dispatch(
+        changeFieldValueCollection({
+          inputName: 'descriptionCollection',
+          inputValue: collectionModify.descriptionCollection,
+        })
+      );
+      setShowModalModifCollection(true);
+    }
   };
   const closeModalModifCollection = () => {
     setSelectedCollectionId('');
@@ -104,7 +118,51 @@ export default function Admin() {
   };
   const openModalModifItem = (id) => {
     setSelectedItemId(id);
-    setShowModalModifItem(true);
+    if (itemModify) {
+      dispatch(
+        changeFieldValueItem({
+          inputName: 'title',
+          inputValue: itemModify.title,
+        })
+      );
+      dispatch(
+        changeFieldValueItem({ inputName: 'slug', inputValue: itemModify.slug })
+      );
+      dispatch(
+        changeFieldValueItem({
+          inputName: 'price',
+          inputValue: itemModify.price,
+        })
+      );
+      dispatch(
+        changeFieldValueItem({
+          inputName: 'stock',
+          inputValue: itemModify.stock,
+        })
+      );
+      dispatch(
+        changeFieldValueItem({ inputName: 'size', inputValue: itemModify.size })
+      );
+      dispatch(
+        changeFieldValueItem({
+          inputName: 'description',
+          inputValue: itemModify.description,
+        })
+      );
+      dispatch(
+        changeFieldValueItem({
+          inputName: 'collection_id',
+          inputValue: itemModify.collection_id,
+        })
+      );
+      dispatch(
+        changeFieldValueItem({
+          inputName: 'category_ids',
+          inputValue: itemModify.category_ids,
+        })
+      );
+      setShowModalModifItem(true);
+    }
   };
   const closeModalModifItem = () => {
     setSelectedItemId('');
@@ -329,7 +387,7 @@ export default function Admin() {
                 onChange={changeFieldCollection}
                 value={titleCollection}
               />
-              <input
+              <textarea
                 className="modal__inputDesc"
                 type="text"
                 placeholder="Description"
@@ -371,25 +429,23 @@ export default function Admin() {
                 placeholder="Titre de la collection"
                 name="titleCollection"
                 onChange={changeFieldCollection}
-                value={collectionModify ? collectionModify.titleCollection : ''}
+                value={titleCollection}
               />
               <label htmlFor="descriptionCollection">Description</label>
-              <input
+              <textarea
                 className="modal__inputDesc"
                 type="text"
                 placeholder="Description"
                 name="descriptionCollection"
                 onChange={changeFieldCollection}
-                value={
-                  collectionModify ? collectionModify.descriptionCollection : ''
-                }
+                value={descriptionCollection}
               />
               <label htmlFor="isActive">Actif</label>
               <input
                 className="modal__inputDesc"
                 type="checkbox"
                 name="isActive"
-                checked={collectionModify ? collectionModify.isActive : ''}
+                checked={isActive}
                 onChange={(event) =>
                   changeFieldCollection({
                     target: { name: 'isActive', value: event.target.checked },
@@ -475,7 +531,7 @@ export default function Admin() {
                 onChange={changeFieldItem}
                 value={size}
               />
-              <input
+              <textarea
                 className="modal__inputDesc"
                 type="text"
                 placeholder="Description"
@@ -550,7 +606,7 @@ export default function Admin() {
                 placeholder="Titre du produit"
                 name="title"
                 onChange={changeFieldItem}
-                value={itemModify ? itemModify.title : ''}
+                value={title}
               />
               <label htmlFor="slug">Slug (nom URL)</label>
               <input
@@ -559,7 +615,7 @@ export default function Admin() {
                 placeholder="Slug"
                 name="slug"
                 onChange={changeFieldItem}
-                value={itemModify ? itemModify.slug : ''}
+                value={slug}
               />
               <label htmlFor="price">Prix</label>
               <input
@@ -568,7 +624,7 @@ export default function Admin() {
                 placeholder="Prix"
                 name="price"
                 onChange={changeFieldItem}
-                value={itemModify ? itemModify.price : ''}
+                value={price}
               />
               <label htmlFor="stock">Stock</label>
               <input
@@ -577,7 +633,7 @@ export default function Admin() {
                 placeholder="Stock"
                 name="stock"
                 onChange={changeFieldItem}
-                value={itemModify ? itemModify.stock : ''}
+                value={stock}
               />
               <label htmlFor="size">Taille</label>
               <input
@@ -586,22 +642,22 @@ export default function Admin() {
                 placeholder="Taille"
                 name="size"
                 onChange={changeFieldItem}
-                value={itemModify ? itemModify.size : ''}
+                value={size}
               />
               <label htmlFor="description">Description</label>
-              <input
+              <textarea
                 className="modal__inputDesc"
                 type="text"
                 placeholder="Description"
                 name="description"
                 onChange={changeFieldItem}
-                value={itemModify ? itemModify.description : ''}
+                value={description}
               />
               <label htmlFor="collection_id">Collection</label>
               <select
                 className=""
                 name="collection_id"
-                value={itemModify ? itemModify.collection_id : ''}
+                value={collection_id}
                 onChange={changeFieldItem}
               >
                 <option value="">Toutes les collections</option>
@@ -616,7 +672,7 @@ export default function Admin() {
                 className=""
                 name="category_ids"
                 onChange={changeFieldItem}
-                value={itemModify ? itemModify.category_ids : ''}
+                value={category_ids}
               >
                 {categories.map((category) => (
                   <option key={category.id} value={category.id}>
@@ -636,7 +692,7 @@ export default function Admin() {
                 className="modal__inputDesc"
                 type="checkbox"
                 name="isActive"
-                checked={itemModify ? itemModify.isActive : ''}
+                checked={isActive}
                 onChange={(event) =>
                   changeFieldItem({
                     target: { name: 'isActive', value: event.target.checked },
