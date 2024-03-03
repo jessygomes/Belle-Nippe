@@ -26,7 +26,7 @@ export default function Editorial() {
           <ProduitForEdit
             key={collection.id}
             collectionId={collection.id}
-            collectionName={collection.title}
+            collectionName={collection.titleCollection}
           />
         ))}
       </div>

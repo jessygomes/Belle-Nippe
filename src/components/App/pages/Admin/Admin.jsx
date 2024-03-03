@@ -283,11 +283,11 @@ export default function Admin() {
         </NavLink>
         <div className="admin__navbarcontainer">
           <nav className="admin__navbarLinks">
-            <NavLink className="admin__link" to="/Collection">
-              Collection
-            </NavLink>
             <NavLink className="admin__link" to="/shop">
-              Inventaire
+              Shop
+            </NavLink>
+            <NavLink className="admin__link" to="/editorial">
+              Editorial
             </NavLink>
             <NavLink className="admin__link" to="/editorial">
               Commandes

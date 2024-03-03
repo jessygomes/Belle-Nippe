@@ -7,7 +7,7 @@ export default function ProduitForEdit({ collectionName, collectionId }) {
       <Link to={`/editorial/${collectionId}/${collectionName}`}>
         <article className="produitForEdit">
           <button className="produitForEdit__btn" type="button">
-            Collection {collectionName}
+            {collectionName}
           </button>
           {/* <h3 className="produitForEdit__name"></h3> */}
         </article>

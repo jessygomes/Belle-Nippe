@@ -49,7 +49,7 @@ export default function Navbar() {
   return (
     <div className={`accueil__container ${isHomePage ? '' : 'otherpage'}`}>
       <NavLink className="accueil__logo" to="/">
-        <img 
+        <img
           src="/Logo/1dfd1fef-d2c2-49ee-9616-be4b313175c0.png"
           alt="Logo belle Nippe"
         />
@@ -61,7 +61,7 @@ export default function Navbar() {
             to="/shop"
             onClick={closeMobileMenu}
           >
-            E-shop
+            Shop
           </NavLink>
           <NavLink
             className="accueil__link"
@@ -87,8 +87,8 @@ export default function Navbar() {
         </nav>
       </div>
 
-      <div className='mobile__navbar' onClick={handleClick}>
-        <i id='bar' className={click ? 'fas fa-times' : 'fas fa-bars'}></i>
+      <div className="mobile__navbar" onClick={handleClick}>
+        <i id="bar" className={click ? 'fas fa-times' : 'fas fa-bars'}></i>
       </div>
     </div>
   );

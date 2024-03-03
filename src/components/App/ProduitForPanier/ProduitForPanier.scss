@@ -37,14 +37,11 @@
 // MOBILES
 @media screen and (max-width: 769px) {
   .produitForPanier {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 1rem;
+    gap: 0.5rem;
     border-bottom: 1px solid black;
     margin: 0 auto;
     margin-bottom: 1rem;
-    justify-content: center;
+    justify-content: space-around;
 
     &__imgContainer {
       width: 4rem;
@@ -56,7 +53,11 @@
       font-size: 0.7rem;
     }
     &__prix {
-      margin-left: 2rem;
+      font-size: 0.7rem;
+      margin-left: 1rem;
+    }
+    &__select {
+      font-size: 0.7rem;
     }
     &__supp {
       font-size: 0.6rem;

@@ -15,7 +15,7 @@ export default function CollectionPage() {
     <div>
       <Navbar />
       <div className="collectionPage">
-        <h2 className="titlePage">Collection {collectionName}</h2>
+        <h2 className="titlePage">{collectionName}</h2>
         <div className="collectionPage__produits">
           {items.map((item) => (
             <ProduitCollection key={item.id} item={item} />

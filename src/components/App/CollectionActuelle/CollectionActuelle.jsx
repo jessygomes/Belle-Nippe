@@ -41,7 +41,7 @@ export default function CollectionActuelle() {
         <div className="collection__contenu">
           <div className="collection__title">
             <h2 className="collection__name">
-              {lastCollection.titleCollection} Collection
+              {lastCollection.titleCollection}
             </h2>
           </div>
         </div>
