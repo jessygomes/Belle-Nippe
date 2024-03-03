@@ -2,9 +2,9 @@ import { createSlice } from '@reduxjs/toolkit';
 
 export const initialState = {
   id: null,
-  title: '',
-  description: '',
-  active: false,
+  titleCollection: '',
+  descriptionCollection: '',
+  isActive: false,
   listCollections: [],
 };
 

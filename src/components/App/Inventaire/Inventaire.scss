@@ -29,4 +29,7 @@
   &__btn {
     cursor: pointer;
   }
+  &__btn:hover {
+    color: red;
+  }
 }

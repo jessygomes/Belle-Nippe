@@ -11,7 +11,7 @@ export const initialState = {
   description: '',
   collection_id: null,
   category_ids: null,
-  active: false,
+  isActive: false,
   listItems: [],
 };
 
@@ -32,9 +32,38 @@ const shopSlice = createSlice({
         [action.payload.inputName]: action.payload.inputValue,
       };
     },
+    handleCreateItem: (state, action) => {
+      const newItem = action.payload;
+      return {
+        ...state,
+        listItems: [...state.listItems, newItem],
+      };
+    },
+    handleUpdateItem: (state, action) => {
+      const updatedItem = action.payload;
+      return {
+        ...state,
+        listItems: state.listItems.map((item) =>
+          item.id === updatedItem.id ? updatedItem : item
+        ),
+      };
+    },
+    deleteItem: (state, action) => {
+      const itemId = action.payload;
+      return {
+        ...state,
+        listItems: state.listItems.filter((item) => item.id !== itemId),
+      };
+    },
   },
 });
 
-export const { setItemsFromApi, changeFieldValue } = shopSlice.actions;
+export const {
+  setItemsFromApi,
+  changeFieldValue,
+  handleCreateItem,
+  handleUpdateItem,
+  deleteItem,
+} = shopSlice.actions;
 
 export default shopSlice.reducer;

@@ -1,5 +1,5 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Navbar from '../../Navbar/Navbar';
 import Footer from '../../Footer/Footer';
@@ -7,17 +7,7 @@ import Produit from '../../Produit/Produit';
 import './Shop.scss';
 
 export default function Shop() {
-  // const dispatch = useDispatch();
   const { collectionId } = useParams();
-
-  // useEffect(() => {
-  //   const action = { type: 'GET_ITEMS_FROM_API' };
-  //   dispatch(action);
-  //   const action2 = { type: 'GET_COLLECTIONS_FROM_API' };
-  //   dispatch(action2);
-  //   const action3 = { type: 'GET_CATEGORY_FROM_API' };
-  //   dispatch(action3);
-  // }, [dispatch]);
 
   const collections = useSelector((state) => state.collection.listCollections);
   const categories = useSelector((state) => state.category.listCategories);
@@ -50,6 +40,10 @@ export default function Shop() {
         item.title.toLowerCase().includes(searchTerm.toLowerCase()))
   );
 
+  console.log(items);
+
+  const activeItems = items.filter((item) => item.isActive);
+
   return (
     <div>
       <Navbar />
@@ -78,7 +72,7 @@ export default function Shop() {
             <option value="">Toutes les collections</option>
             {collections.map((collection) => (
               <option key={collection.id} value={collection.id}>
-                {collection.title}
+                {collection.titleCollection}
               </option>
             ))}
           </select>
@@ -92,7 +86,7 @@ export default function Shop() {
         </div>
       </div>
       <div className="shop">
-        {items.map((item) => (
+        {activeItems.map((item) => (
           <Produit
             key={item.id}
             slug={item.slug}

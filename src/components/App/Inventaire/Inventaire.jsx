@@ -1,6 +1,10 @@
 import './Inventaire.scss';
 
-export default function Inventaire({ item }) {
+export default function Inventaire({
+  item,
+  setShowModalSupp,
+  setShowModalUpdate,
+}) {
   return (
     <div className="inventaire">
       <div className="inventaire__card">
@@ -21,10 +25,18 @@ export default function Inventaire({ item }) {
             Collection : {item.collection_id}
           </p>
           <div className="inventaire__cardBtn">
-            <button className="inventaire__btn" type="button">
+            <button
+              className="inventaire__btn"
+              type="button"
+              onClick={setShowModalUpdate}
+            >
               Modifier
             </button>
-            <button className="inventaire__btn" type="button">
+            <button
+              className="inventaire__btn"
+              type="button"
+              onClick={setShowModalSupp}
+            >
               Supprimer
             </button>
           </div>

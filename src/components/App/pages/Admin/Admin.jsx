@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import AdminCollection from '../../AdminCollection/AdminCollection';
 import Inventaire from '../../Inventaire/Inventaire';
-import Commande from '../../Commande/Commande';
+// import Commande from '../../Commande/Commande';
 import Footer from '../../Footer/Footer';
 import { changeFieldValue as changeFieldValueCollection } from '../../../../store/collectionSlice';
 import { changeFieldValue as changeFieldValueItem } from '../../../../store/shopSlice';
@@ -24,16 +24,44 @@ export default function Admin() {
   //! RECUPERATION DES DONNEES DU STATE
   const collections = useSelector((state) => state.collection.listCollections);
   const categories = useSelector((state) => state.category.listCategories);
-  const { title, description } = useSelector((state) => state.collection);
+  const { titleCollection, descriptionCollection } = useSelector(
+    (state) => state.collection
+  );
+  const {
+    title,
+    slug,
+    images,
+    price,
+    stock,
+    size,
+    description,
+    collection_id,
+    category_ids,
+    isActive,
+  } = useSelector((state) => state.shop);
 
   const [selectedCategoryId, setSelectedCategoryId] = useState('');
   const [selectedCollectionId, setSelectedCollectionId] = useState('');
+  const [selectedItemId, setSelectedItemId] = useState('');
+
+  const collectionId = selectedCollectionId;
+  const collectionModify = useSelector((state) =>
+    state.collection.listCollections.find(
+      (collection) => collection.id === collectionId
+    )
+  );
+
+  const itemId = selectedItemId;
+  const itemModify = useSelector((state) =>
+    state.shop.listItems.find((item) => item.id === itemId)
+  );
 
   //! GESTION DES MODALS : COLLECTION
   const [showModalCollection, setShowModalCollection] = useState(false);
   const [showModalSuppCollection, setShowModalSuppCollection] = useState(false);
   const [showModalModifCollection, setShowModalModifCollection] =
     useState(false);
+
   const openModal = () => {
     setShowModalCollection(true);
   };
@@ -55,6 +83,32 @@ export default function Admin() {
   const closeModalModifCollection = () => {
     setSelectedCollectionId('');
     setShowModalModifCollection(false);
+  };
+  //! GESTION MODAL : ITEMS
+  const [showModalItem, setShowModalItem] = useState(false);
+  const [showModalSuppItem, setShowModalSuppItem] = useState(false);
+  const [showModalModifItem, setShowModalModifItem] = useState(false);
+  const openModalItem = () => {
+    setShowModalItem(true);
+  };
+  const closeModalItem = () => {
+    setShowModalItem(false);
+  };
+  const openModalSuppItem = (id) => {
+    setSelectedItemId(id);
+    setShowModalSuppItem(true);
+  };
+  const closeModalSuppItem = () => {
+    setSelectedItemId('');
+    setShowModalSuppItem(false);
+  };
+  const openModalModifItem = (id) => {
+    setSelectedItemId(id);
+    setShowModalModifItem(true);
+  };
+  const closeModalModifItem = () => {
+    setSelectedItemId('');
+    setShowModalModifItem(false);
   };
 
   //! INPUT CREER OU MODIFIER UNE COLLECTION
@@ -106,6 +160,43 @@ export default function Admin() {
     deleteCollection();
   };
 
+  //! CREER UN PRODUIT
+  function handleCreateItem() {
+    const action = { type: 'CREATE_ITEM' };
+    dispatch(action);
+  }
+  const handleSubmitItem = (evt) => {
+    evt.preventDefault();
+    closeModalItem();
+    handleCreateItem();
+  };
+
+  //! MODIFIER UN PRODUIT
+  function handleUpdateItem() {
+    const action = { type: 'UPDATE_ITEM', payload: selectedItemId };
+    dispatch(action);
+  }
+
+  const handleSubmitModifItem = (evt) => {
+    evt.preventDefault();
+    closeModalModifItem();
+    handleUpdateItem();
+  };
+
+  //! SUPPRIMER UN PRODUIT
+  function deleteItem() {
+    const action = {
+      type: 'DELETE_ITEM',
+      payload: selectedItemId,
+    };
+    dispatch(action);
+  }
+  const handleSubmitSuppItem = (evt) => {
+    evt.preventDefault();
+    closeModalSuppItem();
+    deleteItem();
+  };
+
   //! CHANGER LES CATEGORIES ET COLLECTIONS
   const handleCategoryChange = (event) => {
     setSelectedCategoryId(event.target.value);
@@ -151,7 +242,11 @@ export default function Admin() {
         <button className="admin__actionBtn" type="button" onClick={openModal}>
           Créer une nouvelle collection
         </button>
-        <button className="admin__actionBtn" type="button">
+        <button
+          className="admin__actionBtn"
+          type="button"
+          onClick={openModalItem}
+        >
           Ajouter un nouveau produit
         </button>
         <select
@@ -176,7 +271,7 @@ export default function Admin() {
           <option value="">Toutes les collections</option>
           {collections.map((collection) => (
             <option key={collection.id} value={collection.id}>
-              {collection.title}
+              {collection.titleCollection}
             </option>
           ))}
         </select>
@@ -201,7 +296,12 @@ export default function Admin() {
           <h2 className="admin__title">Inventaire</h2>
           <div className="admin__inventaireList">
             {items.map((item) => (
-              <Inventaire key={item.id} item={item} />
+              <Inventaire
+                key={item.id}
+                item={item}
+                setShowModalSupp={() => openModalSuppItem(item.id)}
+                setShowModalUpdate={() => openModalModifItem(item.id)}
+              />
             ))}
           </div>
         </div>
@@ -225,24 +325,28 @@ export default function Admin() {
                 className="modal__inputDesc"
                 type="text"
                 placeholder="Titre de la collection"
-                name="title"
+                name="titleCollection"
                 onChange={changeFieldCollection}
-                value={title}
+                value={titleCollection}
               />
               <input
                 className="modal__inputDesc"
                 type="text"
                 placeholder="Description"
-                name="description"
+                name="descriptionCollection"
                 onChange={changeFieldCollection}
-                value={description}
+                value={descriptionCollection}
               />
               <label htmlFor="isActive">Actif</label>
               <input
                 className="modal__inputDesc"
                 type="checkbox"
-                name="active"
-                onChange={changeFieldCollection}
+                name="isActive"
+                onChange={(event) =>
+                  changeFieldCollection({
+                    target: { name: 'isActive', value: event.target.checked },
+                  })
+                }
               />
               <button className="modal__btn" type="submit">
                 Créer ma nouvelle collection
@@ -260,28 +364,37 @@ export default function Admin() {
             </button>
             <h2 className="modal__title">Modifier la Collection</h2>
             <form className="modal__form" onSubmit={handleSubmitModif}>
+              <label htmlFor="titleCollection">Nom de la collection</label>
               <input
                 className="modal__inputDesc"
                 type="text"
                 placeholder="Titre de la collection"
-                name="title"
+                name="titleCollection"
                 onChange={changeFieldCollection}
-                value={title}
+                value={collectionModify ? collectionModify.titleCollection : ''}
               />
+              <label htmlFor="descriptionCollection">Description</label>
               <input
                 className="modal__inputDesc"
                 type="text"
                 placeholder="Description"
-                name="description"
+                name="descriptionCollection"
                 onChange={changeFieldCollection}
-                value={description}
+                value={
+                  collectionModify ? collectionModify.descriptionCollection : ''
+                }
               />
               <label htmlFor="isActive">Actif</label>
               <input
                 className="modal__inputDesc"
                 type="checkbox"
-                name="active"
-                onChange={changeFieldCollection}
+                name="isActive"
+                checked={collectionModify ? collectionModify.isActive : ''}
+                onChange={(event) =>
+                  changeFieldCollection({
+                    target: { name: 'isActive', value: event.target.checked },
+                  })
+                }
               />
               <button className="modal__btn" type="submit">
                 Modifier la collection
@@ -308,6 +421,253 @@ export default function Admin() {
             <form className="modal__form" onSubmit={handleSubmitSupp}>
               <button className="modal__btnSupp" type="submit">
                 Supprimer la collection
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {showModalItem && (
+        <div className="modal">
+          <div className="modal__content">
+            <button className="modal__close" type="button">
+              <i className="fa fa-close" onClick={closeModalItem} />
+            </button>
+            <h2 className="modal__title">Nouveau Produit</h2>
+            <form className="modal__form" onSubmit={handleSubmitItem}>
+              <input
+                className="modal__inputDesc"
+                type="text"
+                placeholder="Titre du produit"
+                name="title"
+                onChange={changeFieldItem}
+                value={title}
+              />
+              <input
+                className="modal__inputDesc"
+                type="text"
+                placeholder="Slug"
+                name="slug"
+                onChange={changeFieldItem}
+                value={slug}
+              />
+              <input
+                className="modal__inputDesc"
+                type="number"
+                placeholder="Prix"
+                name="price"
+                onChange={changeFieldItem}
+                value={price}
+              />
+              <input
+                className="modal__inputDesc"
+                type="number"
+                placeholder="Stock"
+                name="stock"
+                onChange={changeFieldItem}
+                value={stock}
+              />
+              <input
+                className="modal__inputDesc"
+                type="text"
+                placeholder="Taille"
+                name="size"
+                onChange={changeFieldItem}
+                value={size}
+              />
+              <input
+                className="modal__inputDesc"
+                type="text"
+                placeholder="Description"
+                name="description"
+                onChange={changeFieldItem}
+                value={description}
+              />
+              <select
+                className=""
+                name="collection_id"
+                value={collection_id}
+                onChange={changeFieldItem}
+              >
+                <option value="">Toutes les collections</option>
+                {collections.map((collection) => (
+                  <option key={collection.id} value={collection.id}>
+                    {collection.titleCollection}
+                  </option>
+                ))}
+              </select>
+              <select
+                className=""
+                name="category_ids"
+                onChange={changeFieldItem}
+                value={category_ids}
+              >
+                {categories.map((category) => (
+                  <option key={category.id} value={category.id}>
+                    {category.name}
+                  </option>
+                ))}
+              </select>
+              {/* <input
+                className="modal__inputDesc"
+                type="file"
+                name="images"
+                value={images}
+                onChange={changeFieldItem}
+              /> */}
+              <label htmlFor="isActive">Actif</label>
+              <input
+                className="modal__inputDesc"
+                type="checkbox"
+                name="isActive"
+                checked={isActive}
+                onChange={(event) =>
+                  changeFieldItem({
+                    target: { name: 'isActive', value: event.target.checked },
+                  })
+                }
+              />
+              <button className="modal__btn" type="submit">
+                Créer mon nouveau produit
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {showModalModifItem && (
+        <div className="modal">
+          <div className="modal__content">
+            <button className="modal__close" type="button">
+              <i className="fa fa-close" onClick={closeModalModifItem} />
+            </button>
+            <h2 className="modal__title">Modifier un produit</h2>
+            <form className="modal__form" onSubmit={handleSubmitModifItem}>
+              <label htmlFor="title">Nom du produit</label>
+              <input
+                className="modal__inputDesc"
+                type="text"
+                placeholder="Titre du produit"
+                name="title"
+                onChange={changeFieldItem}
+                value={itemModify ? itemModify.title : ''}
+              />
+              <label htmlFor="slug">Slug (nom URL)</label>
+              <input
+                className="modal__inputDesc"
+                type="text"
+                placeholder="Slug"
+                name="slug"
+                onChange={changeFieldItem}
+                value={itemModify ? itemModify.slug : ''}
+              />
+              <label htmlFor="price">Prix</label>
+              <input
+                className="modal__inputDesc"
+                type="number"
+                placeholder="Prix"
+                name="price"
+                onChange={changeFieldItem}
+                value={itemModify ? itemModify.price : ''}
+              />
+              <label htmlFor="stock">Stock</label>
+              <input
+                className="modal__inputDesc"
+                type="number"
+                placeholder="Stock"
+                name="stock"
+                onChange={changeFieldItem}
+                value={itemModify ? itemModify.stock : ''}
+              />
+              <label htmlFor="size">Taille</label>
+              <input
+                className="modal__inputDesc"
+                type="text"
+                placeholder="Taille"
+                name="size"
+                onChange={changeFieldItem}
+                value={itemModify ? itemModify.size : ''}
+              />
+              <label htmlFor="description">Description</label>
+              <input
+                className="modal__inputDesc"
+                type="text"
+                placeholder="Description"
+                name="description"
+                onChange={changeFieldItem}
+                value={itemModify ? itemModify.description : ''}
+              />
+              <label htmlFor="collection_id">Collection</label>
+              <select
+                className=""
+                name="collection_id"
+                value={itemModify ? itemModify.collection_id : ''}
+                onChange={changeFieldItem}
+              >
+                <option value="">Toutes les collections</option>
+                {collections.map((collection) => (
+                  <option key={collection.id} value={collection.id}>
+                    {collection.titleCollection}
+                  </option>
+                ))}
+              </select>
+              <label htmlFor="category_ids">Catégorie</label>
+              <select
+                className=""
+                name="category_ids"
+                onChange={changeFieldItem}
+                value={itemModify ? itemModify.category_ids : ''}
+              >
+                {categories.map((category) => (
+                  <option key={category.id} value={category.id}>
+                    {category.name}
+                  </option>
+                ))}
+              </select>
+              {/* <input
+                className="modal__inputDesc"
+                type="file"
+                name="images"
+                value={images}
+                onChange={changeFieldItem}
+              /> */}
+              <label htmlFor="isActive">Actif</label>
+              <input
+                className="modal__inputDesc"
+                type="checkbox"
+                name="isActive"
+                checked={itemModify ? itemModify.isActive : ''}
+                onChange={(event) =>
+                  changeFieldItem({
+                    target: { name: 'isActive', value: event.target.checked },
+                  })
+                }
+              />
+              <button className="modal__btn" type="submit">
+                Modifier mon produit
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {showModalSuppItem && (
+        <div className="modal">
+          <div className="modal__content">
+            <button className="modal__close" type="button">
+              <i className="fa fa-close" onClick={closeModalSuppItem} />
+            </button>
+            <h2 className="modal__title">Supprimer le produit</h2>
+            <button
+              className="modal__btnAnnuler"
+              type="button"
+              onClick={closeModalSuppItem}
+            >
+              Annuler
+            </button>
+            <form className="modal__form" onSubmit={handleSubmitSuppItem}>
+              <button className="modal__btnSupp" type="submit">
+                Supprimer le produit
               </button>
             </form>
           </div>

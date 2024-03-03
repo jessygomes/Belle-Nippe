@@ -24,9 +24,10 @@ const collectionMiddleware = (store) => (next) => (action) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        title: store.getState().collection.title,
-        description: store.getState().collection.description,
-        active: store.getState().collection.active,
+        titleCollection: store.getState().collection.titleCollection,
+        descriptionCollection:
+          store.getState().collection.descriptionCollection,
+        isActive: store.getState().collection.isActive,
       }),
     })
       .then((response) => response.json())
@@ -48,9 +49,10 @@ const collectionMiddleware = (store) => (next) => (action) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        title: store.getState().collection.title,
-        description: store.getState().collection.description,
-        active: store.getState().collection.active,
+        titleCollection: store.getState().collection.titleCollection,
+        descriptionCollection:
+          store.getState().collection.descriptionCollection,
+        isActive: store.getState().collection.active,
       }),
     })
       .then((res) => res.json())
