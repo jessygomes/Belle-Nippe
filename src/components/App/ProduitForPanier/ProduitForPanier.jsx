@@ -1,14 +1,22 @@
 import { useDispatch } from 'react-redux';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { removeFromCart } from '../../../store/monPanierSlice';
+import { removeFromCart, updateQuantity } from '../../../store/monPanierSlice';
 import './ProduitForPanier.scss';
-// import { Trash } from "react-feather";
 
 export default function ProduitForPanier({ item }) {
   const dispatch = useDispatch();
 
   const handleRemoveFromCart = () => {
     dispatch(removeFromCart(item));
+  };
+
+  const [quantity, setQuantity] = useState(item.quantity || 1);
+
+  const handleQuantityChange = (e) => {
+    const newQuantity = Number(e.target.value);
+    setQuantity(newQuantity);
+    dispatch(updateQuantity({ id: item.id, quantity: newQuantity }));
   };
 
   return (
@@ -26,14 +34,18 @@ export default function ProduitForPanier({ item }) {
         <h3 className="produitForPanier__name">{item.title}</h3>
         <p className="produitForPanier__prix">{item.price} €</p>
         <p className="produitForPanier__prix">Taille : {item.size}</p>
-        <select className="produitForPanier__select" name="">
+        <select
+          className="produitForPanier__select"
+          name=""
+          value={quantity}
+          onChange={handleQuantityChange}
+        >
           {Array.from({ length: item.stock }, (_, i) => (
             <option key={i} value={i + 1}>
               {i + 1}
             </option>
           ))}
         </select>
-        {/* <Trash size="100%" /> */}
         <button
           className="produitForPanier__supp"
           type="button"

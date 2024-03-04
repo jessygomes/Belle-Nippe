@@ -7,6 +7,7 @@ export const initialState = {
   images: ['', '', '', '', ''],
   price: null,
   stock: null,
+  quantity: null,
   size: '',
   description: '',
   collection_id: null,
@@ -55,6 +56,17 @@ const shopSlice = createSlice({
         listItems: state.listItems.filter((item) => item.id !== itemId),
       };
     },
+    decrementStock: (state, action) => {
+      const updatedItems = action.payload;
+      updatedItems.forEach((updatedItem) => {
+        const itemStock = state.listItems.find(
+          (item) => item.id === updatedItem.id
+        );
+        if (itemStock) {
+          itemStock.stock = updatedItem.stock;
+        }
+      });
+    },
   },
 });
 
@@ -64,6 +76,7 @@ export const {
   handleCreateItem,
   handleUpdateItem,
   deleteItem,
+  decrementStock,
 } = shopSlice.actions;
 
 export default shopSlice.reducer;

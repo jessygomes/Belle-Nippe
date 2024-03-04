@@ -1,5 +1,5 @@
-import { useSelector } from 'react-redux';
-import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Navbar from '../../Navbar/Navbar';
 import Footer from '../../Footer/Footer';
@@ -7,11 +7,20 @@ import Produit from '../../Produit/Produit';
 import './Shop.scss';
 
 export default function Shop() {
+  const dispatch = useDispatch();
   const { collectionId } = useParams();
+
+  useEffect(() => {
+    const action = { type: 'GET_ITEMS_FROM_API' };
+    dispatch(action);
+    const action2 = { type: 'GET_COLLECTIONS_FROM_API' };
+    dispatch(action2);
+    const action3 = { type: 'GET_CATEGORY_FROM_API' };
+    dispatch(action3);
+  }, [dispatch]);
 
   const collections = useSelector((state) => state.collection.listCollections);
   const categories = useSelector((state) => state.category.listCategories);
-  console.log('category', categories);
 
   const [selectedCategoryId, setSelectedCategoryId] = useState('');
   const [selectedCollectionId, setSelectedCollectionId] = useState(
@@ -47,10 +56,11 @@ export default function Shop() {
         item.title.toLowerCase().includes(searchTerm.toLowerCase()))
   );
 
-  console.log(items);
-
   const activeItems = items.filter((item) => item.isActive);
 
+  if (!activeItems) {
+    return <div>Loading...</div>;
+  }
   return (
     <div>
       <Navbar />

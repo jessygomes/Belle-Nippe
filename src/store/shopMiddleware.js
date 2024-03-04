@@ -3,11 +3,24 @@ import {
   handleCreateItem,
   handleUpdateItem,
   deleteItem,
+  decrementStock,
 } from './shopSlice';
 
 const shopMiddleware = (store) => (next) => (action) => {
   if (action.type === 'GET_ITEMS_FROM_API') {
     fetch('http://localhost:4000/items')
+      .then((response) => response.json())
+      .then((data) => {
+        store.dispatch(setItemsFromApi(data));
+      })
+      .catch((error) => {
+        console.error(error, 'Erreur lors de la récupération des données API');
+      });
+  }
+
+  if (action.type === 'GET_ITEMS_FROM_COLLECTION') {
+    const { collectionId } = action.payload;
+    fetch(`http://localhost:4000/items/${collectionId}`)
       .then((response) => response.json())
       .then((data) => {
         store.dispatch(setItemsFromApi(data));
@@ -84,6 +97,27 @@ const shopMiddleware = (store) => (next) => (action) => {
     }).then(() => {
       const deleteAction = deleteItem(itemId);
       store.dispatch(deleteAction);
+    });
+  }
+
+  if (action.type === 'DECREMENT_STOCK') {
+    const cart = action.payload;
+    console.log(cart, 'cart');
+    cart.forEach((cartItem) => {
+      fetch(`http://localhost:4000/items/${cartItem.id}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          stock: cartItem.stock - cartItem.quantity,
+        }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          const updateAction = decrementStock(data);
+          store.dispatch(updateAction);
+        });
     });
   }
   return next(action);

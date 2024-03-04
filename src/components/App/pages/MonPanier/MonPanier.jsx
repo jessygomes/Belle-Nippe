@@ -1,4 +1,4 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Navbar from '../../Navbar/Navbar';
 import Footer from '../../Footer/Footer';
@@ -6,9 +6,16 @@ import ProduitForPanier from '../../ProduitForPanier/ProduitForPanier';
 import './MonPanier.scss';
 
 export default function MonPanier() {
+  const dispatch = useDispatch();
   const cart = useSelector((state) => state.monPanier.cart);
-  const total = cart.reduce((sum, item) => sum + item.price, 0);
+  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
   console.log('cart', cart);
+
+  //! GERER LE STOCK APRES LE PAIEMENT
+  const handlePayment = async () => {
+    const action = { type: 'DECREMENT_STOCK', payload: cart };
+    dispatch(action);
+  };
 
   return (
     <div>
@@ -24,16 +31,14 @@ export default function MonPanier() {
       <div className="panier__price">
         <p>Total :</p>
         <p>{total} €</p>
-        {/* <Trash size="100%" color="#072A3D"/> */}
       </div>
-      {/* <div className='lienVersPaiement'>
-                <a className='lienVersCollection__links' href="/paiement">
-                <button className='accueil__btn'>Paiement</button>
-                </a>
-            </div> */}
       <div className="lienVersCollection" id="paiement-btn">
-        <Link className="lienVersCollection__links" to="/shop">
-          <button className="accueil__btn" type="button">
+        <Link className="lienVersCollection__links" to="/success">
+          <button
+            className="accueil__btn"
+            type="button"
+            onClick={handlePayment}
+          >
             Paiement
           </button>
         </Link>
