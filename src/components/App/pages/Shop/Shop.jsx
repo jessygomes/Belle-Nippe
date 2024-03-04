@@ -56,7 +56,7 @@ export default function Shop() {
         item.title.toLowerCase().includes(searchTerm.toLowerCase()))
   );
 
-  const activeItems = items.filter((item) => item.isActive);
+  const activeItems = items.filter((item) => item.isActive && item.stock > 0);
 
   if (!activeItems) {
     return <div>Loading...</div>;
