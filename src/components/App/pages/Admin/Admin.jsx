@@ -374,8 +374,13 @@ export default function Admin() {
       {showModalCollection && (
         <div className="modal">
           <div className="modal__content">
-            <button className="modal__close" type="button">
-              <i className="fa fa-close" onClick={closeModal} />
+            <button
+              className="modal__close"
+              onClick={closeModal}
+              type="button"
+              aria-label="Close"
+            >
+              <i className="fa fa-close" />
             </button>
             <h2 className="modal__title">Nouvelle Collection</h2>
             <form className="modal__form" onSubmit={handleSubmit}>
@@ -395,17 +400,19 @@ export default function Admin() {
                 onChange={changeFieldCollection}
                 value={descriptionCollection}
               />
-              <label htmlFor="isActive">Actif</label>
-              <input
-                className="modal__inputDesc"
-                type="checkbox"
-                name="isActive"
-                onChange={(event) =>
-                  changeFieldCollection({
-                    target: { name: 'isActive', value: event.target.checked },
-                  })
-                }
-              />
+              <div>
+                <label htmlFor="isActive">Actif</label>
+                <input
+                  className="modal__inputDesc"
+                  type="checkbox"
+                  name="isActive"
+                  onChange={(event) =>
+                    changeFieldCollection({
+                      target: { name: 'isActive', value: event.target.checked },
+                    })
+                  }
+                />
+              </div>
               <button className="modal__btn" type="submit">
                 Créer ma nouvelle collection
               </button>

@@ -9,14 +9,30 @@ export default function ProduitForPanier({ item }) {
 
   const handleRemoveFromCart = () => {
     dispatch(removeFromCart(item));
+    const currentCart = JSON.parse(localStorage.getItem('cart')) || [];
+    // Supprimer l'article du panier
+    const updatedCart = currentCart.filter(
+      (cartItem) => cartItem.id !== item.id
+    );
+    // Réenregistrer le panier dans le localStorage
+    localStorage.setItem('cart', JSON.stringify(updatedCart));
   };
 
-  const [quantity, setQuantity] = useState(item.quantity || 1);
+  const [quantity, setQuantity] = useState(1);
 
   const handleQuantityChange = (e) => {
     const newQuantity = Number(e.target.value);
     setQuantity(newQuantity);
     dispatch(updateQuantity({ id: item.id, quantity: newQuantity }));
+
+    const currentCart = JSON.parse(localStorage.getItem('cart'));
+    const existingItem = currentCart.find(
+      (cartItem) => cartItem.id === item.id
+    );
+    if (existingItem) {
+      existingItem.quantity = newQuantity;
+      localStorage.setItem('cart', JSON.stringify(currentCart));
+    }
   };
 
   return (

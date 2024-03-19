@@ -8,7 +8,7 @@ import {
 
 const shopMiddleware = (store) => (next) => (action) => {
   if (action.type === 'GET_ITEMS_FROM_API') {
-    fetch('http://localhost:4000/items')
+    fetch('http://localhost:3000/items')
       .then((response) => response.json())
       .then((data) => {
         store.dispatch(setItemsFromApi(data));
@@ -20,7 +20,7 @@ const shopMiddleware = (store) => (next) => (action) => {
 
   if (action.type === 'GET_ITEMS_FROM_COLLECTION') {
     const { collectionId } = action.payload;
-    fetch(`http://localhost:4000/items/${collectionId}`)
+    fetch(`http://localhost:3000/collections/${collectionId}/items`)
       .then((response) => response.json())
       .then((data) => {
         store.dispatch(setItemsFromApi(data));
@@ -31,7 +31,7 @@ const shopMiddleware = (store) => (next) => (action) => {
   }
 
   if (action.type === 'CREATE_ITEM') {
-    fetch('http://localhost:4000/items', {
+    fetch('http://localhost:3000/items', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -39,14 +39,15 @@ const shopMiddleware = (store) => (next) => (action) => {
       body: JSON.stringify({
         title: store.getState().shop.title,
         slug: store.getState().shop.slug,
-        images: store.getState().shop.images,
-        price: parseInt(store.getState().shop.price, 10),
-        stock: parseInt(store.getState().shop.stock, 10),
-        size: store.getState().shop.size,
         description: store.getState().shop.description,
+        price: parseInt(store.getState().shop.price, 10),
+        size: store.getState().shop.size,
+        stock: parseInt(store.getState().shop.stock, 10),
+        quantity: parseInt(store.getState().shop.quantity, 10),
+        is_active: store.getState().shop.isActive,
         collection_id: parseInt(store.getState().shop.collection_id, 10),
-        category_ids: parseInt(store.getState().shop.category_ids, 10),
-        isActive: store.getState().shop.isActive,
+        category_id: parseInt(store.getState().shop.category_ids, 10),
+        images: store.getState().shop.images,
       }),
     })
       .then((response) => response.json())
@@ -62,7 +63,7 @@ const shopMiddleware = (store) => (next) => (action) => {
 
   if (action.type === 'UPDATE_ITEM') {
     const itemId = action.payload;
-    fetch(`http://localhost:4000/items/${itemId}`, {
+    fetch(`http://localhost:3000/items/${itemId}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -70,14 +71,15 @@ const shopMiddleware = (store) => (next) => (action) => {
       body: JSON.stringify({
         title: store.getState().shop.title,
         slug: store.getState().shop.slug,
-        images: store.getState().shop.images,
-        price: parseInt(store.getState().shop.price, 10),
-        stock: parseInt(store.getState().shop.stock, 10),
-        size: store.getState().shop.size,
         description: store.getState().shop.description,
+        price: parseInt(store.getState().shop.price, 10),
+        size: store.getState().shop.size,
+        stock: parseInt(store.getState().shop.stock, 10),
+        quantity: parseInt(store.getState().shop.quantity, 10),
+        is_active: store.getState().shop.isActive,
         collection_id: parseInt(store.getState().shop.collection_id, 10),
-        category_ids: parseInt(store.getState().shop.category_ids, 10),
-        isActive: store.getState().shop.isActive,
+        category_id: parseInt(store.getState().shop.category_ids, 10),
+        images: store.getState().shop.images,
       }),
     })
       .then((res) => res.json())
@@ -89,7 +91,7 @@ const shopMiddleware = (store) => (next) => (action) => {
 
   if (action.type === 'DELETE_ITEM') {
     const itemId = action.payload;
-    fetch(`http://localhost:4000/items/${itemId}`, {
+    fetch(`http://localhost:3000/items/${itemId}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
@@ -104,7 +106,7 @@ const shopMiddleware = (store) => (next) => (action) => {
     const cart = action.payload;
     console.log(cart, 'cart');
     cart.forEach((cartItem) => {
-      fetch(`http://localhost:4000/items/${cartItem.id}`, {
+      fetch(`http://localhost:3000/items/${cartItem.id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',

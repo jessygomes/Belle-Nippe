@@ -2,12 +2,12 @@ import { createSlice } from '@reduxjs/toolkit';
 
 export const initialState = {
   id: null,
-  name: '',
+  name_category: '',
   listCategories: [],
 };
 
 const categorySlice = createSlice({
-  name: 'shop',
+  name: 'category',
   initialState,
   reducers: {
     setCategoryFromApi: (state, action) => {

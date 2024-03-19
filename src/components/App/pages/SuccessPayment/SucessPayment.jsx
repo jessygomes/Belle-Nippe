@@ -1,9 +1,23 @@
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Footer from '../../Footer/Footer';
 import Navbar from '../../Navbar/Navbar';
+import { clearCart } from '../../../../store/monPanierSlice';
 import './SuccessPayment.scss';
 
 export default function SuccessPayment() {
+  const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart);
+
+  //! GERER LE STOCK APRES LE PAIEMENT
+  useEffect(() => {
+    const action = { type: 'DECREMENT_STOCK', payload: cart };
+    dispatch(action);
+    localStorage.removeItem('cart');
+    dispatch(clearCart());
+  }, [cart, dispatch]);
+
   return (
     <div className="success">
       <Navbar />

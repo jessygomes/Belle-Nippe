@@ -8,6 +8,9 @@ export default function Navbar() {
   const [click, setClick] = useState(false);
   // const [isOpen, setIsOpen] = useState(false);
 
+  const role = localStorage.getItem('role');
+  // const role = 'admin';
+
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
 
@@ -46,8 +49,10 @@ export default function Navbar() {
     };
   }, [location.pathname, isHomePage]);
 
+  const isLogged = localStorage.getItem('is_logged') === 'true';
+
   return (
-    <div className={`accueil__container ${isHomePage ? '' : 'otherpage'}`}>
+    <header className={`accueil__container ${isHomePage ? '' : 'otherpage'}`}>
       <NavLink className="accueil__logo" to="/">
         <img
           src="/Logo/1dfd1fef-d2c2-49ee-9616-be4b313175c0.png"
@@ -55,6 +60,20 @@ export default function Navbar() {
         />
       </NavLink>
       <div className="navbar__container">
+        <div
+          className="mobile__navbar"
+          role="button"
+          tabIndex={0}
+          onClick={handleClick}
+          onKeyDown={(event) => {
+            if (event.key === 'Enter') {
+              handleClick();
+            }
+          }}
+          aria-label="Mobile Navigation"
+        >
+          <i id="bar" className={click ? 'fas fa-times' : 'fas fa-bars'} />
+        </div>
         <nav className={click ? 'accueil__navbar open' : 'accueil__navbar'}>
           <NavLink
             className="accueil__link"
@@ -77,20 +96,34 @@ export default function Navbar() {
           >
             A Propos
           </NavLink>
+
+          {role === 'admin' && (
+            <NavLink
+              className="accueil__link"
+              to="/admin"
+              onClick={closeMobileMenu}
+            >
+              Admin
+            </NavLink>
+          )}
+
           <NavLink
             className="accueil__shop"
             to="/monpanier"
             onClick={closeMobileMenu}
           >
-            <i class="fa-solid fa-bag-shopping"></i>
+            <i className="fa-solid fa-bag-shopping" />
+          </NavLink>
+          <NavLink
+            className="accueil__shop"
+            to={isLogged ? '/profil' : '/connexion'}
+            onClick={closeMobileMenu}
+          >
+            <i className="fa-solid fa fa-user" />
           </NavLink>
         </nav>
       </div>
-
-      <div className="mobile__navbar" onClick={handleClick}>
-        <i id="bar" className={click ? 'fas fa-times' : 'fas fa-bars'}></i>
-      </div>
-    </div>
+    </header>
   );
 }
 

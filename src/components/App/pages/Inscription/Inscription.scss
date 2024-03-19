@@ -1,0 +1,99 @@
+@use '@scssVariables' as v;
+
+// PC PORTABLE :
+.inscription {
+  padding: 0 10rem;
+  width: 100%;
+  margin: 7rem 0 5rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2rem;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__input {
+    width: 40%;
+    background-color: v.$grey;
+    border-radius: 0.3rem;
+    padding: 1rem 2rem;
+    border: 1px solid transparent;
+  }
+  &__input:focus-within {
+    transition: 0.3s ease-in-out;
+    box-shadow:
+      #00000029 0px 3px 6px,
+      #0000003b 0px 20px 20px;
+  }
+
+  &__inscription {
+    margin-top: 2rem;
+    text-align: center;
+  }
+  &__link {
+    text-transform: uppercase;
+    transition: 0.3s ease-in-out;
+    color: v.$hoverBeige;
+    cursor: pointer;
+  }
+  &__link:hover {
+    transition: 0.3s ease-in-out;
+    color: v.$black;
+    text-shadow: 1px 10px 3px rgba(0, 0, 0, 0.5);
+  }
+
+  &__error {
+    text-align: center;
+    transition: 0.3s ease-in-out;
+    width: 40%;
+    color: red;
+    font-size: 1rem;
+    padding: 1rem;
+  }
+  &__success {
+    text-align: center;
+    transition: 0.3s ease-in-out;
+    width: 40%;
+    color: #002aff;
+    font-size: 1rem;
+    padding: 1rem;
+  }
+}
+
+//! GRANDS ECRANS :
+@media screen and (min-width: 1710px) {
+  .inscription {
+    padding: 0 25rem;
+  }
+}
+
+//! MOBILES :
+@media screen and (max-width: 767px) {
+  .inscription {
+    padding: 0 1.5rem;
+
+    &__form {
+      margin-top: 1rem;
+    }
+
+    &__input {
+      width: 100%;
+    }
+  }
+}
+
+//! TABLETTES :
+@media screen and (min-width: 768px) and (max-width: 900px) {
+  .inscription {
+    height: 70vh;
+    padding: 0 1.5rem;
+  }
+}

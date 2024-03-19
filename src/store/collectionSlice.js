@@ -2,14 +2,14 @@ import { createSlice } from '@reduxjs/toolkit';
 
 export const initialState = {
   id: null,
-  titleCollection: '',
-  descriptionCollection: '',
-  isActive: false,
+  title_collection: '',
+  description_collection: '',
+  is_active: false,
   listCollections: [],
 };
 
 const collectionSlice = createSlice({
-  name: 'shop',
+  name: 'collection',
   initialState,
   reducers: {
     setCollectionFromApi: (state, action) => {

@@ -7,7 +7,7 @@ import {
 
 const collectionMiddleware = (store) => (next) => (action) => {
   if (action.type === 'GET_COLLECTIONS_FROM_API') {
-    fetch('http://localhost:4000/collections')
+    fetch('http://localhost:3000/collections')
       .then((response) => response.json())
       .then((data) => {
         store.dispatch(setCollectionFromApi(data));
@@ -18,16 +18,16 @@ const collectionMiddleware = (store) => (next) => (action) => {
   }
 
   if (action.type === 'CREATE_COLLECTION') {
-    fetch('http://localhost:4000/collections', {
+    fetch('http://localhost:3000/collections', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        titleCollection: store.getState().collection.titleCollection,
-        descriptionCollection:
-          store.getState().collection.descriptionCollection,
-        isActive: store.getState().collection.isActive,
+        title_collection: store.getState().collection.title_collection,
+        description_collection:
+          store.getState().collection.description_collection,
+        is_active: store.getState().collection.is_active,
       }),
     })
       .then((response) => response.json())
@@ -43,16 +43,16 @@ const collectionMiddleware = (store) => (next) => (action) => {
 
   if (action.type === 'UPDATE_COLLECTION') {
     const collectionId = action.payload;
-    fetch(`http://localhost:4000/collections/${collectionId}`, {
+    fetch(`http://localhost:3000/collections/${collectionId}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        titleCollection: store.getState().collection.titleCollection,
-        descriptionCollection:
-          store.getState().collection.descriptionCollection,
-        isActive: store.getState().collection.active,
+        title_collection: store.getState().collection.title_collection,
+        description_collection:
+          store.getState().collection.description_collection,
+        is_active: store.getState().collection.is_active,
       }),
     })
       .then((res) => res.json())
@@ -64,7 +64,7 @@ const collectionMiddleware = (store) => (next) => (action) => {
 
   if (action.type === 'DELETE_COLLECTION') {
     const collectionId = action.payload;
-    fetch(`http://localhost:4000/collections/${collectionId}`, {
+    fetch(`http://localhost:3000/collections/${collectionId}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',

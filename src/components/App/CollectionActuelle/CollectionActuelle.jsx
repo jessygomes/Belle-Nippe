@@ -39,13 +39,13 @@ export default function CollectionActuelle() {
         <div className="collection__contenu">
           <div className="collection__title">
             <h2 className="collection__name">
-              {lastCollection.titleCollection}
+              {lastCollection.title_collection}
             </h2>
           </div>
         </div>
 
         <p className="collection__description">
-          {lastCollection.descriptionCollection} <br />
+          {lastCollection.description_collection} <br />
           La collection de vêtements haute couture intitulée "Candy" incarne
           l'essence audacieuse et éthique de l'upcycling. Conçue avec
           ingéniosité, cette ligne allie l'élégance de la haute couture et la

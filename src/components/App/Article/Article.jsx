@@ -20,15 +20,24 @@ export default function Article() {
     return <Navigate to="/error" replace />;
   }
 
-  // Carrousel pour les images des articles :
+  //! Carrousel pour les images des articles :
   const [currentSlide, setCurrentSlide] = useState(0);
   const onChange = (index) => {
     setCurrentSlide(index);
   };
 
   const handleAddToCart = () => {
-    dispatch(addToCart(item));
-    console.log('item', item);
+    const currentCart = JSON.parse(localStorage.getItem('cart')) || [];
+    const existingItem = currentCart.find(
+      (cartItem) => cartItem.id === item.id
+    );
+    if (!existingItem) {
+      currentCart.push({ ...item, quantity: 1 });
+      localStorage.setItem('cart', JSON.stringify(currentCart));
+      dispatch(addToCart(item));
+    } else {
+      console.log('Cet article est déjà dans le panier');
+    }
   };
 
   return (

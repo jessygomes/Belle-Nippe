@@ -40,13 +40,13 @@ export default function Shop() {
   };
 
   const activeCollections = collections.filter(
-    (collection) => collection.isActive
+    (collection) => collection.is_active
   );
 
   const items = useSelector((state) => state.shop.listItems).filter(
     (item) =>
       (selectedCategoryId === '' ||
-        item.category_ids === Number(selectedCategoryId)) &&
+        item.category_id === Number(selectedCategoryId)) &&
       (selectedCollectionId === '' ||
         item.collection_id === Number(selectedCollectionId) ||
         activeCollections.some(
@@ -56,7 +56,7 @@ export default function Shop() {
         item.title.toLowerCase().includes(searchTerm.toLowerCase()))
   );
 
-  const activeItems = items.filter((item) => item.isActive && item.stock > 0);
+  const activeItems = items.filter((item) => item.is_active && item.stock > 0);
 
   if (!activeItems) {
     return <div>Loading...</div>;
@@ -65,7 +65,7 @@ export default function Shop() {
     <div>
       <Navbar />
       <div className="categorie">
-        <h2 className="titlePage">Shop</h2>
+        <h1 className="titlePage">Shop</h1>
         <div className="categorie__mobileContainer">
           <select
             className="categorie__select"
@@ -75,7 +75,7 @@ export default function Shop() {
             <option value="">Tous les produits</option>
             {categories.map((category) => (
               <option key={category.id} value={category.id}>
-                {category.name}
+                {category.name_category}
               </option>
             ))}
           </select>
@@ -86,10 +86,16 @@ export default function Shop() {
             value={selectedCollectionId}
             onChange={handleCollectionChange}
           >
-            <option value="">Toutes les collections</option>
+            <option className="categorie__option" value="">
+              Toutes les collections
+            </option>
             {activeCollections.map((collection) => (
-              <option key={collection.id} value={collection.id}>
-                {collection.titleCollection}
+              <option
+                className="categorie__option"
+                key={collection.id}
+                value={collection.id}
+              >
+                {collection.title_collection}
               </option>
             ))}
           </select>
@@ -102,7 +108,7 @@ export default function Shop() {
           />
         </div>
       </div>
-      <div className="shop">
+      <main className="shop">
         {activeItems.map((item) => (
           <Produit
             key={item.id}
@@ -112,7 +118,7 @@ export default function Shop() {
             image={item.images[0]}
           />
         ))}
-      </div>
+      </main>
       {/* <div className="lienVersCollection">
         <a className="lienVersCollection__links" href="/shop">
           <button className="accueil__btn" type="button">

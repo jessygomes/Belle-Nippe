@@ -1,6 +1,85 @@
 @use '@scssVariables' as v;
 
 .accueil__container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2; /* Assurez-vous que le Navbar est au-dessus du reste du contenu */
+  /* Ajoutez d'autres styles selon vos besoins */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.3rem 15rem;
+  transition: background-color 0.5s ease-in-out;
+}
+.accueil__container.scrolled {
+  background-color: v.$black;
+  box-shadow:
+    #00000029 0px 3px 6px,
+    #0000003b 0px 20px 5px;
+}
+.accueil__container.otherpage {
+  background-color: v.$black;
+  box-shadow:
+    #00000029 0px 3px 6px,
+    #0000003b 0px 20px 5px;
+}
+.accueil__logo {
+  width: 20%;
+}
+.accueil__navbar {
+  right: 15;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+.accueil__link {
+  letter-spacing: 2px;
+  font-family: 'Figtree';
+  font-size: 1.2rem;
+  margin-left: 2rem;
+  transition: 0.1s ease-in-out;
+  position: relative;
+}
+.accueil__link:hover {
+  text-shadow: #ffffffe6 0px 0px 4px;
+}
+.accueil__shop {
+  margin-left: 2rem;
+  font-size: 1.5rem;
+}
+.accueil__shop:hover {
+  text-shadow: #ffffffe6 0px 0px 4px;
+}
+.active {
+  text-shadow: #ffffffe6 0px 0px 5px;
+}
+
+.mobile__navbar {
+  display: none;
+}
+.mobile__navbar i {
+  color: white;
+}
+
+// GRANDS ECRANS
+@media screen and (min-width: 1600px) {
+  .accueil__container {
+    padding: 1.3rem 25rem;
+  }
+  .accueil__link {
+    font-size: 1.5rem;
+  }
+}
+
+// MENU MOBILE
+@media screen and (max-width: 769px) {
+  .accueil__logo {
+    width: 50%;
+  }
+  .accueil__container {
     position: fixed;
     top: 0;
     left: 0;
@@ -11,201 +90,120 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 1.3rem 15rem;
-    transition: background-color 0.5s ease-in-out;
-}
-.accueil__container.scrolled {
+    padding: 1.3rem 1.5rem;
     background-color: v.$black;
-    box-shadow: #00000029 0px 3px 6px, #0000003b 0px 20px 5px;
-}
-.accueil__container.otherpage {
-    background-color: v.$black;
-    box-shadow: #00000029 0px 3px 6px, #0000003b 0px 20px 5px;
-}
-.accueil__logo {
-    width: 20%;
-}
-.accueil__navbar {
-    right: 15;
-    color: white;
+    box-shadow:
+      #00000029 0px 3px 6px,
+      #0000003b 0px 20px 5px;
+  }
+  .accueil__navbar {
     display: flex;
+    flex-direction: column;
     align-items: center;
-}
-.accueil__link {
+    justify-content: flex-start;
+    background-color: v.$black;
+    padding: 2rem 3rem;
+    position: absolute;
+    top: 4rem;
+    left: -70%;
+    opacity: 0%;
+    width: 50%;
+    height: 100vh;
+    transition: all 0.5s ease;
+  }
+  .open {
+    left: 0;
+    opacity: 1;
+    transition: all 0.5s ease;
+    z-index: 1;
+  }
+  .accueil__link {
     letter-spacing: 2px;
     font-family: 'Figtree';
-    font-size: 1.2rem;
-    margin-left: 2rem;
+    font-size: 1rem;
+    margin-left: 0rem;
+    margin-bottom: 2rem;
     transition: 0.1s ease-in-out;
     position: relative;
-}
-.accueil__link:hover {
-    text-shadow: rgba(255,255,255,0.9) 0px 0px 4px;
-}
-.accueil__shop {
-    margin-left: 2rem;
+    display: table;
+  }
+  .accueil__shop {
+    font-size: 2rem;
+    margin-left: 0rem;
+  }
+  .mobile__navbar {
+    display: block;
+    z-index: 2;
+  }
+  .mobile__navbar i {
     font-size: 1.5rem;
+    cursor: pointer;
+  }
 }
-.accueil__shop:hover {
-    text-shadow: rgba(255,255,255,0.9) 0px 0px 4px;
-}
-.active {
-    text-shadow: rgba(255,255,255,0.9) 0px 0px 5px;
-}
-
-
-.mobile__navbar{
-    display: none;
-}
-.mobile__navbar i {
-    color: white;
-}
-
-
-
-// GRANDS ECRANS
-@media screen and (min-width:1600px) {
-    .accueil__container {
-        padding: 1.3rem 25rem;
-    }
-    .accueil__link {
-        font-size: 1.5rem;
-    }
-}
-
-
-
-// MENU MOBILE 
-@media screen and (max-width:769px) {
-    .accueil__logo {
-        width: 50%;
-    }
-    .accueil__container {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 2; /* Assurez-vous que le Navbar est au-dessus du reste du contenu */
-        /* Ajoutez d'autres styles selon vos besoins */
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1.3rem 1.5rem;
-        background-color: v.$black;
-        box-shadow: #00000029 0px 3px 6px, #0000003b 0px 20px 5px;
-    }
-    .accueil__navbar {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        background-color: v.$black;
-        padding: 2rem 3rem;
-        position: absolute;
-        top: 4rem;
-        left: -70%;
-        opacity: 0%;
-        width: 50%;
-        height: 100vh;
-        transition: all 0.5s ease;
-    }
-   .open {
-        left: 0;
-        opacity: 1;
-        transition: all 0.5s ease;
-        z-index: 1;
-    }
-    .accueil__link {
-        letter-spacing: 2px;
-        font-family: 'Figtree';
-        font-size: 1rem;
-        margin-left: 0rem;
-        margin-bottom: 2rem;
-        transition: 0.1s ease-in-out;
-        position: relative;
-        display: table;
-    }
-    .accueil__shop {
-        font-size: 2rem;
-        margin-left: 0rem;
-    }
-    .mobile__navbar{
-        display: block;
-        z-index: 2;
-    }
-    .mobile__navbar i{
-        font-size: 1.5rem;
-        cursor: pointer;
-    }
-}
-
-
-
-
-
 
 // TABLETTES
-@media screen and (min-width:767px) and (max-width:900px) {
-    .accueil__logo {
-        width: 40%;
-    }
-    .accueil__container {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 2; /* Assurez-vous que le Navbar est au-dessus du reste du contenu */
-        /* Ajoutez d'autres styles selon vos besoins */
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1.3rem 3rem;
-        background-color: v.$dark-blue;
-        box-shadow: #00000029 0px 3px 6px, #0000003b 0px 20px 5px;
-    }
-    .accueil__navbar {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        background-color: v.$dark-blue;
-        padding: 2rem 3rem;
-        position: absolute;
-        top: 5.5rem;
-        left: -70%;
-        opacity: 0%;
-        width: 50%;
-        height: 100vh;
-        transition: all 0.5s ease;
-    }
-   .open {
-        left: 0;
-        opacity: 1;
-        transition: all 0.5s ease;
-        z-index: 1;
-    }
-    .accueil__link {
-        letter-spacing: 2px;
-        font-family: 'Figtree';
-        font-size: 2rem;
-        margin-left: 0rem;
-        margin-bottom: 2rem;
-        transition: 0.1s ease-in-out;
-        position: relative;
-        display: table;
-    }
-    .accueil__shop {
-        font-size: 2rem;
-        margin-left: 0rem;
-    }
-    .mobile__navbar{
-        display: block;
-        z-index: 2;
-    }
-    .mobile__navbar i{
-        font-size: 1.5rem;
-        cursor: pointer;
-    }
+@media screen and (min-width: 767px) and (max-width: 900px) {
+  .accueil__logo {
+    width: 40%;
+  }
+  .accueil__container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2; /* Assurez-vous que le Navbar est au-dessus du reste du contenu */
+    /* Ajoutez d'autres styles selon vos besoins */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.3rem 3rem;
+    background-color: v.$dark-blue;
+    box-shadow:
+      #00000029 0px 3px 6px,
+      #0000003b 0px 20px 5px;
+  }
+  .accueil__navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: v.$dark-blue;
+    padding: 2rem 3rem;
+    position: absolute;
+    top: 5.5rem;
+    left: -70%;
+    opacity: 0%;
+    width: 50%;
+    height: 100vh;
+    transition: all 0.5s ease;
+  }
+  .open {
+    left: 0;
+    opacity: 1;
+    transition: all 0.5s ease;
+    z-index: 1;
+  }
+  .accueil__link {
+    letter-spacing: 2px;
+    font-family: 'Figtree';
+    font-size: 2rem;
+    margin-left: 0rem;
+    margin-bottom: 2rem;
+    transition: 0.1s ease-in-out;
+    position: relative;
+    display: table;
+  }
+  .accueil__shop {
+    font-size: 2rem;
+    margin-left: 0rem;
+  }
+  .mobile__navbar {
+    display: block;
+    z-index: 2;
+  }
+  .mobile__navbar i {
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
 }

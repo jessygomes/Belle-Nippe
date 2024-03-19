@@ -1,103 +1,111 @@
 @use '@scssVariables' as v;
 
-// PC PORTABLE : 
+// PC PORTABLE :
 .panier {
-    padding: 0 15rem;
-    width: 100%;
-    margin: 7rem 0rem 2rem 0;
-    display: flex;
-    justify-content: center;
-    gap: 4rem;
+  padding: 0 15rem;
+  width: 100%;
+  margin: 7rem 0rem 2rem 0;
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
 }
 .panier__list {
-    padding: 0 15rem;
-    width: 80%;
-    margin: 0 auto;
+  padding: 0 15rem;
+  width: 80%;
+  margin: 0 auto;
 }
 .panier__price {
-    width: 70%;
-    margin: 0 auto;
-    margin-bottom: 2rem;
+  width: 70%;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  font-size: 1.5rem;
+  letter-spacing: 0.3rem;
+}
+#paiement-btn {
+  margin-bottom: 4rem;
+}
+.ConnexOrRegister {
+  padding: 2rem;
+  font-size: 1.2rem;
+}
+.linkRegister {
+  text-transform: uppercase;
+  transition: 0.3s ease-in-out;
+  color: v.$hoverBeige;
+  cursor: pointer;
+}
+.linkRegister:hover {
+  transition: 0.3s ease-in-out;
+  color: v.$black;
+  text-shadow: 1px 10px 3px rgba(0, 0, 0, 0.5);
+}
+
+// GRANDS ECRANS :
+@media screen and (min-width: 1710px) {
+  .panier {
+    padding: 0 25rem;
+  }
+  .panier__list {
+    padding: 0 25rem;
+  }
+}
+
+@media screen and (max-width: 769px) {
+  .panier {
+    padding: 0 1rem;
+    margin: 7rem 0rem 3rem 0;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    font-size: 1.5rem;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .panier__list {
+    padding: 0 1rem;
+    width: 100%;
+  }
+  .panier__price {
+    width: 100%;
+    margin-bottom: 2rem;
+    font-size: 1rem;
     letter-spacing: 0.3rem;
+  }
+  .lienVersPaiement {
+    margin: 0 auto;
+    width: 70%;
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 5rem;
+  }
 }
-#paiement-btn{
-    margin-bottom: 4rem;
-}
-
-
-// GRANDS ECRANS : 
-@media screen and (min-width:1600px) {
-    .panier {
-        padding: 0 25rem;
-    }
-    .panier__list {
-        padding: 0 25rem;
-    }
-}
-
-
-
-@media screen and (max-width:769px) {
-    .panier {
-        padding: 0 1rem;
-        margin: 7rem 0rem 3rem 0;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        gap: 1rem;
-    }
-    .panier__list {
-        padding: 0 1rem;
-        width: 100%;
-    }
-    .panier__price {
-        width: 100%;
-        margin-bottom: 2rem;
-        font-size: 1rem;
-        letter-spacing: 0.3rem;
-    }
-    .lienVersPaiement {
-        margin: 0 auto;
-        width: 70%;
-        text-align: center;
-        font-size: 1rem;
-        margin-bottom: 5rem;
-    }
-}
-
-
-
-
 
 // TABLETTES
-@media screen and (min-width:767px) and (max-width:900px) {
-    .panier {
-        padding: 0 1rem;
-        margin: 9rem 0rem 3rem 0;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        gap: 1rem;
-    }
-    .panier__list {
-        padding: 0 1rem;
-        width: 70%;
-    }
-    .panier__price {
-        width: 100%;
-        margin-bottom: 2rem;
-        font-size: 1rem;
-        letter-spacing: 0.3rem;
-    }
-    .lienVersPaiement {
-        margin: 0 auto;
-        width: 70%;
-        text-align: center;
-        font-size: 1rem;
-        margin-bottom: 5rem;
-    }
+@media screen and (min-width: 767px) and (max-width: 900px) {
+  .panier {
+    padding: 0 1rem;
+    margin: 9rem 0rem 3rem 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .panier__list {
+    padding: 0 1rem;
+    width: 70%;
+  }
+  .panier__price {
+    width: 100%;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    letter-spacing: 0.3rem;
+  }
+  .lienVersPaiement {
+    margin: 0 auto;
+    width: 70%;
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 5rem;
+  }
 }

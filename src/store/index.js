@@ -6,6 +6,11 @@ import collectionMiddleware from './collectionMiddleware';
 import categorySlice from './categorySlice';
 import categoryMiddleware from './categoryMiddleware';
 import monPanierSlice from './monPanierSlice';
+import inscriptionSlice from './Auth/inscriptionSlice';
+import inscriptionMiddleware from './Auth/inscriptionMiddleware';
+import connexionSlice from './Auth/connexionSlice';
+import connexionMiddleware from './Auth/connexionMiddleware';
+import monPanierItemSlice from './monPanierItemSlice';
 
 export default configureStore({
   reducer: {
@@ -13,11 +18,16 @@ export default configureStore({
     collection: collectionSlice,
     category: categorySlice,
     monPanier: monPanierSlice,
+    monPanierItem: monPanierItemSlice,
+    inscription: inscriptionSlice,
+    connexion: connexionSlice,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(
       shopMiddleware,
       collectionMiddleware,
-      categoryMiddleware
+      categoryMiddleware,
+      inscriptionMiddleware,
+      connexionMiddleware
     ),
 });

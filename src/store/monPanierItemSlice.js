@@ -3,12 +3,11 @@ import { createSlice } from '@reduxjs/toolkit';
 export const initialState = {
   id: '',
   user_id: '',
-  total: 0.0,
-  cart: [],
+  total: 0,
 };
 
-const monPanierSlice = createSlice({
-  name: 'monPanier',
+const monPanierItemSlice = createSlice({
+  name: 'monPanierItem',
   initialState,
   reducers: {
     addToCart: (state, action) => {
@@ -30,13 +29,10 @@ const monPanierSlice = createSlice({
         itemQuantity.quantity = quantity;
       }
     },
-    clearCart: (state) => {
-      state.cart = [];
-    },
   },
 });
 
-export const { addToCart, removeFromCart, updateQuantity, clearCart } =
-  monPanierSlice.actions;
+export const { addToCart, removeFromCart, updateQuantity } =
+  monPanierItemSlice.actions;
 
-export default monPanierSlice.reducer;
+export default monPanierItemSlice.reducer;

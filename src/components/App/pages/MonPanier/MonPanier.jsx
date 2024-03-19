@@ -1,20 +1,42 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
 import Navbar from '../../Navbar/Navbar';
 import Footer from '../../Footer/Footer';
 import ProduitForPanier from '../../ProduitForPanier/ProduitForPanier';
 import './MonPanier.scss';
 
 export default function MonPanier() {
-  const dispatch = useDispatch();
+  const nav = useNavigate();
   const cart = useSelector((state) => state.monPanier.cart);
+  const cartStorage = JSON.parse(localStorage.getItem('cart')) || [];
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
   console.log('cart', cart);
+  const isLogged = useSelector((state) => state.connexion.is_logged);
+  const [message, setMessage] = useState('');
 
-  //! GERER LE STOCK APRES LE PAIEMENT
+  //! EST-CE QUE LE USER EST CONNECTE ?
   const handlePayment = async () => {
-    const action = { type: 'DECREMENT_STOCK', payload: cart };
-    dispatch(action);
+    if (!isLogged) {
+      setMessage(
+        <span>
+          Vous devez être connecté pour effectuer un paiement.
+          <br />
+          <Link className="linkRegister" to="/connexion">
+            Connectez-vous
+          </Link>{' '}
+          ou{' '}
+          <Link className="linkRegister" to="/inscription">
+            Créez un compte
+          </Link>
+          .
+        </span>
+      );
+      return;
+    }
+
+    //! REDIRECTION VERS LA PAGE DE PAIEMENT
+    nav('/success');
   };
 
   return (
@@ -24,7 +46,7 @@ export default function MonPanier() {
         <h2 className="titlePage">Mon Panier</h2>
       </div>
       <div className="panier__list">
-        {cart.map((item) => (
+        {cartStorage.map((item) => (
           <ProduitForPanier key={item.id} item={item} />
         ))}
       </div>
@@ -33,7 +55,7 @@ export default function MonPanier() {
         <p>{total} €</p>
       </div>
       <div className="lienVersCollection" id="paiement-btn">
-        <Link className="lienVersCollection__links" to="/success">
+        <div className="lienVersCollection__links">
           <button
             className="accueil__btn"
             type="button"
@@ -41,7 +63,12 @@ export default function MonPanier() {
           >
             Paiement
           </button>
-        </Link>
+        </div>
+        <div>
+          {/* ... */}
+          {message && <p className="ConnexOrRegister">{message}</p>}
+          {/* ... */}
+        </div>
       </div>
       <Footer />
     </div>

@@ -4,15 +4,15 @@ export const initialState = {
   id: null,
   title: '',
   slug: '',
-  images: ['', '', '', '', ''],
   price: null,
   stock: null,
   quantity: null,
   size: '',
   description: '',
   collection_id: null,
-  category_ids: null,
-  isActive: false,
+  category_id: null,
+  is_active: false,
+  images: [],
   listItems: [],
 };
 

@@ -23,6 +23,9 @@ import CollectionPage from './pages/CollectionPage/CollectionPage';
 import Admin from './pages/Admin/Admin';
 import SuccessPayment from './pages/SuccessPayment/SucessPayment';
 import FailPayment from './pages/FailPayment/FailPayment';
+import Connexion from './pages/Connexion/Connexion';
+import Inscription from './pages/Inscription/Inscription';
+import Profil from './pages/Profil/Profil';
 
 function App() {
   const dispatch = useDispatch();
@@ -46,6 +49,9 @@ function App() {
       <Noise />
       <Routes>
         <Route path="/" element={<Accueil />} />
+        <Route path="/connexion" element={<Connexion />} />
+        <Route path="/inscription" element={<Inscription />} />
+        <Route path="/profil" element={<Profil />} />
 
         <Route path="/shop" element={<Shop />} />
         <Route path="/shop/collection/:collectionId" element={<Shop />} />
