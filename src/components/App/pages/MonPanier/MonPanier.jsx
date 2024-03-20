@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import Navbar from '../../Navbar/Navbar';
 import Footer from '../../Footer/Footer';
@@ -7,6 +7,7 @@ import ProduitForPanier from '../../ProduitForPanier/ProduitForPanier';
 import './MonPanier.scss';
 
 export default function MonPanier() {
+  const dispatch = useDispatch();
   const nav = useNavigate();
   const cart = useSelector((state) => state.monPanier.cart);
   const cartStorage = JSON.parse(localStorage.getItem('cart')) || [];
@@ -34,9 +35,10 @@ export default function MonPanier() {
       );
       return;
     }
-
-    //! REDIRECTION VERS LA PAGE DE PAIEMENT
-    nav('/success');
+    //! ENREGISTRER LE PANIER DANS LA ORDER + REDIRECTION
+    const action = { type: 'SAVE_CART' };
+    dispatch(action);
+    nav('/order');
   };
 
   return (

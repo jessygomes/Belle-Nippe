@@ -26,6 +26,7 @@ import FailPayment from './pages/FailPayment/FailPayment';
 import Connexion from './pages/Connexion/Connexion';
 import Inscription from './pages/Inscription/Inscription';
 import Profil from './pages/Profil/Profil';
+import Order from './pages/Order/Order';
 
 function App() {
   const dispatch = useDispatch();
@@ -65,6 +66,7 @@ function App() {
 
         <Route path="/apropos" element={<Propos />} />
         <Route path="/monpanier" element={<MonPanier />} />
+        <Route path="/order" element={<Order />} />
 
         <Route path="contact" element={<Contact />} />
         <Route

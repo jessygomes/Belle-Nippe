@@ -11,6 +11,8 @@ import inscriptionMiddleware from './Auth/inscriptionMiddleware';
 import connexionSlice from './Auth/connexionSlice';
 import connexionMiddleware from './Auth/connexionMiddleware';
 import monPanierItemSlice from './monPanierItemSlice';
+import orderSlice from './orderSlice';
+import orderMiddleware from './orderMiddleware';
 
 export default configureStore({
   reducer: {
@@ -21,6 +23,7 @@ export default configureStore({
     monPanierItem: monPanierItemSlice,
     inscription: inscriptionSlice,
     connexion: connexionSlice,
+    order: orderSlice,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(
@@ -28,6 +31,7 @@ export default configureStore({
       collectionMiddleware,
       categoryMiddleware,
       inscriptionMiddleware,
-      connexionMiddleware
+      connexionMiddleware,
+      orderMiddleware
     ),
 });

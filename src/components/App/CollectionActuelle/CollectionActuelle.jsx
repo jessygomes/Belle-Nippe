@@ -14,9 +14,7 @@ export default function CollectionActuelle() {
   }, [dispatch]);
 
   const collection = useSelector((state) => state.collection.listCollections);
-  console.log('collection', collection);
   const lastCollection = collection[collection.length - 1];
-  console.log('lastCollection', lastCollection);
 
   const items = useSelector((state) => state.shop.listItems);
 
@@ -28,7 +26,6 @@ export default function CollectionActuelle() {
     );
   }
   const firstTwoItems = itemsInLastCollection.slice(0, 2); // Utilisation de slice pour obtenir les deux premiers éléments de la liste d'items
-  console.log('firstTwoItems', firstTwoItems);
 
   if (!lastCollection) {
     return <div>Loading...</div>;
