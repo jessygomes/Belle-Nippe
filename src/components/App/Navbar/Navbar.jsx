@@ -49,7 +49,16 @@ export default function Navbar() {
     };
   }, [location.pathname, isHomePage]);
 
-  const isLogged = localStorage.getItem('is_logged') === 'true';
+  // const isLogged = localStorage.getItem('is_logged') === 'true';
+  const cookies = document.cookie.split('; ');
+  const isLoggedCookie = cookies.find((cookie) =>
+    cookie.startsWith('is_logged=')
+  );
+  const isLogged = isLoggedCookie
+    ? isLoggedCookie.split('=')[1] === 'true'
+    : false;
+  const tokenCookie = cookies.find((cookie) => cookie.startsWith('token='));
+  const token = tokenCookie ? tokenCookie.split('=')[1] : null;
 
   return (
     <header className={`accueil__container ${isHomePage ? '' : 'otherpage'}`}>
@@ -116,7 +125,7 @@ export default function Navbar() {
           </NavLink>
           <NavLink
             className="accueil__shop"
-            to={isLogged ? '/profil' : '/connexion'}
+            to={isLogged && token ? '/profil' : '/connexion'}
             onClick={closeMobileMenu}
           >
             <i className="fa-solid fa fa-user" />

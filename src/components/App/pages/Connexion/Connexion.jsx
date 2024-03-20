@@ -14,9 +14,8 @@ export default function Connexion() {
   //! Message Success
   const [successMessage, setSuccessMessage] = useState('');
 
-  const { id, email, password, nom, prenom, is_logged, token } = useSelector(
-    (state) => state.connexion
-  );
+  const { id, email, password, nom, prenom, is_logged, token, role } =
+    useSelector((state) => state.connexion);
 
   function changeField(evt) {
     const { name, value } = evt.target;
@@ -44,18 +43,21 @@ export default function Connexion() {
     if (is_logged) {
       setSuccessMessage('Vous êtes connecté(e) !');
       localStorage.setItem('id', id);
-      localStorage.setItem('token', token);
-      localStorage.setItem('is_logged', true);
-      localStorage.setItem('email', email);
-      localStorage.setItem('nom', nom);
-      localStorage.setItem('prenom', prenom);
+      // localStorage.setItem('is_logged', true);
+      document.cookie = `id=${id}`;
+      document.cookie = `token=${token}`;
+      document.cookie = `is_logged=true`;
+      document.cookie = `email=${email}`;
+      document.cookie = `nom=${nom}`;
+      document.cookie = `prenom=${prenom}`;
+      document.cookie = `role=${role}`;
       setTimeout(() => {
         setSuccessMessage('');
         console.log('Redirection en cours...');
         nav('/');
       }, 3000);
     }
-  }, [is_logged, setSuccessMessage, nav, email, nom, prenom]);
+  }, [is_logged, setSuccessMessage, nav, email, nom, prenom, id, token, role]);
 
   return (
     <div>

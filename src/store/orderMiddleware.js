@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import { createOrder, addOrderDetail, showOrder } from './orderSlice';
+import { createOrder, addOrderDetail } from './orderSlice';
 
 const orderMiddleware = (store) => (next) => (action) => {
   if (action.type === 'SAVE_CART') {
@@ -16,10 +16,15 @@ const orderMiddleware = (store) => (next) => (action) => {
       (sum, item) => sum + item.price * item.quantity,
       0
     );
+    const cookies = document.cookie.split('; ');
+    const tokenCookie = cookies.find((cookie) => cookie.startsWith('token='));
+    const token = tokenCookie ? tokenCookie.split('=')[1] : null;
+    console.log('token', token);
     fetch('http://localhost:3000/orders', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({
         user_id,

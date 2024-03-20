@@ -13,7 +13,16 @@ export default function MonPanier() {
   const cartStorage = JSON.parse(localStorage.getItem('cart')) || [];
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
   console.log('cart', cart);
-  const isLogged = useSelector((state) => state.connexion.is_logged);
+
+  const cookies = document.cookie.split('; ');
+  const isLoggedCookie = cookies.find((cookie) =>
+    cookie.startsWith('is_logged=')
+  );
+  const isLogged = isLoggedCookie
+    ? isLoggedCookie.split('=')[1] === 'true'
+    : false;
+  console.log('isLogged', isLogged);
+
   const [message, setMessage] = useState('');
 
   //! EST-CE QUE LE USER EST CONNECTE ?
@@ -33,6 +42,10 @@ export default function MonPanier() {
           .
         </span>
       );
+      return;
+    }
+    if (cart.length === 0) {
+      setMessage('Votre panier est vide.');
       return;
     }
     //! ENREGISTRER LE PANIER DANS LA ORDER + REDIRECTION
