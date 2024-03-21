@@ -1,5 +1,10 @@
 /* eslint-disable camelcase */
-import { createOrder, addOrderDetail } from './orderSlice';
+import {
+  createOrder,
+  addOrderDetail,
+  setOrders,
+  setAllOrders,
+} from './orderSlice';
 
 const orderMiddleware = (store) => (next) => (action) => {
   if (action.type === 'SAVE_CART') {
@@ -59,9 +64,54 @@ const orderMiddleware = (store) => (next) => (action) => {
         return Promise.all(responses.map((res) => res.json()));
       })
       .then((orderDetails) => {
-        console.log(orderDetails);
         const addOrderDetailsAction = addOrderDetail(orderDetails);
         store.dispatch(addOrderDetailsAction);
+      });
+  }
+
+  if (action.type === 'GET_ORDERS') {
+    const user_id = localStorage.getItem('id');
+    fetch(`http://localhost:3000/users/${user_id}/orders`)
+      .then((res) => res.json())
+      .then((data) => {
+        const createAction = setOrders(data);
+        store.dispatch(createAction);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  }
+
+  if (action.type === 'GET_ALL_ORDERS') {
+    fetch('http://localhost:3000/ordersAndDetails')
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        const createAction = setAllOrders(data);
+        store.dispatch(createAction);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  }
+
+  if (action.type === 'UPDATE_ORDER_STATUS') {
+    const { orderId, newStatus } = action.payload;
+    fetch(`http://localhost:3000/orders/${orderId}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        status: newStatus,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
       });
   }
 

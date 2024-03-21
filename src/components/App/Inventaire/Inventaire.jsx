@@ -19,7 +19,7 @@ export default function Inventaire({
           <p className="inventaire__cardStock">Stock : {item.stock}</p>
           <p className="inventaire__cardStock">Prix : {item.price} €</p>
           <p className="inventaire__cardStock">
-            Catégorie : {item.category_ids}
+            Catégorie : {item.category_id}
           </p>
           <p className="inventaire__cardStock">
             Collection : {item.collection_id}

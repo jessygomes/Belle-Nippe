@@ -18,7 +18,6 @@ const connexionMiddleware = (store) => (next) => (action) => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log('data', data);
         const createAction = handleSuccessLogin(data);
         store.dispatch(createAction);
       })
@@ -42,7 +41,6 @@ const connexionMiddleware = (store) => (next) => (action) => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log('data', data);
         const createAction = handleUpdateUser(data);
         store.dispatch(createAction);
       })

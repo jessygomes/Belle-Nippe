@@ -57,8 +57,8 @@ export default function Navbar() {
   const isLogged = isLoggedCookie
     ? isLoggedCookie.split('=')[1] === 'true'
     : false;
-  const tokenCookie = cookies.find((cookie) => cookie.startsWith('token='));
-  const token = tokenCookie ? tokenCookie.split('=')[1] : null;
+  // const tokenCookie = cookies.find((cookie) => cookie.startsWith('token='));
+  // const token = tokenCookie ? tokenCookie.split('=')[1] : null;
 
   return (
     <header className={`accueil__container ${isHomePage ? '' : 'otherpage'}`}>
@@ -125,7 +125,8 @@ export default function Navbar() {
           </NavLink>
           <NavLink
             className="accueil__shop"
-            to={isLogged && token ? '/profil' : '/connexion'}
+            // to={isLogged && token ? '/profil' : '/connexion'}
+            to={isLogged ? '/profil' : '/connexion'}
             onClick={closeMobileMenu}
           >
             <i className="fa-solid fa fa-user" />

@@ -14,8 +14,12 @@ export default function Commande() {
           </p>
           <p className="commande__cardStock">Stock : 1</p>
           <div className="commande__cardBtn">
-            <button className="commande__btn">Modifier</button>
-            <button className="commande__btn">Supprimer</button>
+            <button className="commande__btn" type="button">
+              Modifier
+            </button>
+            <button className="commande__btn" type="button">
+              Supprimer
+            </button>
           </div>
         </div>
       </div>

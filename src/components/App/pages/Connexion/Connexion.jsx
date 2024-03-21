@@ -44,12 +44,13 @@ export default function Connexion() {
       setSuccessMessage('Vous êtes connecté(e) !');
       localStorage.setItem('id', id);
       // localStorage.setItem('is_logged', true);
+      localStorage.setItem('email', email);
+      localStorage.setItem('nom', nom);
+      localStorage.setItem('prenom', prenom);
       document.cookie = `id=${id}`;
+      document.cookie = `token=${token}; HttpOnly; SameSite=Strict`;
       document.cookie = `token=${token}`;
-      document.cookie = `is_logged=true`;
-      document.cookie = `email=${email}`;
-      document.cookie = `nom=${nom}`;
-      document.cookie = `prenom=${prenom}`;
+      document.cookie = `is_logged=${is_logged}`;
       document.cookie = `role=${role}`;
       setTimeout(() => {
         setSuccessMessage('');

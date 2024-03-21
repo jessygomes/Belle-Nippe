@@ -1,5 +1,5 @@
 import { handleSignupError, handleSuccessSignup } from './inscriptionSlice';
-import { ConnexionAfterSignUp } from './connexionSlice';
+import { ConnexionAfterSignUp, setToken } from './connexionSlice';
 
 const inscriptionMiddleware = (store) => (next) => (action) => {
   if (action.type === 'SIGNUP') {
@@ -15,14 +15,24 @@ const inscriptionMiddleware = (store) => (next) => (action) => {
         password: store.getState().inscription.password,
       }),
     })
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          return response.json().then((data) => {
+            const errorAction = handleSignupError(data);
+            store.dispatch(errorAction);
+          });
+        }
+        return response.json();
+      })
       .then((data) => {
-        console.log('data', data.user);
-        const createAction = handleSuccessSignup(data.user);
+        const createAction = handleSuccessSignup(data);
         store.dispatch(createAction);
 
         const actionConnexion = ConnexionAfterSignUp(data.user);
         store.dispatch(actionConnexion);
+
+        const actionToken = setToken(data.token);
+        store.dispatch(actionToken);
       })
       .catch((error) => {
         console.error(error, 'Erreur lors de la création de la collection');

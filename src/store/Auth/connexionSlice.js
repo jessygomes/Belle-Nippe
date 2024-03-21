@@ -25,7 +25,6 @@ const connexionSlice = createSlice({
       return { ...state, ...action.payload, error: null };
     },
     ConnexionAfterSignUp: (state, action) => {
-      console.log('action', action.payload);
       return { ...state, ...action.payload, error: null };
     },
     handleLoginError: (state, action) => {
@@ -35,8 +34,10 @@ const connexionSlice = createSlice({
       };
     },
     handleUpdateUser: (state, action) => {
-      console.log('action', action.payload);
       return { ...state, ...action.payload };
+    },
+    setToken: (state, action) => {
+      return { ...state, token: action.payload };
     },
     handleLogout: (state) => {
       return {
@@ -73,6 +74,7 @@ export const {
   handleUpdateUser,
   handleLogout,
   deleteUser,
+  setToken,
 } = connexionSlice.actions;
 
 export default connexionSlice.reducer;

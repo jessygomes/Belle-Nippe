@@ -11,12 +11,14 @@ export default function AdminCollection({
         <div className="collectionAdmin__cardInfo">
           <div>
             <h2 className="collectionAdmin__cardTitle">
-              Collection {collection.titleCollection}
+              Collection {collection.title_collection}
             </h2>
             <p className="collectionAdmin__addressCllient">
-              {collection.descriptionCollection}
+              {collection.description_collection}
             </p>
-            <p className="collectionAdmin__addressCllient">{collection.id}</p>
+            <p className="collectionAdmin__addressCllient">
+              ID : {collection.id}
+            </p>
           </div>
           <div className="collectionAdmin__cardBtn">
             <button

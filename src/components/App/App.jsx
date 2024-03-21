@@ -27,9 +27,30 @@ import Connexion from './pages/Connexion/Connexion';
 import Inscription from './pages/Inscription/Inscription';
 import Profil from './pages/Profil/Profil';
 import Order from './pages/Order/Order';
+import OrdersAdmin from './pages/Admin/OrdersAdmin';
 
 function App() {
   const dispatch = useDispatch();
+
+  function clearData() {
+    // Effacez le local storage
+    localStorage.clear();
+
+    // Effacez tous les cookies
+    document.cookie.split(';').forEach((c) => {
+      document.cookie = `${c.replace(/^ +/, '')}=;expires=${new Date().toUTCString()};path=/`;
+    });
+  }
+
+  useEffect(() => {
+    // Effacez les données après 2 heures
+    const timeoutId = setTimeout(clearData, 2 * 60 * 60 * 1000);
+
+    // Annulez le timeout lorsque le composant est démonté
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, []);
 
   // Récupération des données via l'API au chargement initial de la page :
   useEffect(() => {
@@ -83,6 +104,7 @@ function App() {
         <Route path="/mentionslegales" element={<MentionsLegales />} />
         <Route path="*" element={<Error />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/admin/orders" element={<OrdersAdmin />} />
         <Route path="/success" element={<SuccessPayment />} />
         <Route path="/cancel" element={<FailPayment />} />
       </Routes>

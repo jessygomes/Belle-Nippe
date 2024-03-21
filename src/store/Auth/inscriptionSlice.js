@@ -6,6 +6,8 @@ export const initialState = {
   prenom: '',
   email: '',
   password: '',
+  error: null,
+  message: null,
 };
 const inscriptionSlice = createSlice({
   name: 'inscription',

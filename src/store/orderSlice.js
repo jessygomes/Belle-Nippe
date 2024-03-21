@@ -4,14 +4,21 @@ export const initialState = {
   id: '',
   user_id: '',
   total: 0.0,
-  status: 'En attente',
+  status: '',
   order_detail: [],
+  orders: [],
 };
 
 const orderSlice = createSlice({
   name: 'order',
   initialState,
   reducers: {
+    changeFieldValue: (state, action) => {
+      return {
+        ...state,
+        [action.payload.inputName]: action.payload.inputValue,
+      };
+    },
     createOrder: (state, action) => {
       const data = action.payload;
       return {
@@ -36,9 +43,30 @@ const orderSlice = createSlice({
         order_detail: data.order_detail,
       };
     },
+    setOrders: (state, action) => {
+      const data = action.payload;
+      return {
+        ...state,
+        orders: data,
+      };
+    },
+    setAllOrders: (state, action) => {
+      const data = action.payload;
+      return {
+        ...state,
+        orders: data,
+      };
+    },
   },
 });
 
-export const { createOrder, addOrderDetail, showOrder } = orderSlice.actions;
+export const {
+  createOrder,
+  addOrderDetail,
+  showOrder,
+  setOrders,
+  setAllOrders,
+  changeFieldValue,
+} = orderSlice.actions;
 
 export default orderSlice.reducer;

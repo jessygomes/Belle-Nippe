@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Footer from '../../Footer/Footer';
 import Navbar from '../../Navbar/Navbar';
 import './Profil.scss';
@@ -14,6 +14,14 @@ export default function Profil() {
   const nav = useNavigate();
 
   const { nom, prenom } = useSelector((state) => state.connexion);
+
+  //! CHARGER LES ORDERS DU USER
+  useEffect(() => {
+    const action = { type: 'GET_ORDERS' };
+    dispatch(action);
+  }, [dispatch]);
+
+  const ordersList = useSelector((state) => state.order.orders);
 
   //! Gestion des modals
   const [showModalModif, setShowModalModif] = useState(false);
@@ -46,6 +54,7 @@ export default function Profil() {
     localStorage.setItem('prenom', prenom);
   };
 
+  //! LOGOUT
   function handleLogoutClick() {
     localStorage.clear();
     document.cookie = 'id=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
@@ -68,17 +77,20 @@ export default function Profil() {
         <div className="profil__container">
           <h2 className="profil__title2">Mes commandes</h2>
           <div className="profil__orderClient">
-            <div className="profil__commande">
-              <p>Commande du 00/00/00</p>
-              <p>Numéro de commande : 00000000</p>
-              <p>Montant : 0,00 €</p>
-              <p>Statut : En cours de traitement</p>
-              <ul>
-                <li>Articles :</li>
-                <li>- Veste Wallow</li>
-                <li>- Pantalon Candy</li>
-              </ul>
-            </div>
+            {ordersList.map((order) => (
+              <div className="profil__commande" key={order.id}>
+                <p>Commande du {order.created_at}</p>
+                <p>Numéro de commande : {order.id}</p>
+                <p>Montant : {order.total} €</p>
+                <p>Statut : {order.status}</p>
+                <ul>
+                  <li>Articles :</li>
+                  {order.order_detail.map((orderDetail) => (
+                    <li key={orderDetail.id}>{orderDetail.item_id}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
             <div className="profil__commande">
               <p>Commande du 00/00/00</p>
               <p>Numéro de commande : 00000000</p>

@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../../Footer/Footer';
 import Navbar from '../../Navbar/Navbar';
@@ -10,16 +10,18 @@ export default function Inscription() {
   const dispatch = useDispatch();
   const nav = useNavigate();
 
-  const { nom, prenom, email, password } = useSelector(
+  const { nom, prenom, email, password, error, message } = useSelector(
     (state) => state.inscription
   );
+
   const {
     id: idConnexion,
     nom: nomConnexion,
     prenom: prenomCollection,
     email: emailConnexion,
-    // eslint-disable-next-line camelcase
-    is_logged,
+    role: roleConnexion,
+    token: tokenConnexion,
+    is_logged: isLogged,
   } = useSelector((state) => state.connexion);
 
   //! Confirmation du mot de passe
@@ -27,6 +29,7 @@ export default function Inscription() {
   const handleConfirmPassword = (e) => {
     setConfirmPassword(e.target.value);
   };
+
   const [errorMessage, setErrorMessage] = useState('');
 
   //! Message Success
@@ -44,26 +47,62 @@ export default function Inscription() {
     dispatch(action);
   }
 
+  useEffect(() => {
+    if (error) {
+      setErrorMessage('Cette email est déjà utilisé');
+    }
+    if (message) {
+      setErrorMessage('');
+      setSuccessMessage('Votre compte a bien été créé');
+      setTimeout(() => {
+        localStorage.setItem('id', idConnexion);
+        // localStorage.setItem('is_logged', true);
+        localStorage.setItem('email', emailConnexion);
+        localStorage.setItem('nom', nomConnexion);
+        localStorage.setItem('prenom', prenomCollection);
+        document.cookie = `id=${idConnexion}`;
+        document.cookie = `token=${tokenConnexion}; HttpOnly; SameSite=Strict`;
+        document.cookie = `token=${tokenConnexion}`;
+        document.cookie = `is_logged=${isLogged}`;
+        document.cookie = `role=${roleConnexion}`;
+        localStorage.setItem('cart', JSON.stringify([]));
+        setSuccessMessage('');
+        console.log('Redirection en cours...');
+        nav('/');
+      }, 2000);
+    }
+  }, [
+    error,
+    nav,
+    idConnexion,
+    tokenConnexion,
+    isLogged,
+    emailConnexion,
+    nomConnexion,
+    prenomCollection,
+    roleConnexion,
+    message,
+  ]);
+
   function handleSubmit(evt) {
     evt.preventDefault();
     if (password !== confirmPassword) {
       setErrorMessage('Les mots de passe ne correspondent pas');
       return;
     }
-    setErrorMessage('');
-    setSuccessMessage('Votre compte a bien été créé');
+    if (password.length < 8) {
+      setErrorMessage('Le mot de passe doit contenir au moins 8 caractères');
+      return;
+    }
+    const regex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    if (!regex.test(password)) {
+      setErrorMessage(
+        'Le mot de passe doit contenir au moins une majuscule, un chiffre et un caractère spécial'
+      );
+      return;
+    }
+
     handleSignup();
-    setTimeout(() => {
-      localStorage.setItem('id', idConnexion);
-      localStorage.setItem('is_logged', is_logged);
-      localStorage.setItem('email', emailConnexion);
-      localStorage.setItem('nom', nomConnexion);
-      localStorage.setItem('prenom', prenomCollection);
-      localStorage.setItem('cart', JSON.stringify([]));
-      setSuccessMessage('');
-      console.log('Redirection en cours...');
-      nav('/');
-    }, 2000); // Redirige après 2 secondes
   }
 
   return (

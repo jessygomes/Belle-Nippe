@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
@@ -24,20 +25,19 @@ export default function Admin() {
   //! RECUPERATION DES DONNEES DU STATE
   const collections = useSelector((state) => state.collection.listCollections);
   const categories = useSelector((state) => state.category.listCategories);
-  const { titleCollection, descriptionCollection } = useSelector(
+  const { title_collection, description_collection } = useSelector(
     (state) => state.collection
   );
   const {
     title,
     slug,
-    images,
     price,
     stock,
     size,
     description,
     collection_id,
-    category_ids,
-    isActive,
+    category_id,
+    is_active,
   } = useSelector((state) => state.shop);
 
   const [selectedCategoryId, setSelectedCategoryId] = useState('');
@@ -81,14 +81,14 @@ export default function Admin() {
     if (collectionModify) {
       dispatch(
         changeFieldValueCollection({
-          inputName: 'titleCollection',
-          inputValue: collectionModify.titleCollection,
+          inputName: 'title_collection',
+          inputValue: collectionModify.title_collection,
         })
       );
       dispatch(
         changeFieldValueCollection({
-          inputName: 'descriptionCollection',
-          inputValue: collectionModify.descriptionCollection,
+          inputName: 'description_collection',
+          inputValue: collectionModify.description_collection,
         })
       );
       setShowModalModifCollection(true);
@@ -157,8 +157,8 @@ export default function Admin() {
       );
       dispatch(
         changeFieldValueItem({
-          inputName: 'category_ids',
-          inputValue: itemModify.category_ids,
+          inputName: 'category_id',
+          inputValue: itemModify.category_id,
         })
       );
       setShowModalModifItem(true);
@@ -267,7 +267,7 @@ export default function Admin() {
   const items = useSelector((state) => state.shop.listItems).filter(
     (item) =>
       (selectedCategoryId === '' ||
-        item.category_ids === Number(selectedCategoryId)) &&
+        item.category_id === Number(selectedCategoryId)) &&
       (selectedCollectionId === '' ||
         item.collection_id === Number(selectedCollectionId))
   );
@@ -289,7 +289,7 @@ export default function Admin() {
             <NavLink className="admin__link" to="/editorial">
               Editorial
             </NavLink>
-            <NavLink className="admin__link" to="/editorial">
+            <NavLink className="admin__link" to="/admin/orders">
               Commandes
             </NavLink>
           </nav>
@@ -315,7 +315,7 @@ export default function Admin() {
           <option value="">Tous les produits</option>
           {categories.map((category) => (
             <option key={category.id} value={category.id}>
-              {category.name}
+              {category.name_category}
             </option>
           ))}
         </select>
@@ -329,7 +329,7 @@ export default function Admin() {
           <option value="">Toutes les collections</option>
           {collections.map((collection) => (
             <option key={collection.id} value={collection.id}>
-              {collection.titleCollection}
+              {collection.title_collection}
             </option>
           ))}
         </select>
@@ -388,17 +388,17 @@ export default function Admin() {
                 className="modal__inputDesc"
                 type="text"
                 placeholder="Titre de la collection"
-                name="titleCollection"
+                name="title_collection"
                 onChange={changeFieldCollection}
-                value={titleCollection}
+                value={title_collection}
               />
               <textarea
                 className="modal__inputDesc"
                 type="text"
                 placeholder="Description"
-                name="descriptionCollection"
+                name="description_collection"
                 onChange={changeFieldCollection}
-                value={descriptionCollection}
+                value={description_collection}
               />
               <div>
                 <label htmlFor="isActive">Actif</label>
@@ -429,30 +429,30 @@ export default function Admin() {
             </button>
             <h2 className="modal__title">Modifier la Collection</h2>
             <form className="modal__form" onSubmit={handleSubmitModif}>
-              <label htmlFor="titleCollection">Nom de la collection</label>
+              <label htmlFor="title_collection">Nom de la collection</label>
               <input
                 className="modal__inputDesc"
                 type="text"
                 placeholder="Titre de la collection"
-                name="titleCollection"
+                name="title_collection"
                 onChange={changeFieldCollection}
-                value={titleCollection}
+                value={title_collection}
               />
-              <label htmlFor="descriptionCollection">Description</label>
+              <label htmlFor="description_collection">Description</label>
               <textarea
                 className="modal__inputDesc"
                 type="text"
                 placeholder="Description"
-                name="descriptionCollection"
+                name="description_collection"
                 onChange={changeFieldCollection}
-                value={descriptionCollection}
+                value={description_collection}
               />
               <label htmlFor="isActive">Actif</label>
               <input
                 className="modal__inputDesc"
                 type="checkbox"
                 name="isActive"
-                checked={isActive}
+                checked={is_active}
                 onChange={(event) =>
                   changeFieldCollection({
                     target: { name: 'isActive', value: event.target.checked },
@@ -555,7 +555,7 @@ export default function Admin() {
                 <option value="">Toutes les collections</option>
                 {collections.map((collection) => (
                   <option key={collection.id} value={collection.id}>
-                    {collection.titleCollection}
+                    {collection.title_collection}
                   </option>
                 ))}
               </select>
@@ -563,11 +563,11 @@ export default function Admin() {
                 className=""
                 name="category_ids"
                 onChange={changeFieldItem}
-                value={category_ids}
+                value={category_id}
               >
                 {categories.map((category) => (
                   <option key={category.id} value={category.id}>
-                    {category.name}
+                    {category.name_category}
                   </option>
                 ))}
               </select>
@@ -583,7 +583,7 @@ export default function Admin() {
                 className="modal__inputDesc"
                 type="checkbox"
                 name="isActive"
-                checked={isActive}
+                checked={is_active}
                 onChange={(event) =>
                   changeFieldItem({
                     target: { name: 'isActive', value: event.target.checked },
@@ -670,20 +670,20 @@ export default function Admin() {
                 <option value="">Toutes les collections</option>
                 {collections.map((collection) => (
                   <option key={collection.id} value={collection.id}>
-                    {collection.titleCollection}
+                    {collection.title_collection}
                   </option>
                 ))}
               </select>
-              <label htmlFor="category_ids">Catégorie</label>
+              <label htmlFor="category_id">Catégorie</label>
               <select
                 className=""
-                name="category_ids"
+                name="category_id"
                 onChange={changeFieldItem}
-                value={category_ids}
+                value={category_id}
               >
                 {categories.map((category) => (
                   <option key={category.id} value={category.id}>
-                    {category.name}
+                    {category.name_category}
                   </option>
                 ))}
               </select>
@@ -699,7 +699,7 @@ export default function Admin() {
                 className="modal__inputDesc"
                 type="checkbox"
                 name="isActive"
-                checked={isActive}
+                checked={is_active}
                 onChange={(event) =>
                   changeFieldItem({
                     target: { name: 'isActive', value: event.target.checked },
