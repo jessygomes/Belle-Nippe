@@ -7,6 +7,13 @@ import {
 } from './shopSlice';
 
 const shopMiddleware = (store) => (next) => (action) => {
+  const cookies = document.cookie.split('; ');
+  const roleCookie = cookies.find((cookie) => cookie.startsWith('role='));
+  const role = roleCookie ? roleCookie.split('=')[1] : null;
+
+  const tokenCookie = cookies.find((cookie) => cookie.startsWith('token='));
+  const token = tokenCookie ? tokenCookie.split('=')[1] : null;
+
   if (action.type === 'GET_ITEMS_FROM_API') {
     fetch('http://localhost:3000/items')
       .then((response) => response.json())
@@ -35,6 +42,8 @@ const shopMiddleware = (store) => (next) => (action) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        Role: role,
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({
         title: store.getState().shop.title,
@@ -43,10 +52,10 @@ const shopMiddleware = (store) => (next) => (action) => {
         price: parseInt(store.getState().shop.price, 10),
         size: store.getState().shop.size,
         stock: parseInt(store.getState().shop.stock, 10),
-        quantity: parseInt(store.getState().shop.quantity, 10),
-        is_active: store.getState().shop.isActive,
+        quantity: 1,
+        is_active: store.getState().shop.is_active,
         collection_id: parseInt(store.getState().shop.collection_id, 10),
-        category_id: parseInt(store.getState().shop.category_ids, 10),
+        category_id: parseInt(store.getState().shop.category_id, 10),
         images: store.getState().shop.images,
       }),
     })
@@ -67,6 +76,8 @@ const shopMiddleware = (store) => (next) => (action) => {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
+        Role: role,
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({
         title: store.getState().shop.title,
@@ -75,10 +86,10 @@ const shopMiddleware = (store) => (next) => (action) => {
         price: parseInt(store.getState().shop.price, 10),
         size: store.getState().shop.size,
         stock: parseInt(store.getState().shop.stock, 10),
-        quantity: parseInt(store.getState().shop.quantity, 10),
-        is_active: store.getState().shop.isActive,
+        quantity: 1,
+        is_active: store.getState().shop.is_active,
         collection_id: parseInt(store.getState().shop.collection_id, 10),
-        category_id: parseInt(store.getState().shop.category_ids, 10),
+        category_id: parseInt(store.getState().shop.category_id, 10),
         images: store.getState().shop.images,
       }),
     })
@@ -95,6 +106,8 @@ const shopMiddleware = (store) => (next) => (action) => {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
+        Role: role,
+        Authorization: `Bearer ${token}`,
       },
     }).then(() => {
       const deleteAction = deleteItem(itemId);

@@ -9,7 +9,7 @@ export default function OrdersAdmin() {
   const dispatch = useDispatch();
 
   const [selectedOrderID, setSelectedOrderId] = useState('');
-  const [selectedStatus, setSelectedStatus] = useState('');
+  // const [selectedStatus, setSelectedStatus] = useState('');
   const { status } = useSelector((state) => state.order);
 
   //! MODALS
@@ -88,7 +88,7 @@ export default function OrdersAdmin() {
               <ul>
                 <li>Articles :</li>
                 {order.order_details.map((orderDetail) => (
-                  <li key={orderDetail.id}>{orderDetail.item_id}</li>
+                  <li key={orderDetail.id}>- {orderDetail.item_name}</li>
                 ))}
               </ul>
               <button
@@ -106,21 +106,28 @@ export default function OrdersAdmin() {
       {showModalUpdate && (
         <div className="modal">
           <div className="modal__container">
-            <i
-              className="fa fa-close"
+            <button
+              className="modal__close"
               onClick={closeModalUpdate}
               onKeyDown={closeModalUpdate}
-            />
+              aria-label="Close"
+              type="button"
+            >
+              <i className="fa fa-close" />
+            </button>
             <h2 className="modal__title">Modifier le statut de la commande</h2>
 
             <form className="modal__form" onSubmit={handleSubmitUpdate}>
               <label htmlFor="status">Statut</label>
-              <select name="status" value={status} onChange={changeField}>
+              <select
+                id="status"
+                name="status"
+                value={status}
+                onChange={changeField}
+              >
                 <option value="En attente">En attente</option>
                 <option value="Annulée">Annulée</option>
-                <option value="En cours de préparation">
-                  En cours de préparation
-                </option>
+                <option value="Préparation">Préparation</option>
                 <option value="Expédiée">Expédiée</option>
                 <option value="Livrée">Livrée</option>
               </select>

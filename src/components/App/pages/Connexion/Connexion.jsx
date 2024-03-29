@@ -31,7 +31,7 @@ export default function Connexion() {
   function handleSubmit(evt) {
     evt.preventDefault();
     handleLogin();
-    setSuccessMessage('Votre compte a bien été créé');
+    setSuccessMessage('Vous êtes connecté(e) !');
     setTimeout(() => {
       setSuccessMessage('');
       console.log('Redirection en cours...');

@@ -7,6 +7,13 @@ import {
 } from './orderSlice';
 
 const orderMiddleware = (store) => (next) => (action) => {
+  const cookies = document.cookie.split('; ');
+  const roleCookie = cookies.find((cookie) => cookie.startsWith('role='));
+  const role = roleCookie ? roleCookie.split('=')[1] : null;
+
+  const tokenCookie = cookies.find((cookie) => cookie.startsWith('token='));
+  const token = tokenCookie ? tokenCookie.split('=')[1] : null;
+
   if (action.type === 'SAVE_CART') {
     const cartStorage = JSON.parse(localStorage.getItem('cart'));
     const cart = cartStorage.map((item) => ({
@@ -21,10 +28,7 @@ const orderMiddleware = (store) => (next) => (action) => {
       (sum, item) => sum + item.price * item.quantity,
       0
     );
-    const cookies = document.cookie.split('; ');
-    const tokenCookie = cookies.find((cookie) => cookie.startsWith('token='));
-    const token = tokenCookie ? tokenCookie.split('=')[1] : null;
-    console.log('token', token);
+
     fetch('http://localhost:3000/orders', {
       method: 'POST',
       headers: {
@@ -44,6 +48,7 @@ const orderMiddleware = (store) => (next) => (action) => {
 
         //! CRER UN ORDER_DETAIL POUR CHAQUE ITEM DU PANIER
         const orderDetailsPromises = cart.map((item) => {
+          console.log(item.title, item.id, item.quantity, item.price);
           return fetch('http://localhost:3000/order_details', {
             method: 'POST',
             headers: {
@@ -52,10 +57,11 @@ const orderMiddleware = (store) => (next) => (action) => {
             body: JSON.stringify({
               order_id: data.id,
               item_id: item.id,
+              item_name: item.title,
               quantity: item.quantity,
               price: item.price,
             }),
-          });
+          }).catch((error) => console.error('Error:', error));
         });
         // Envoie les requêtes en parrallèle
         return Promise.all(orderDetailsPromises);
@@ -101,6 +107,8 @@ const orderMiddleware = (store) => (next) => (action) => {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
+        Role: role,
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({
         status: newStatus,

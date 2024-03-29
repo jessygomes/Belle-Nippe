@@ -10,6 +10,7 @@ export default function Shop() {
   const dispatch = useDispatch();
   const { collectionId } = useParams();
 
+  //! RECUPERATION DES DONNEES VIA L'API AU CHARGEMENT INITIAL DE LA PAGE
   useEffect(() => {
     const action = { type: 'GET_ITEMS_FROM_API' };
     dispatch(action);
@@ -19,9 +20,11 @@ export default function Shop() {
     dispatch(action3);
   }, [dispatch]);
 
+  //! DONNEES RECUPEREES VIA LE STORE
   const collections = useSelector((state) => state.collection.listCollections);
   const categories = useSelector((state) => state.category.listCategories);
 
+  //! GESTION DES FILTRES
   const [selectedCategoryId, setSelectedCategoryId] = useState('');
   const [selectedCollectionId, setSelectedCollectionId] = useState(
     collectionId || ''
@@ -30,7 +33,6 @@ export default function Shop() {
 
   const handleCategoryChange = (event) => {
     setSelectedCategoryId(event.target.value);
-    console.log('selectedcategoryID', selectedCategoryId);
   };
   const handleCollectionChange = (event) => {
     setSelectedCollectionId(event.target.value);
@@ -43,15 +45,24 @@ export default function Shop() {
     (collection) => collection.is_active
   );
 
+  // const items = useSelector((state) => state.shop.listItems).filter(
+  //   (item) =>
+  //     (selectedCategoryId === '' ||
+  //       item.category_id === Number(selectedCategoryId)) &&
+  //     (selectedCollectionId === '' ||
+  //       item.collection_id === Number(selectedCollectionId) ||
+  //       activeCollections.some(
+  //         (collection) => collection.id === item.collection_id
+  //       )) &&
+  //     (searchTerm === '' ||
+  //       item.title.toLowerCase().includes(searchTerm.toLowerCase()))
+  // );
   const items = useSelector((state) => state.shop.listItems).filter(
     (item) =>
       (selectedCategoryId === '' ||
         item.category_id === Number(selectedCategoryId)) &&
       (selectedCollectionId === '' ||
-        item.collection_id === Number(selectedCollectionId) ||
-        activeCollections.some(
-          (collection) => collection.id === item.collection_id
-        )) &&
+        item.collection_id === Number(selectedCollectionId)) &&
       (searchTerm === '' ||
         item.title.toLowerCase().includes(searchTerm.toLowerCase()))
   );

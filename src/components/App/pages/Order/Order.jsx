@@ -18,7 +18,7 @@ export default function Order() {
             {orderDetails &&
               orderDetails.map((order) => (
                 <div className="orderRecap__list__item" key={order.id}>
-                  <p>Produit : {order.id} </p>
+                  <p>Produit : {order.item_name} </p>
                   <p>Prix : {order.price}</p>
                   <p>Quantité : {order.quantity}</p>
                 </div>

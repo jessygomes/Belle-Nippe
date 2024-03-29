@@ -52,19 +52,24 @@ function App() {
     };
   }, []);
 
-  // Récupération des données via l'API au chargement initial de la page :
+  //! Récupération des données via l'API au chargement initial de la page :
   useEffect(() => {
     console.log('Chargement initial');
     const action = { type: 'GET_ITEMS_FROM_API' };
     dispatch(action);
   }, [dispatch]);
 
-  // Permet de faire remonter le scroll de la page en haut à chaque changement de page :
+  //! Permet de faire remonter le scroll de la page en haut à chaque changement de page :
   const currentPage = useLocation();
   useEffect(() => {
     // console.log('page change');
     window.scrollTo(0, 0);
   }, [currentPage]);
+
+  //! Récupérer le rôle de l'utilisateur depuis les cookies
+  const cooky = document.cookie.split('; ');
+  const roleCookie = cooky.find((cook) => cook.startsWith('role='));
+  const role = roleCookie ? roleCookie.split('=')[1] : null;
 
   return (
     <div className="container">
@@ -74,21 +79,17 @@ function App() {
         <Route path="/connexion" element={<Connexion />} />
         <Route path="/inscription" element={<Inscription />} />
         <Route path="/profil" element={<Profil />} />
-
         <Route path="/shop" element={<Shop />} />
         <Route path="/shop/collection/:collectionId" element={<Shop />} />
         <Route path="/shop/article/:slug" element={<Article />} />
-
         <Route path="/editorial" element={<Editorial />} />
         <Route
           path="/editorial/:collectionId/:collectionName"
           element={<CollectionPage />}
         />
-
         <Route path="/apropos" element={<Propos />} />
         <Route path="/monpanier" element={<MonPanier />} />
         <Route path="/order" element={<Order />} />
-
         <Route path="contact" element={<Contact />} />
         <Route
           path="/conditionutilisation"
@@ -103,10 +104,15 @@ function App() {
         <Route path="/cgv" element={<CGV />} />
         <Route path="/mentionslegales" element={<MentionsLegales />} />
         <Route path="*" element={<Error />} />
-        <Route path="/admin" element={<Admin />} />
         <Route path="/admin/orders" element={<OrdersAdmin />} />
         <Route path="/success" element={<SuccessPayment />} />
         <Route path="/cancel" element={<FailPayment />} />
+
+        {role === 'admin' ? (
+          <Route path="/admin" element={<Admin />} />
+        ) : (
+          <Route path="/admin" element={<Error />} />
+        )}
       </Routes>
     </div>
   );

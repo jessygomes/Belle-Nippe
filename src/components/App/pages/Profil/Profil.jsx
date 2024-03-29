@@ -69,6 +69,8 @@ export default function Profil() {
     nav('/');
   }
 
+  console.log('ordersList', ordersList);
+
   return (
     <div>
       <Navbar />
@@ -77,21 +79,25 @@ export default function Profil() {
         <div className="profil__container">
           <h2 className="profil__title2">Mes commandes</h2>
           <div className="profil__orderClient">
-            {ordersList.map((order) => (
-              <div className="profil__commande" key={order.id}>
-                <p>Commande du {order.created_at}</p>
-                <p>Numéro de commande : {order.id}</p>
-                <p>Montant : {order.total} €</p>
-                <p>Statut : {order.status}</p>
-                <ul>
-                  <li>Articles :</li>
-                  {order.order_detail.map((orderDetail) => (
-                    <li key={orderDetail.id}>{orderDetail.item_id}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-            <div className="profil__commande">
+            {ordersList.length > 0 ? (
+              ordersList.map((order) => (
+                <div className="profil__commande" key={order.id}>
+                  <p>Commande du {order.created_at}</p>
+                  <p>Numéro de commande : {order.id}</p>
+                  <p>Montant : {order.total} €</p>
+                  <p>Statut : {order.status}</p>
+                  <ul>
+                    <li>Articles :</li>
+                    {order.order_details.map((orderDetail) => (
+                      <li key={orderDetail.id}>- {orderDetail.item_name}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))
+            ) : (
+              <p>Aucune commande pour le moment</p>
+            )}
+            {/* <div className="profil__commande">
               <p>Commande du 00/00/00</p>
               <p>Numéro de commande : 00000000</p>
               <p>Montant : 0,00 €</p>
@@ -101,7 +107,7 @@ export default function Profil() {
                 <li>- Veste Wallow</li>
                 <li>- Pantalon Candy</li>
               </ul>
-            </div>
+            </div> */}
           </div>
 
           <h2>Informations personnelles</h2>

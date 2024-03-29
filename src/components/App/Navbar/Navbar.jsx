@@ -8,8 +8,10 @@ export default function Navbar() {
   const [click, setClick] = useState(false);
   // const [isOpen, setIsOpen] = useState(false);
 
-  const role = localStorage.getItem('role');
-  // const role = 'admin';
+  //! Récupérer le rôle de l'utilisateur depuis les cookies
+  const cooky = document.cookie.split('; ');
+  const roleCookie = cooky.find((cook) => cook.startsWith('role='));
+  const role = roleCookie ? roleCookie.split('=')[1] : null;
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);

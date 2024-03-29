@@ -44,7 +44,7 @@ export default function MonPanier() {
       );
       return;
     }
-    if (cart.length === 0) {
+    if (cartStorage.length === 0) {
       setMessage('Votre panier est vide.');
       return;
     }

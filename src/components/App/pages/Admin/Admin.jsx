@@ -255,10 +255,9 @@ export default function Admin() {
     deleteItem();
   };
 
-  //! CHANGER LES CATEGORIES ET COLLECTIONS
+  //! TRIAGE LES CATEGORIES ET COLLECTIONS
   const handleCategoryChange = (event) => {
     setSelectedCategoryId(event.target.value);
-    console.log('selectedcategoryID', selectedCategoryId);
   };
   const handleCollectionChange = (event) => {
     setSelectedCollectionId(event.target.value);
@@ -401,14 +400,17 @@ export default function Admin() {
                 value={description_collection}
               />
               <div>
-                <label htmlFor="isActive">Actif</label>
+                <label htmlFor="is_active">Actif</label>
                 <input
                   className="modal__inputDesc"
                   type="checkbox"
-                  name="isActive"
+                  name="is_active"
                   onChange={(event) =>
                     changeFieldCollection({
-                      target: { name: 'isActive', value: event.target.checked },
+                      target: {
+                        name: 'is_active',
+                        value: event.target.checked,
+                      },
                     })
                   }
                 />
@@ -424,8 +426,13 @@ export default function Admin() {
       {showModalModifCollection && (
         <div className="modal">
           <div className="modal__content">
-            <button className="modal__close" type="button">
-              <i className="fa fa-close" onClick={closeModalModifCollection} />
+            <button
+              className="modal__close"
+              type="button"
+              aria-label="Close"
+              onClick={closeModalModifCollection}
+            >
+              <i className="fa fa-close" />
             </button>
             <h2 className="modal__title">Modifier la Collection</h2>
             <form className="modal__form" onSubmit={handleSubmitModif}>
@@ -447,18 +454,22 @@ export default function Admin() {
                 onChange={changeFieldCollection}
                 value={description_collection}
               />
-              <label htmlFor="isActive">Actif</label>
-              <input
-                className="modal__inputDesc"
-                type="checkbox"
-                name="isActive"
-                checked={is_active}
-                onChange={(event) =>
-                  changeFieldCollection({
-                    target: { name: 'isActive', value: event.target.checked },
-                  })
-                }
-              />
+              <div>
+                <label htmlFor="is_active">Actif</label>
+                <input
+                  className="modal__inputDesc"
+                  type="checkbox"
+                  name="is_active"
+                  onChange={(event) =>
+                    changeFieldCollection({
+                      target: {
+                        name: 'is_active',
+                        value: event.target.checked,
+                      },
+                    })
+                  }
+                />
+              </div>
               <button className="modal__btn" type="submit">
                 Modifier la collection
               </button>
@@ -561,7 +572,7 @@ export default function Admin() {
               </select>
               <select
                 className=""
-                name="category_ids"
+                name="category_id"
                 onChange={changeFieldItem}
                 value={category_id}
               >
@@ -578,15 +589,15 @@ export default function Admin() {
                 value={images}
                 onChange={changeFieldItem}
               /> */}
-              <label htmlFor="isActive">Actif</label>
+              <label htmlFor="is_active">Actif</label>
               <input
                 className="modal__inputDesc"
                 type="checkbox"
-                name="isActive"
+                name="is_active"
                 checked={is_active}
                 onChange={(event) =>
                   changeFieldItem({
-                    target: { name: 'isActive', value: event.target.checked },
+                    target: { name: 'is_active', value: event.target.checked },
                   })
                 }
               />
@@ -694,15 +705,15 @@ export default function Admin() {
                 value={images}
                 onChange={changeFieldItem}
               /> */}
-              <label htmlFor="isActive">Actif</label>
+              <label htmlFor="is_active">Actif</label>
               <input
                 className="modal__inputDesc"
                 type="checkbox"
-                name="isActive"
+                name="is_active"
                 checked={is_active}
                 onChange={(event) =>
                   changeFieldItem({
-                    target: { name: 'isActive', value: event.target.checked },
+                    target: { name: 'is_active', value: event.target.checked },
                   })
                 }
               />

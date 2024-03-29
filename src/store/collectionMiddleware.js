@@ -6,6 +6,13 @@ import {
 } from './collectionSlice';
 
 const collectionMiddleware = (store) => (next) => (action) => {
+  const cookies = document.cookie.split('; ');
+  const roleCookie = cookies.find((cookie) => cookie.startsWith('role='));
+  const role = roleCookie ? roleCookie.split('=')[1] : null;
+
+  const tokenCookie = cookies.find((cookie) => cookie.startsWith('token='));
+  const token = tokenCookie ? tokenCookie.split('=')[1] : null;
+
   if (action.type === 'GET_COLLECTIONS_FROM_API') {
     fetch('http://localhost:3000/collections')
       .then((response) => response.json())
@@ -22,6 +29,8 @@ const collectionMiddleware = (store) => (next) => (action) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        Role: role,
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({
         title_collection: store.getState().collection.title_collection,
@@ -47,6 +56,8 @@ const collectionMiddleware = (store) => (next) => (action) => {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
+        Role: role,
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({
         title_collection: store.getState().collection.title_collection,
@@ -68,6 +79,8 @@ const collectionMiddleware = (store) => (next) => (action) => {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
+        Role: role,
+        Authorization: `Bearer ${token}`,
       },
     }).then(() => {
       const deleteAction = deleteCollection(collectionId);

@@ -11,7 +11,7 @@ export default function AdminCollection({
         <div className="collectionAdmin__cardInfo">
           <div>
             <h2 className="collectionAdmin__cardTitle">
-              Collection {collection.title_collection}
+              {collection.title_collection}
             </h2>
             <p className="collectionAdmin__addressCllient">
               {collection.description_collection}
