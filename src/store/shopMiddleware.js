@@ -38,26 +38,38 @@ const shopMiddleware = (store) => (next) => (action) => {
   }
 
   if (action.type === 'CREATE_ITEM') {
+    const formData = new FormData();
+
+    formData.append('title', store.getState().shop.title);
+    formData.append('slug', store.getState().shop.slug);
+    formData.append('description', store.getState().shop.description);
+    formData.append('price', parseInt(store.getState().shop.price, 10));
+    formData.append('size', store.getState().shop.size);
+    formData.append('stock', parseInt(store.getState().shop.stock, 10));
+    formData.append('quantity', 1);
+    formData.append('is_active', store.getState().shop.is_active);
+    formData.append(
+      'collection_id',
+      parseInt(store.getState().shop.collection_id, 10)
+    );
+    formData.append(
+      'category_id',
+      parseInt(store.getState().shop.category_id, 10)
+    );
+    if (action.payload) {
+      action.payload.forEach((file) => {
+        formData.append('images', file);
+      });
+    }
+    console.log('images', action.payload);
+
     fetch('http://localhost:3000/items', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
         Role: role,
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify({
-        title: store.getState().shop.title,
-        slug: store.getState().shop.slug,
-        description: store.getState().shop.description,
-        price: parseInt(store.getState().shop.price, 10),
-        size: store.getState().shop.size,
-        stock: parseInt(store.getState().shop.stock, 10),
-        quantity: 1,
-        is_active: store.getState().shop.is_active,
-        collection_id: parseInt(store.getState().shop.collection_id, 10),
-        category_id: parseInt(store.getState().shop.category_id, 10),
-        images: store.getState().shop.images,
-      }),
+      body: formData,
     })
       .then((response) => response.json())
       .then((data) => {

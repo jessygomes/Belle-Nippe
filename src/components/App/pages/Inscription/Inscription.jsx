@@ -1,8 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import Footer from '../../Footer/Footer';
-import Navbar from '../../Navbar/Navbar';
 import './Inscription.scss';
 import { changeFieldValue } from '../../../../store/Auth/inscriptionSlice';
 
@@ -107,7 +105,6 @@ export default function Inscription() {
 
   return (
     <div>
-      <Navbar />
       <div className="inscription">
         <h1 className="titlePage">Inscription</h1>
         {errorMessage && <p className="inscription__error">{errorMessage}</p>}
@@ -179,7 +176,6 @@ export default function Inscription() {
           </Link>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

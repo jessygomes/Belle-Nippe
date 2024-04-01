@@ -67,6 +67,7 @@ export default function CollectionActuelle() {
             slug={item.slug}
             title={item.title}
             price={item.price}
+            image={item.images[0].url}
           />
         ))}
       </div>

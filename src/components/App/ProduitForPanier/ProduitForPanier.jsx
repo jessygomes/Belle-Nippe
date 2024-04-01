@@ -42,7 +42,11 @@ export default function ProduitForPanier({ item }) {
           <div className="produitForPanier__imgContainer">
             <img
               className="produitForEdit__photo"
-              src="/Vetements/vrd.png"
+              src={
+                item && item.images && item.images.length > 0
+                  ? `http://localhost:3000/images/${item.images[0].url}`
+                  : ''
+              }
               alt=""
             />
           </div>

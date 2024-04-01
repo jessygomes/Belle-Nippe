@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import Navbar from '../../Navbar/Navbar';
-import Footer from '../../Footer/Footer';
 import ProduitForPanier from '../../ProduitForPanier/ProduitForPanier';
 import './MonPanier.scss';
 
@@ -56,7 +54,6 @@ export default function MonPanier() {
 
   return (
     <div>
-      <Navbar />
       <div className="panier">
         <h2 className="titlePage">Mon Panier</h2>
       </div>
@@ -85,7 +82,6 @@ export default function MonPanier() {
           {/* ... */}
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

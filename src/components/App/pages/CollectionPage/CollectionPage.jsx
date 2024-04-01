@@ -1,7 +1,5 @@
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import Navbar from '../../Navbar/Navbar';
-import Footer from '../../Footer/Footer';
 import ProduitCollection from './ProduitCollection/ProduitCollection';
 import './CollectionPage.scss';
 
@@ -13,7 +11,6 @@ export default function CollectionPage() {
   );
   return (
     <div>
-      <Navbar />
       <div className="collectionPage">
         <h2 className="titlePage">{collectionName}</h2>
         <div className="collectionPage__produits">
@@ -22,7 +19,6 @@ export default function CollectionPage() {
           ))}
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

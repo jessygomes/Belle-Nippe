@@ -2,8 +2,6 @@ import { useState } from 'react';
 import { Link, Navigate, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { Carousel } from 'react-responsive-carousel';
-import Footer from '../Footer/Footer';
-import Navbar from '../Navbar/Navbar';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import './Article.scss';
 import { findItem } from '../../../selectors/items';
@@ -42,7 +40,6 @@ export default function Article() {
 
   return (
     <div>
-      <Navbar />
       <div className="div__article">
         <article className="article">
           <div className="article__imgContainer">
@@ -50,44 +47,20 @@ export default function Article() {
               showArrows
               onChange={onChange}
               selectedItem={currentSlide}
-              showThumbs={false}
+              showThumbs
               showStatus={false}
             >
-              <div>
-                <img
-                  className="article__photo"
-                  src="/Vetements/vrd.png"
-                  alt={item.title}
-                />
-              </div>
-              <div>
-                <img
-                  className="article__photo"
-                  src="\Vetements\Vet 5.png"
-                  alt={item.title}
-                />
-              </div>
-              <div>
-                <img
-                  className="article__photo"
-                  src="/Vetements/Vet 6.png"
-                  alt={item.title}
-                />
-              </div>
-              <div>
-                <img
-                  className="article__photo"
-                  src="/Vetements/vrd.png"
-                  alt={item.title}
-                />
-              </div>
-              <div>
-                <img
-                  className="article__photo"
-                  src="/Vetements/Vet 6.png"
-                  alt={item.title}
-                />
-              </div>
+              {item &&
+                item.images &&
+                item.images.map((image) => (
+                  <div key={image.url}>
+                    <img
+                      className="article__photo"
+                      src={`http://localhost:3000/images/${image.url}`}
+                      alt={item.title}
+                    />
+                  </div>
+                ))}
             </Carousel>
           </div>
 
@@ -114,7 +87,6 @@ export default function Article() {
           </div>
         </article>
       </div>
-      <Footer />
     </div>
   );
 }

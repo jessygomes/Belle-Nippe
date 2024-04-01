@@ -7,7 +7,11 @@ export default function ProduitCollection({ item }) {
         <div className="produitCollection__imgContainer">
           <img
             className="produitCollection__photo"
-            src="/Vetements/vrd.png"
+            src={
+              item && item.images && item.images.length > 0
+                ? `http://localhost:3000/images/${item.images[0].url}`
+                : ''
+            }
             alt={item.title}
           />
         </div>

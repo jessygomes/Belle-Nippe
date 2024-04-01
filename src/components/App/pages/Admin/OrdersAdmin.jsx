@@ -2,7 +2,6 @@ import { NavLink } from 'react-router-dom';
 import './OrdersAdmin.scss';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Footer from '../../Footer/Footer';
 import { changeFieldValue } from '../../../../store/orderSlice';
 
 export default function OrdersAdmin() {
@@ -138,8 +137,6 @@ export default function OrdersAdmin() {
           </div>
         </div>
       )}
-
-      <Footer />
     </div>
   );
 }

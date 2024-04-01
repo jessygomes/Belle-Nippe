@@ -5,11 +5,22 @@ export default function Inventaire({
   setShowModalSupp,
   setShowModalUpdate,
 }) {
+  if (item && item.images && item.images.length > 0) {
+    console.log(item.images[0].url, 'item');
+  }
   return (
     <div className="inventaire">
       <div className="inventaire__card">
         <div className="inventaire__imgContainer">
-          <img className="inventaire__photo" src="/Vetements/vrd.png" alt="" />
+          <img
+            className="inventaire__photo"
+            src={
+              item && item.images && item.images.length > 0
+                ? `http://localhost:3000/images/${item.images[0].url}`
+                : ''
+            }
+            alt=""
+          />
         </div>
         <div className="inventaire__cardInfo">
           <h2 className="inventaire__cardTitle">{item.title}</h2>

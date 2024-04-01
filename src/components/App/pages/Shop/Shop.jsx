@@ -1,8 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import Navbar from '../../Navbar/Navbar';
-import Footer from '../../Footer/Footer';
 import Produit from '../../Produit/Produit';
 import './Shop.scss';
 
@@ -74,7 +72,6 @@ export default function Shop() {
   }
   return (
     <div>
-      <Navbar />
       <div className="categorie">
         <h1 className="titlePage">Shop</h1>
         <div className="categorie__mobileContainer">
@@ -126,7 +123,7 @@ export default function Shop() {
             slug={item.slug}
             title={item.title}
             price={item.price}
-            image={item.images[0]}
+            image={item.images[0].url}
           />
         ))}
       </main>
@@ -137,7 +134,6 @@ export default function Shop() {
           </button>
         </a>
       </div> */}
-      <Footer />
     </div>
   );
 }

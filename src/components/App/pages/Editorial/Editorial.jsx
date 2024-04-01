@@ -1,7 +1,5 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Navbar from '../../Navbar/Navbar';
-import Footer from '../../Footer/Footer';
 import ProduitForEdit from '../../ProduitForEdit/ProduitForEdit';
 import './Editorial.scss';
 
@@ -17,7 +15,6 @@ export default function Editorial() {
 
   return (
     <div>
-      <Navbar />
       <div className="pageEdit">
         <h2 className="titlePage">Editorial</h2>
       </div>
@@ -30,7 +27,6 @@ export default function Editorial() {
           />
         ))}
       </div>
-      <Footer />
     </div>
   );
 }

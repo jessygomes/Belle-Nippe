@@ -1,11 +1,8 @@
 import './Propos.scss';
-import Navbar from '../../Navbar/Navbar';
-import Footer from '../../Footer/Footer';
 
 export default function Propos() {
   return (
     <div className="propos">
-      <Navbar />
       <div className="pageEdit">
         <h2 className="titlePage">A Propos</h2>
       </div>
@@ -24,7 +21,6 @@ export default function Propos() {
           française et l'élégance singulière de la ville d'Orléans.
         </p>
       </div>
-      <Footer />
     </div>
   );
 }

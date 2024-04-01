@@ -28,14 +28,14 @@ import Inscription from './pages/Inscription/Inscription';
 import Profil from './pages/Profil/Profil';
 import Order from './pages/Order/Order';
 import OrdersAdmin from './pages/Admin/OrdersAdmin';
+import Navbar from './Navbar/Navbar';
+import Footer from './Footer/Footer';
 
 function App() {
   const dispatch = useDispatch();
 
   function clearData() {
-    // Effacez le local storage
     localStorage.clear();
-
     // Effacez tous les cookies
     document.cookie.split(';').forEach((c) => {
       document.cookie = `${c.replace(/^ +/, '')}=;expires=${new Date().toUTCString()};path=/`;
@@ -45,7 +45,6 @@ function App() {
   useEffect(() => {
     // Effacez les données après 2 heures
     const timeoutId = setTimeout(clearData, 2 * 60 * 60 * 1000);
-
     // Annulez le timeout lorsque le composant est démonté
     return () => {
       clearTimeout(timeoutId);
@@ -74,46 +73,50 @@ function App() {
   return (
     <div className="container">
       <Noise />
-      <Routes>
-        <Route path="/" element={<Accueil />} />
-        <Route path="/connexion" element={<Connexion />} />
-        <Route path="/inscription" element={<Inscription />} />
-        <Route path="/profil" element={<Profil />} />
-        <Route path="/shop" element={<Shop />} />
-        <Route path="/shop/collection/:collectionId" element={<Shop />} />
-        <Route path="/shop/article/:slug" element={<Article />} />
-        <Route path="/editorial" element={<Editorial />} />
-        <Route
-          path="/editorial/:collectionId/:collectionName"
-          element={<CollectionPage />}
-        />
-        <Route path="/apropos" element={<Propos />} />
-        <Route path="/monpanier" element={<MonPanier />} />
-        <Route path="/order" element={<Order />} />
-        <Route path="contact" element={<Contact />} />
-        <Route
-          path="/conditionutilisation"
-          element={<ConditionUtilisation />}
-        />
-        <Route
-          path="/politiquedeconfidentialite"
-          element={<PolitiqueConfidentialite />}
-        />
-        <Route path="/politiquederetour" element={<PolitiqueRetour />} />
-        <Route path="/conditionsderetour" element={<ConditionsRetour />} />
-        <Route path="/cgv" element={<CGV />} />
-        <Route path="/mentionslegales" element={<MentionsLegales />} />
-        <Route path="*" element={<Error />} />
-        <Route path="/admin/orders" element={<OrdersAdmin />} />
-        <Route path="/success" element={<SuccessPayment />} />
-        <Route path="/cancel" element={<FailPayment />} />
+      <Navbar />
+      <main>
+        <Routes>
+          <Route path="/" element={<Accueil />} />
+          <Route path="/connexion" element={<Connexion />} />
+          <Route path="/inscription" element={<Inscription />} />
+          <Route path="/profil" element={<Profil />} />
+          <Route path="/shop" element={<Shop />} />
+          <Route path="/shop/collection/:collectionId" element={<Shop />} />
+          <Route path="/shop/article/:slug" element={<Article />} />
+          <Route path="/editorial" element={<Editorial />} />
+          <Route
+            path="/editorial/:collectionId/:collectionName"
+            element={<CollectionPage />}
+          />
+          <Route path="/apropos" element={<Propos />} />
+          <Route path="/monpanier" element={<MonPanier />} />
+          <Route path="/order" element={<Order />} />
+          <Route path="contact" element={<Contact />} />
+          <Route
+            path="/conditionutilisation"
+            element={<ConditionUtilisation />}
+          />
+          <Route
+            path="/politiquedeconfidentialite"
+            element={<PolitiqueConfidentialite />}
+          />
+          <Route path="/politiquederetour" element={<PolitiqueRetour />} />
+          <Route path="/conditionsderetour" element={<ConditionsRetour />} />
+          <Route path="/cgv" element={<CGV />} />
+          <Route path="/mentionslegales" element={<MentionsLegales />} />
+          <Route path="*" element={<Error />} />
+          <Route path="/admin/orders" element={<OrdersAdmin />} />
+          <Route path="/success" element={<SuccessPayment />} />
+          <Route path="/cancel" element={<FailPayment />} />
 
-        {role === 'admin' ? (
-          <Route path="/admin" element={<Admin />} />
-        ) : (
-          <Route path="/admin" element={<Error />} />
-        )}
-      </Routes>
+          {role === 'admin' ? (
+            <Route path="/admin" element={<Admin />} />
+          ) : (
+            <Route path="/admin" element={<Error />} />
+          )}
+        </Routes>
+      </main>
+      <Footer />
     </div>
   );
 }

@@ -1,8 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Footer from '../../Footer/Footer';
-import Navbar from '../../Navbar/Navbar';
 import { clearCart } from '../../../../store/monPanierSlice';
 import './SuccessPayment.scss';
 
@@ -20,7 +18,6 @@ export default function SuccessPayment() {
 
   return (
     <div className="success">
-      <Navbar />
       <div className="success__container">
         <p className="success__text">
           Votre paiement a bien été pris en compte ! Merci pour votre achat.
@@ -31,7 +28,6 @@ export default function SuccessPayment() {
           </button>
         </Link>
       </div>
-      <Footer />
     </div>
   );
 }

@@ -5,7 +5,6 @@ import { NavLink } from 'react-router-dom';
 import AdminCollection from '../../AdminCollection/AdminCollection';
 import Inventaire from '../../Inventaire/Inventaire';
 // import Commande from '../../Commande/Commande';
-import Footer from '../../Footer/Footer';
 import { changeFieldValue as changeFieldValueCollection } from '../../../../store/collectionSlice';
 import { changeFieldValue as changeFieldValueItem } from '../../../../store/shopSlice';
 import './Admin.scss';
@@ -178,11 +177,23 @@ export default function Admin() {
     });
     dispatch(action);
   }
+
+  //! INPUT CREER OU MODIFIER UN ITEM
+  const [imagesData, setImagesData] = useState([]);
+
   function changeFieldItem(evt) {
-    const { name, value } = evt.target;
-    const action = changeFieldValueItem({ inputName: name, inputValue: value });
-    dispatch(action);
+    const { name, value, files } = evt.target;
+    let inputValue = value;
+
+    if (name === 'images') {
+      inputValue = Array.from(files);
+      setImagesData(inputValue); // Stockez les objets File dans le state local
+    } else {
+      const action = changeFieldValueItem({ inputName: name, inputValue });
+      dispatch(action);
+    }
   }
+
   //! CREER UNE COLLECTION
   function handleCreateCollection() {
     const action = { type: 'CREATE_COLLECTION' };
@@ -220,7 +231,7 @@ export default function Admin() {
 
   //! CREER UN PRODUIT
   function handleCreateItem() {
-    const action = { type: 'CREATE_ITEM' };
+    const action = { type: 'CREATE_ITEM', payload: imagesData };
     dispatch(action);
   }
   const handleSubmitItem = (evt) => {
@@ -601,6 +612,12 @@ export default function Admin() {
                   })
                 }
               />
+              <input
+                type="file"
+                name="images"
+                multiple
+                onChange={changeFieldItem}
+              />
               <button className="modal__btn" type="submit">
                 Créer mon nouveau produit
               </button>
@@ -747,7 +764,6 @@ export default function Admin() {
           </div>
         </div>
       )}
-      <Footer />
     </div>
   );
 }

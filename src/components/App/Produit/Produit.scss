@@ -1,69 +1,62 @@
-// PC PORTABLE : 
+// PC PORTABLE :
 .div__produit {
-    margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }
-.produit{
-    
+.produit {
+  &__imgContainer {
+    width: 25rem;
+    height: 25rem;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    transition: all 0.2s;
+    border-radius: 0.3rem;
+    transition: all 0.2s ease-in-out;
+  }
+  &__imgContainer:hover {
+    transition: all 0.2s ease-in-out;
+    box-shadow:
+      #0000004b 0px 3px 6px,
+      #072a3d58 0px 20px 20px;
+  }
+  &__photo {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+  &__title {
+    font-family: 'Figtree';
+  }
+}
+
+@media screen and (max-width: 769px) {
+  .produit {
     &__imgContainer {
-        width: 99%;
-        height: 99%;
-        overflow: hidden;
-        margin-bottom: 1rem;
-        transition: all 0.2s;
-        border-radius: 0.3rem;
-        transition: all 0.2s ease-in-out;
+      width: 16rem;
+      height: 16rem;
+      margin-bottom: 0.5rem;
     }
-    &__imgContainer:hover {
-        transition: all 0.2s ease-in-out;
-        box-shadow: #0000004b 0px 3px 6px, #072a3d58 0px 20px 20px;
+    &__name {
+      font-size: 0.8rem;
     }
-    &__photo {
-        object-fit: cover;
-        width: 100%;
-        height: 100%;
+    &__price {
+      font-size: 0.8rem;
     }
-    &__title {
-        font-family: 'Figtree';
-    }
+  }
 }
-
-
-
-
-
-@media screen and (max-width:769px) {
-    .produit{
-        &__imgContainer {
-            width: 16rem;
-            height: 16rem;
-            margin-bottom: 0.5rem;
-        }
-        &__name {
-            font-size: 0.8rem;
-        }
-        &__price {
-            font-size: 0.8rem;
-        }
-    }
-}
-
-
-
 
 // TABLETTES
-@media screen and (min-width:767px) and (max-width:900px) {
-    .produit{
-        &__imgContainer {
-            width: 20rem;
-            height: 20rem;
-            margin-bottom: 0.5rem;
-        }
-        &__name {
-            font-size: 1rem;
-        }
-        &__price {
-            font-size: 1rem;
-        }
+@media screen and (min-width: 767px) and (max-width: 900px) {
+  .produit {
+    &__imgContainer {
+      width: 20rem;
+      height: 20rem;
+      margin-bottom: 0.5rem;
     }
-
+    &__name {
+      font-size: 1rem;
+    }
+    &__price {
+      font-size: 1rem;
+    }
+  }
 }

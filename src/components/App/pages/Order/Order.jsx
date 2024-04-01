@@ -1,7 +1,5 @@
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import Footer from '../../Footer/Footer';
-import Navbar from '../../Navbar/Navbar';
 import './Order.scss';
 
 export default function Order() {
@@ -10,7 +8,6 @@ export default function Order() {
 
   return (
     <div className="orderRecap">
-      <Navbar />
       <div className="orderRecap__container">
         <p className="orderRecap__text">Récapitulatif de votre commande :</p>
         <Link to="/">
@@ -29,7 +26,6 @@ export default function Order() {
           </button>
         </Link>
       </div>
-      <Footer />
     </div>
   );
 }

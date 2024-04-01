@@ -2,8 +2,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import Navbar from '../../Navbar/Navbar';
-import Footer from '../../Footer/Footer';
 import { changeFieldValue } from '../../../../store/Auth/connexionSlice';
 import './Connexion.scss';
 
@@ -62,7 +60,6 @@ export default function Connexion() {
 
   return (
     <div>
-      <Navbar />
       <div className="connexion">
         <h1 className="titlePage">Connexion</h1>
         {successMessage && (
@@ -103,7 +100,6 @@ export default function Connexion() {
           </Link>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

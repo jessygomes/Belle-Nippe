@@ -1,8 +1,6 @@
 import './Accueil.scss';
 import BigLienVersProduits from '../BigLienVersProduits/BigLienVersProduits';
 import CollectionActuelle from '../CollectionActuelle/CollectionActuelle';
-import Footer from '../Footer/Footer';
-import Navbar from '../Navbar/Navbar';
 
 export default function Accueil() {
   return (
@@ -22,10 +20,8 @@ export default function Accueil() {
           </a>
         </div>
       </header>
-      <Navbar />
       <CollectionActuelle />
       <BigLienVersProduits />
-      <Footer />
     </div>
   );
 }
