@@ -9,6 +9,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 
   &__logo {
     width: 15rem;
@@ -16,6 +17,14 @@
   &__titleSection {
     margin-bottom: 1rem;
     font-weight: 700;
+  }
+  &__rights {
+    background-color: v.$grey;
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    font-size: 0.8rem;
+    padding-bottom: 0.5rem;
   }
 }
 .mobile__container {
@@ -54,6 +63,11 @@
       font-size: 0.9rem;
     }
     &__linkMobile {
+      font-size: 0.7rem;
+    }
+    &__rights {
+      background-color: v.$grey;
+      justify-content: center;
       font-size: 0.7rem;
     }
   }

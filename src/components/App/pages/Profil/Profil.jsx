@@ -23,12 +23,19 @@ export default function Profil() {
 
   //! Gestion des modals
   const [showModalModif, setShowModalModif] = useState(false);
+  const [showModalSupp, setShowModalSupp] = useState(false);
 
   const openModal = () => {
     setShowModalModif(true);
   };
   const closeModal = () => {
     setShowModalModif(false);
+  };
+  const openModalSupp = () => {
+    setShowModalSupp(true);
+  };
+  const closeModalSupp = () => {
+    setShowModalSupp(false);
   };
 
   //! UPDATE USER
@@ -51,6 +58,23 @@ export default function Profil() {
     localStorage.setItem('nom', nom);
     localStorage.setItem('prenom', prenom);
   };
+
+  //! DELETE USER
+  function handleDeleteUser() {
+    const action = { type: 'DELETE_USER' };
+    dispatch(action);
+    localStorage.clear();
+    document.cookie = 'id=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    document.cookie =
+      'is_logged=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    document.cookie = 'email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    document.cookie = 'nom=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    document.cookie = 'prenom=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    document.cookie = 'role=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    dispatch(handleLogout());
+    nav('/');
+  }
 
   //! LOGOUT
   function handleLogoutClick() {
@@ -94,17 +118,6 @@ export default function Profil() {
             ) : (
               <p>Aucune commande pour le moment</p>
             )}
-            {/* <div className="profil__commande">
-              <p>Commande du 00/00/00</p>
-              <p>Numéro de commande : 00000000</p>
-              <p>Montant : 0,00 €</p>
-              <p>Statut : En cours de traitement</p>
-              <ul>
-                <li>Articles :</li>
-                <li>- Veste Wallow</li>
-                <li>- Pantalon Candy</li>
-              </ul>
-            </div> */}
           </div>
 
           <h2>Informations personnelles</h2>
@@ -138,6 +151,13 @@ export default function Profil() {
               onClick={handleLogoutClick}
             >
               Se déconnecter
+            </button>
+            <button
+              type="button"
+              className="profil__btn"
+              onClick={openModalSupp}
+            >
+              Supprimer mon compte
             </button>
           </div>
         </div>
@@ -174,6 +194,36 @@ export default function Profil() {
               />
               <button className="modale__btn" type="submit">
                 Modifier mon profil
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {showModalSupp && (
+        <div className="modale">
+          <div className="modale__content">
+            <button
+              className="modale__close"
+              type="button"
+              onClick={closeModalSupp}
+              aria-label="Close"
+            >
+              <i className="fa fa-close" />
+            </button>
+            <h2 className="modale__title">
+              Êtes-vous sûr de vouloir supprimer votre compte ?
+            </h2>
+            <form className="modale__form" onSubmit={handleDeleteUser}>
+              <button
+                className="modale__btn"
+                type="button"
+                onClick={closeModalSupp}
+              >
+                Annuler
+              </button>
+              <button className="modale__btn" type="submit">
+                Supprimer mon compte
               </button>
             </form>
           </div>

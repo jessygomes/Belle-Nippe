@@ -92,6 +92,9 @@ export default function Connexion() {
           <button className="accueil__btn" type="submit">
             Se connecter
           </button>
+          <Link to="/inscription" className="connexion__forgot">
+            Mot de passe oublié ?
+          </Link>
         </form>
         <div className="connexion__inscription">
           <p className="connexion__parag">Vous n'avez pas encore de compte ?</p>

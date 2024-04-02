@@ -1,3 +1,4 @@
+import Cookies from 'js-cookie';
 import {
   handleSuccessLogin,
   handleUpdateUser,
@@ -27,7 +28,7 @@ const connexionMiddleware = (store) => (next) => (action) => {
   }
 
   if (action.type === 'UPDATE_USER') {
-    const userId = localStorage.getItem('id');
+    const userId = Cookies.get('id');
     fetch(`http://localhost:3000/users/${userId}`, {
       method: 'PATCH',
       headers: {
@@ -50,7 +51,7 @@ const connexionMiddleware = (store) => (next) => (action) => {
   }
 
   if (action.type === 'DELETE_USER') {
-    const userId = localStorage.getItem('id');
+    const userId = Cookies.get('id');
     fetch(`http://localhost:3000/users/${userId}`, {
       method: 'DELETE',
       headers: {

@@ -95,7 +95,7 @@
 // MOBILES
 @media screen and (max-width: 769px) {
   .collection {
-    margin-top: 10rem;
+    margin-top: 2rem;
     padding: 0 1rem;
 
     &__name {
@@ -111,7 +111,7 @@
     }
 
     &__description {
-      margin: 3rem 0;
+      margin: 1rem 0;
       font-size: 0.8rem;
     }
   }
@@ -135,7 +135,7 @@
 // TABLETTES
 @media screen and (min-width: 768px) and (max-width: 900px) {
   .collection {
-    margin-top: 7rem;
+    margin-top: 3rem;
     padding: 0 1.5rem;
 
     &__name {
