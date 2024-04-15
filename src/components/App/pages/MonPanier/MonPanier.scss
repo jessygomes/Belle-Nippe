@@ -42,6 +42,15 @@
   color: v.$black;
   text-shadow: 1px 10px 3px rgba(0, 0, 0, 0.5);
 }
+.panier__retour {
+  margin-top: 1rem;
+  font-family: 'Figtree';
+  color: gray;
+}
+.panier__retour:hover {
+  color: #1e1e1e;
+  text-shadow: 1px 10px 3px rgba(0, 0, 0, 0.5);
+}
 
 // GRANDS ECRANS :
 @media screen and (min-width: 1710px) {

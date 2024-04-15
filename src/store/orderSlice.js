@@ -3,6 +3,10 @@ import { createSlice } from '@reduxjs/toolkit';
 export const initialState = {
   id: '',
   user_id: '',
+  firstname_client: '',
+  lastname_client: '',
+  email_client: '',
+  adress_client: '',
   total: 0.0,
   status: '',
   order_detail: [],

@@ -53,6 +53,13 @@
 .accueil__shop:hover {
   text-shadow: #ffffffe6 0px 0px 4px;
 }
+.accueil__profil {
+  margin-left: 2rem;
+  font-size: 1.5rem;
+}
+.accueil__profil:hover {
+  text-shadow: #ffffffe6 0px 0px 4px;
+}
 .active {
   text-shadow: #ffffffe6 0px 0px 5px;
 }
@@ -77,7 +84,7 @@
 // MENU MOBILE
 @media screen and (max-width: 769px) {
   .accueil__logo {
-    width: 50%;
+    width: 30%;
   }
   .accueil__container {
     position: fixed;
@@ -104,7 +111,7 @@
     background-color: v.$black;
     padding: 2rem 3rem;
     position: absolute;
-    top: 4rem;
+    top: 5rem;
     left: -70%;
     opacity: 0%;
     width: 50%;
@@ -131,6 +138,11 @@
     font-size: 2rem;
     margin-left: 0rem;
   }
+  .accueil__profil {
+    font-size: 2rem;
+    margin-left: 0rem;
+    margin-top: 1rem;
+  }
   .mobile__navbar {
     display: block;
     z-index: 2;
@@ -144,7 +156,7 @@
 // TABLETTES
 @media screen and (min-width: 767px) and (max-width: 900px) {
   .accueil__logo {
-    width: 40%;
+    width: 25%;
   }
   .accueil__container {
     position: fixed;
@@ -171,7 +183,7 @@
     background-color: v.$dark-blue;
     padding: 2rem 3rem;
     position: absolute;
-    top: 5.5rem;
+    top: 6.5rem;
     left: -70%;
     opacity: 0%;
     width: 50%;
@@ -197,6 +209,11 @@
   .accueil__shop {
     font-size: 2rem;
     margin-left: 0rem;
+  }
+  .accueil__profil {
+    font-size: 2rem;
+    margin-left: 0rem;
+    margin-top: 2rem;
   }
   .mobile__navbar {
     display: block;

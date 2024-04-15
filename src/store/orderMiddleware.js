@@ -24,6 +24,10 @@ const orderMiddleware = (store) => (next) => (action) => {
       price: item.price,
     }));
     const user_id = localStorage.getItem('id');
+    const firstname_client = localStorage.getItem('prenom');
+    const lastname_client = localStorage.getItem('nom');
+    const email_client = localStorage.getItem('email');
+    console.log(firstname_client, lastname_client, email_client, user_id, cart);
     const total = cart.reduce(
       (sum, item) => sum + item.price * item.quantity,
       0
@@ -37,6 +41,9 @@ const orderMiddleware = (store) => (next) => (action) => {
       },
       body: JSON.stringify({
         user_id,
+        firstname_client,
+        lastname_client,
+        email_client,
         total,
         status: 'En attente',
       }),
@@ -44,6 +51,7 @@ const orderMiddleware = (store) => (next) => (action) => {
       .then((res) => res.json())
       .then((data) => {
         const createAction = createOrder(data);
+        console.log(data);
         store.dispatch(createAction);
 
         //! CRER UN ORDER_DETAIL POUR CHAQUE ITEM DU PANIER

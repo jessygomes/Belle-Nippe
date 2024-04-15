@@ -12,8 +12,7 @@
 
   &__form {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: 2rem;
     width: 100%;
     align-items: center;
@@ -95,5 +94,13 @@
   .inscription {
     height: 70vh;
     padding: 0 1.5rem;
+
+    &__input {
+      width: 45%;
+      background-color: v.$grey;
+      border-radius: 0.3rem;
+      padding: 1rem 2rem;
+      border: 1px solid transparent;
+    }
   }
 }

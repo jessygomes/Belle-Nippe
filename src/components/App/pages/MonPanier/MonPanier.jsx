@@ -89,6 +89,11 @@ export default function MonPanier() {
           {message && <p className="ConnexOrRegister">{message}</p>}
           {/* ... */}
         </div>
+        <div className="panier__retour">
+          <Link className="panier__retour" to="/shop">
+            Retour à la boutique
+          </Link>
+        </div>
       </div>
     </div>
   );

@@ -111,7 +111,14 @@ export default function Profil() {
             {ordersList.length > 0 ? (
               ordersList.map((order) => (
                 <div className="profil__commande" key={order.id}>
-                  <p>Commande du {order.created_at}</p>
+                  <p className="profil__commandeText">
+                    Commande du{' '}
+                    {new Date(order.created_at).toLocaleDateString('fr-FR', {
+                      day: '2-digit',
+                      month: '2-digit',
+                      year: 'numeric',
+                    })}
+                  </p>
                   <p>Numéro de commande : {order.id}</p>
                   <p>Montant : {order.total} €</p>
                   <p>Statut : {order.status}</p>

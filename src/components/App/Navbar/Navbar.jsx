@@ -64,7 +64,7 @@ export default function Navbar() {
 
   return (
     <header className={`accueil__container ${isHomePage ? '' : 'otherpage'}`}>
-      <NavLink className="accueil__logo" to="/">
+      <NavLink className="accueil__logo" to="/" onClick={() => setClick(false)}>
         <img src="/Logo/bnFullWhiteLogo.png" alt="Logo belle Nippe" />
       </NavLink>
       <div className="navbar__container">
@@ -83,6 +83,9 @@ export default function Navbar() {
           <i id="bar" className={click ? 'fas fa-times' : 'fas fa-bars'} />
         </div>
         <nav className={click ? 'accueil__navbar open' : 'accueil__navbar'}>
+          <NavLink className="accueil__link" to="/" onClick={closeMobileMenu}>
+            Accueil
+          </NavLink>
           <NavLink
             className="accueil__link"
             to="/shop"
@@ -122,8 +125,9 @@ export default function Navbar() {
           >
             <i className="fa-solid fa-bag-shopping" />
           </NavLink>
+
           <NavLink
-            className="accueil__shop"
+            className="accueil__profil"
             // to={isLogged && token ? '/profil' : '/connexion'}
             to={isLogged ? '/profil' : '/connexion'}
             onClick={closeMobileMenu}

@@ -70,10 +70,15 @@ function App() {
   const roleCookie = cooky.find((cook) => cook.startsWith('role='));
   const role = roleCookie ? roleCookie.split('=')[1] : null;
 
+  //! Afin de ne pas afficher le Noise et la Navbar dans l'espace admin (location.pathname)
+  const location = useLocation();
+
   return (
     <div className="container">
-      <Noise />
-      <Navbar />
+      {location.pathname !== '/admin' &&
+        location.pathname !== '/admin/orders' && <Noise />}
+      {location.pathname !== '/admin' &&
+        location.pathname !== '/admin/orders' && <Navbar />}
       <main>
         <Routes>
           <Route path="/" element={<Accueil />} />
