@@ -6,7 +6,7 @@ export default function Footer() {
     <div>
       <footer className="footer">
         <div className="footer__logo">
-          <img src="/Logo/logo-cote-noir.png" alt="" />
+          <img src="/Logo/bnBlackLogo.png" alt="" />
         </div>
         <div className="mobile__container">
           <div>

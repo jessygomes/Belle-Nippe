@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearCart } from '../../../../store/monPanierSlice';
 import './SuccessPayment.scss';
@@ -18,6 +19,13 @@ export default function SuccessPayment() {
 
   return (
     <div className="success">
+      <Helmet>
+        <title>Paiement Réussi | Belle Nippe</title>
+        <meta
+          name=" Page Confirmation du paiement | Belle Nippe"
+          content="Confirmation de paiement de votre commande sur le site Belle Nippe"
+        />
+      </Helmet>
       <div className="success__container">
         <p className="success__text">
           Votre paiement a bien été pris en compte ! Merci pour votre achat.

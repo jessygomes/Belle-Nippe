@@ -1,10 +1,18 @@
 import './Accueil.scss';
+import { Helmet } from 'react-helmet';
 import BigLienVersProduits from '../BigLienVersProduits/BigLienVersProduits';
 import CollectionActuelle from '../CollectionActuelle/CollectionActuelle';
 
 export default function Accueil() {
   return (
     <div>
+      <Helmet>
+        <title>Accueil | Belle Nippe</title>
+        <meta
+          name=" Page d'accueil | Belle Nippe"
+          content="Page d'accueil du site, présente la marque et quelques articles de la dernière collection de Belle Nippe"
+        />
+      </Helmet>
       <header className="accueil">
         <div className="accueil__contenu">
           {/* <img className='accueil__logoBanner' src="/Logo/cc5bb833-9823-4997-abd1-86fd85044f37.png" alt="" />

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, Navigate, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import { Helmet } from 'react-helmet';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import './Article.scss';
@@ -14,12 +15,13 @@ export default function Article() {
   const { slug } = useParams();
   const item = useSelector((state) => findItem(state.shop.listItems, slug));
 
+  const [currentSlide, setCurrentSlide] = useState(0);
+
   if (!item) {
     return <Navigate to="/error" replace />;
   }
 
   //! Carrousel pour les images des articles :
-  const [currentSlide, setCurrentSlide] = useState(0);
   const onChange = (index) => {
     setCurrentSlide(index);
   };
@@ -40,6 +42,13 @@ export default function Article() {
 
   return (
     <div>
+      <Helmet>
+        <title>{`${item.title} | Belle Nippe`}</title>
+        <meta
+          name=" Page Article | Belle Nippe"
+          content="Vêtement de la marque Belle Nippe"
+        />
+      </Helmet>
       <div className="div__article">
         <article className="article">
           <div className="article__imgContainer">

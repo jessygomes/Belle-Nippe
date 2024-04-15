@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { Link, useNavigate } from 'react-router-dom';
 import './Inscription.scss';
 import { changeFieldValue } from '../../../../store/Auth/inscriptionSlice';
@@ -105,6 +106,13 @@ export default function Inscription() {
 
   return (
     <div>
+      <Helmet>
+        <title>Inscription | Belle Nippe</title>
+        <meta
+          name=" Page d'inscription | Belle Nippe"
+          content="S'inscrire sur le site Belle Nippe"
+        />
+      </Helmet>
       <div className="inscription">
         <h1 className="titlePage">Inscription</h1>
         {errorMessage && <p className="inscription__error">{errorMessage}</p>}

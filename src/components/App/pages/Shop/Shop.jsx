@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 import { useParams } from 'react-router-dom';
 import Produit from '../../Produit/Produit';
 import './Shop.scss';
@@ -72,6 +73,13 @@ export default function Shop() {
   }
   return (
     <div>
+      <Helmet>
+        <title>Shop | Belle Nippe</title>
+        <meta
+          name=" Page Shopping | Belle Nippe"
+          content="Les vêtements en vente de la marque Belle Nippe"
+        />
+      </Helmet>
       <div className="categorie">
         <h1 className="titlePage">Shop</h1>
         <div className="categorie__mobileContainer">

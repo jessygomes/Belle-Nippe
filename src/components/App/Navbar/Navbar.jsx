@@ -65,10 +65,7 @@ export default function Navbar() {
   return (
     <header className={`accueil__container ${isHomePage ? '' : 'otherpage'}`}>
       <NavLink className="accueil__logo" to="/">
-        <img
-          src="/Logo/1dfd1fef-d2c2-49ee-9616-be4b313175c0.png"
-          alt="Logo belle Nippe"
-        />
+        <img src="/Logo/bnFullWhiteLogo.png" alt="Logo belle Nippe" />
       </NavLink>
       <div className="navbar__container">
         <div

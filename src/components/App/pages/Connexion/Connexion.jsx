@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { Link, useNavigate } from 'react-router-dom';
 import { changeFieldValue } from '../../../../store/Auth/connexionSlice';
 import './Connexion.scss';
@@ -60,6 +61,13 @@ export default function Connexion() {
 
   return (
     <div>
+      <Helmet>
+        <title>Connexion | Belle Nippe</title>
+        <meta
+          name=" Page de connexion | Belle Nippe"
+          content="Se connecter sur le site Belle Nippe"
+        />
+      </Helmet>
       <div className="connexion">
         <h1 className="titlePage">Connexion</h1>
         {successMessage && (

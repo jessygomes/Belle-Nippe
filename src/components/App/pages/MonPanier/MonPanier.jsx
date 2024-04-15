@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Helmet } from 'react-helmet';
 import { Link, useNavigate } from 'react-router-dom';
 import ProduitForPanier from '../../ProduitForPanier/ProduitForPanier';
 import './MonPanier.scss';
@@ -54,6 +55,13 @@ export default function MonPanier() {
 
   return (
     <div>
+      <Helmet>
+        <title>Mon Panier | Belle Nippe</title>
+        <meta
+          name="Mon Panier | Belle Nippe"
+          content="Le panier d'achat de la marque Belle Nippe"
+        />
+      </Helmet>
       <div className="panier">
         <h2 className="titlePage">Mon Panier</h2>
       </div>

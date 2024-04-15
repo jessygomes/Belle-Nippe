@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { Helmet } from 'react-helmet';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import './Profil.scss';
@@ -95,6 +96,13 @@ export default function Profil() {
 
   return (
     <div>
+      <Helmet>
+        <title>Mon Profil | Belle Nippe</title>
+        <meta
+          name=" Page Profil | Belle Nippe"
+          content="La page client du site Belle Nippe"
+        />
+      </Helmet>
       <div className="profil">
         <h1 className="titlePage">Mon Compte</h1>
         <div className="profil__container">

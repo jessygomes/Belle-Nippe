@@ -1,8 +1,16 @@
+import { Helmet } from 'react-helmet';
 import './Propos.scss';
 
 export default function Propos() {
   return (
     <div className="propos">
+      <Helmet>
+        <title>A Propos | Belle Nippe</title>
+        <meta
+          name=" Page A Propos | Belle Nippe"
+          content="Ce qu'il faut savoir sur la marque Belle Nippe"
+        />
+      </Helmet>
       <div className="pageEdit">
         <h2 className="titlePage">A Propos</h2>
       </div>
